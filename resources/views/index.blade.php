@@ -533,48 +533,43 @@
                         </svg>
                     </span>
                 </a>
-                <p class="mt-6 mr-4 text-base text-gray-500">Crafting the next-level of user experience and engagement.
+                <p class="mt-6 mr-4 text-base text-gray-500">Make your Digital Invitations easier and more attractive
                 </p>
             </div>
             <div class="block w-full pl-10 mt-6 text-sm lg:w-3/4 sm:flex lg:mt-0">
                 <ul class="flex flex-col w-full p-0 font-medium text-left text-gray-700 list-none">
                     <li class="inline-block px-3 py-2 mt-5 font-bold tracking-wide text-gray-800 uppercase md:mt-0">
-                        Product</li>
+                    Main</li>
                     <li><a href="#_"
-                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Features</a>
+                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Home</a>
                     </li>
                     <li><a href="#_"
-                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Integrations</a>
+                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Undangan</a>
                     </li>
                     <li><a href="#_"
-                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Pricing</a>
+                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Portofolio</a>
                     </li>
                     <li><a href="#_"
-                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">FAQ</a></li>
+                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">About Us</a>
+                    </li>
+                </ul>
+
+                <ul class="flex flex-col w-full p-0 font-medium text-left text-gray-700 list-none">
+                    <li class="inline-block px-3 py-2 mt-5 font-bold tracking-wide text-gray-800 uppercase md:mt-0">
+                        Company & support</li>
+                    <li><a href="#_"
+                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Kelompok 1</a>
+                    </li>
+                    <li><a href="#_"
+                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Aido Group
+                        </a></li>
                 </ul>
                 <ul class="flex flex-col w-full p-0 font-medium text-left text-gray-700 list-none">
                     <li class="inline-block px-3 py-2 mt-5 font-bold tracking-wide text-gray-800 uppercase md:mt-0">
-                        Company</li>
-                    <li><a href="#_"
-                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Privacy</a>
-                    </li>
-                    <li><a href="#_"
-                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Terms
-                            of
-                            Service</a></li>
-                </ul>
-                <ul class="flex flex-col w-full p-0 font-medium text-left text-gray-700 list-none">
-                    <li class="inline-block px-3 py-2 mt-5 font-bold tracking-wide text-gray-800 uppercase md:mt-0">
-                        TailwindCSS
+                        Product
                     </li>
                     <li><a href="https://devdojo.com/tailwindcss/components"
-                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Tailwind
-                            Components</a></li>
-                    <li><a href="https://devdojo.com/tailwindcss/templates"
-                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Tailwind
-                            Templates</a></li>
-                    <li><a href="https://devdojo.com/tails"
-                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Tails</a></li>
+                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Template Invitation</a></li>
                 </ul>
                 <div class="flex flex-col w-full text-gray-700">
                     <div class="inline-block px-3 py-2 mt-5 font-bold text-gray-800 uppercase md:mt-0">Follow Us</div>
@@ -604,11 +599,11 @@
                 </div>
             </div>
         </div>
-        <div class="pt-4 pt-6 mt-10 text-center text-gray-500 border-t border-gray-100">© 2020 Landmark. All rights
+        <div class="pt-4 pt-6 mt-10 text-center text-gray-500 border-t border-gray-100">© 2023 Landmark. All rights
             reserved.</div>
 
         <div class="pt-2 pt-4 mt-2 text-center text-gray-600 border-t border-gray-100">Distributed By <a
-                href="https://themewagon.com/">Themewagon</a></div>
+                href="https://themewagon.com/">Kelompok 1</a></div>
     </footer>
 
     <!-- a little JS for the mobile nav button -->
