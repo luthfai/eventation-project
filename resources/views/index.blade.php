@@ -3,11 +3,11 @@
 @section('content')
     <!-- Header Section -->
     <header class="relative z-50 w-full h-24">
-        <div
-            class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0">
+        <div class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0">
 
             <a href="/" class="relative flex items-center inline-block h-5 h-full font-black leading-none">
-                <span class="ml-3 font-playfair tracking-widest text-2xl text-gray-800">Eventation<span class="text-red-700">.</span></span>
+                <span class="ml-3 font-playfair tracking-widest text-2xl text-gray-800">Eventation<span
+                        class="text-red-700">.</span></span>
             </a>
 
             <nav id="nav"
@@ -27,20 +27,36 @@
                         Started</a>
                 </div>
             </nav>
+            @auth
+                <div
+                    class="relative flex flex-col items-center justify-center hidden w-full pb-8 mt-48 border-b border-gray-200 md:relative md:w-auto md:bg-transparent md:border-none md:mt-0 md:flex-row md:p-0 md:items-end md:flex md:justify-between">
+                    <a href="{{ route('dashboard') }}"
+                        class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-indigo-700  md:px-5 lg:indigo-700  sm:mr-3 md:mt-0">Dashboard</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
 
-            <div
-                class="absolute left-0 flex-col items-center justify-center hidden w-full pb-8 mt-48 border-b border-gray-200 md:relative md:w-auto md:bg-transparent md:border-none md:mt-0 md:flex-row md:p-0 md:items-end md:flex md:justify-between">
-                <a href="{{ route('login') }}"
-                    class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-indigo-700  md:px-5 lg:indigo-700  sm:mr-3 md:mt-0">Login</a>
-                <a href="{{ route('register') }}"
-                    class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-bold leading-none text-white  transition-all transition duration-100 duration-300 bg-indigo-700 rounded shadow-md fold-bold lg:bg-indigo-700 lg:white sm:w-full lg:shadow-none hover:shadow-xl">Sign up</a>
-            <div id="nav-mobile-btn"
-                class="absolute top-0 right-0 z-50 block w-6 mt-8 mr-10 cursor-pointer select-none md:hidden sm:mt-10">
-                <span class="block w-full h-1 mt-2 duration-200 transform bg-gray-800 rounded-full sm:mt-1"></span>
-                <span class="block w-full h-1 mt-1 duration-200 transform bg-gray-800 rounded-full"></span>
-            </div>
-
-        </div>
+                        <a href="route('logout')"
+                            onclick="event.preventDefault();
+                                                this.closest('form').submit();" class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-bold leading-none text-white  transition-all transition duration-100 duration-300 bg-indigo-700 rounded shadow-md fold-bold lg:bg-indigo-700 lg:white sm:w-full lg:shadow-none hover:shadow-xl">
+                            {{ __('Log Out') }}
+                    </a>
+                    </form>
+                </div>
+            @else
+                <div
+                    class="absolute left-0 flex-col items-center justify-center hidden w-full pb-8 mt-48 border-b border-gray-200 md:relative md:w-auto md:bg-transparent md:border-none md:mt-0 md:flex-row md:p-0 md:items-end md:flex md:justify-between">
+                    <a href="{{ route('login') }}"
+                        class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-indigo-700  md:px-5 lg:indigo-700  sm:mr-3 md:mt-0">Login</a>
+                    <a href="{{ route('register') }}"
+                        class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-bold leading-none text-white  transition-all transition duration-100 duration-300 bg-indigo-700 rounded shadow-md fold-bold lg:bg-indigo-700 lg:white sm:w-full lg:shadow-none hover:shadow-xl">Sign
+                        up</a>
+                    <div id="nav-mobile-btn"
+                        class="absolute top-0 right-0 z-50 block w-6 mt-8 mr-10 cursor-pointer select-none md:hidden sm:mt-10">
+                        <span class="block w-full h-1 mt-2 duration-200 transform bg-gray-800 rounded-full sm:mt-1"></span>
+                        <span class="block w-full h-1 mt-1 duration-200 transform bg-gray-800 rounded-full"></span>
+                    </div>
+                </div>
+            @endauth
     </header>
     <!-- End Header Section-->
 
@@ -50,15 +66,20 @@
             class="container flex flex-col items-center justify-between h-full max-w-6xl px-8 mx-auto -mt-32 lg:flex-row xl:px-0">
             <div
                 class="z-30 flex flex-col items-center w-full max-w-xl pt-48 text-center lg:items-start lg:w-1/2 lg:pt-20 xl:pt-40 lg:text-left">
-                <h1 class="relative mb-4 text-3xl font-black leading-tight text-gray-900 sm:text-6xl xl:mb-8">Buat Website Undangan Digital</h1>
-                <p class="pr-0 mb-8 text-base text-gray-600 sm:text-lg xl:text-xl lg:pr-20">Undangan digital diera yang serba digital</p>
+                <h1 class="relative mb-4 text-3xl font-black leading-tight text-gray-900 sm:text-6xl xl:mb-8">Buat Website
+                    Undangan Digital</h1>
+                <p class="pr-0 mb-8 text-base text-gray-600 sm:text-lg xl:text-xl lg:pr-20">Undangan digital diera yang
+                    serba digital</p>
                 <a href="/templates"
-                    class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-indigo-600 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0">Buat Undangan</a>
+                    class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-indigo-600 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0">Buat
+                    Undangan</a>
                 <!-- Integrates with section -->
                 <div class="flex-col hidden mt-12 sm:flex lg:mt-24">
                     <p class="mb-4 text-sm font-medium tracking-widest text-gray-500 uppercase">Supported By</p>
                     <div class="flex">
-                        <h1 class="mr-4 text-l cursor-default font-playfair font-bold leading-tight duration-100 transition-colors text-gray-300 hover:text-gray-400">Kelompok 1</h1>
+                        <h1
+                            class="mr-4 text-l cursor-default font-playfair font-bold leading-tight duration-100 transition-colors text-gray-300 hover:text-gray-400">
+                            Kelompok 1</h1>
                     </div>
                 </div>
                 <svg class="absolute left-0 max-w-md mt-24 -ml-64 left-svg" viewBox="0 0 423 423"
@@ -120,7 +141,8 @@
                         </svg>
                         <!-- FEATURE Icon 1 -->
                         <h4 class="relative mt-6 text-lg font-bold">All Events</h4>
-                        <p class="relative mt-2 text-base text-center text-gray-600">Implementasikan undangan digital untuk semua keperluan acara anda mulai dari pernikahan hingga ulah tahun</p>
+                        <p class="relative mt-2 text-base text-center text-gray-600">Implementasikan undangan digital untuk
+                            semua keperluan acara anda mulai dari pernikahan hingga ulah tahun</p>
                         <a href="#_" class="relative flex mt-2 text-sm font-medium text-indigo-500 underline">Learn
                             More</a>
                     </div>
@@ -140,7 +162,8 @@
                         <!-- FEATURE Icon 2 -->
 
                         <h4 class="relative mt-6 text-lg font-bold">Easy for Use</h4>
-                        <p class="relative mt-2 text-base text-center text-gray-600">Dibuat dan dirancang untuk kemudahan user dalam pembuatan undangan digital</p>
+                        <p class="relative mt-2 text-base text-center text-gray-600">Dibuat dan dirancang untuk kemudahan
+                            user dalam pembuatan undangan digital</p>
                         <a href="#_" class="relative flex mt-2 text-sm font-medium text-indigo-500 underline">Learn
                             More</a>
                     </div>
@@ -160,7 +183,8 @@
                         <!-- FEATURE Icon 3 -->
 
                         <h4 class="relative mt-6 text-lg font-bold">Send via WhatsApp</h4>
-                        <p class="relative mt-2 text-base text-center text-gray-600">Kirim undangan anda dengan aplikasi chat yang umum dan sudah banyak digunakan oleh banyak orang.</p>
+                        <p class="relative mt-2 text-base text-center text-gray-600">Kirim undangan anda dengan aplikasi
+                            chat yang umum dan sudah banyak digunakan oleh banyak orang.</p>
                         <a href="#_" class="relative flex mt-2 text-sm font-medium text-indigo-500 underline">Learn
                             More</a>
                     </div>
@@ -186,13 +210,13 @@
                     <div
                         class="relative z-0 w-11/12 max-w-sm my-8 border border-gray-200 rounded-lg sm:w-3/5 lg:w-1/3 sm:my-5 md:-mr-4">
                         <div class="overflow-hidden text-black bg-white border-t border-gray-100 rounded-lg shadow-sm">
-                            <div
-                                class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-6">
+                            <div class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-6">
                                 <h3 class="p-3 text-lg font-bold tracking-wide text-center uppercase">Basic<span
                                         class="ml-2 font-light">Plan</span></h3>
                                 <h4
                                     class="flex items-center justify-center pb-6 text-4xl font-bold text-center text-gray-900">
-                                    <span class="mr-1 -ml-2 text-lg text-gray-700">$</span>48</h4>
+                                    <span class="mr-1 -ml-2 text-lg text-gray-700">$</span>48
+                                </h4>
                                 <p class="text-sm text-gray-600">In our basic plan you can take advantage of all these
                                     features below.
                                 </p>
@@ -251,9 +275,9 @@
                         <div class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-6">
                             <h3 class="p-3 pb-1 text-lg font-bold tracking-wide text-center uppercase">Pro<span
                                     class="ml-2 font-light">Plan</span></h3>
-                            <h4
-                                class="flex items-center justify-center pb-6 text-5xl font-bold text-center text-gray-900">
-                                <span class="mr-1 -ml-2 text-lg text-gray-700">$</span>98</h4>
+                            <h4 class="flex items-center justify-center pb-6 text-5xl font-bold text-center text-gray-900">
+                                <span class="mr-1 -ml-2 text-lg text-gray-700">$</span>98
+                            </h4>
                             <p class="text-sm text-gray-600">Our most popular package is the Pro Plan which gives you
                                 access to the
                                 following:</p>
@@ -306,13 +330,13 @@
                     <div
                         class="relative z-0 w-11/12 max-w-sm my-8 rounded-lg shadow-lg sm:w-3/5 lg:w-1/3 sm:my-5 md:-ml-4">
                         <div class="overflow-hidden text-black bg-white rounded-lg shadow-lg shadow-inner">
-                            <div
-                                class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-8">
+                            <div class="block max-w-sm px-8 mx-auto mt-5 text-sm text-left text-black sm:text-md lg:px-8">
                                 <h3 class="p-3 pb-1 text-lg font-bold tracking-wide text-center uppercase">Premium<span
                                         class="ml-2 font-light">Plan</span></h3>
                                 <h4
                                     class="flex items-center justify-center pb-6 text-4xl font-bold text-center text-gray-900">
-                                    <span class="mr-1 -ml-2 text-lg text-gray-700">$</span>78</h4>
+                                    <span class="mr-1 -ml-2 text-lg text-gray-700">$</span>78
+                                </h4>
                                 <p class="pl-2 text-sm text-gray-600">With our premium plan you can take advantage of
                                     all the following
                                     features:</p>
@@ -534,7 +558,8 @@
                     <li><a href="#_"
                             class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Privacy</a>
                     </li>
-                    <li><a href="#_" class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Terms
+                    <li><a href="#_"
+                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Terms
                             of
                             Service</a></li>
                 </ul>
@@ -568,8 +593,8 @@
                                     d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z" />
                             </svg>
                         </a>
-                        <a class="flex items-center block text-gray-400 no-underline hover:text-gray-600"
-                            target="_blank" rel="noopener noreferrer" href="https://devdojo.com">
+                        <a class="flex items-center block text-gray-400 no-underline hover:text-gray-600" target="_blank"
+                            rel="noopener noreferrer" href="https://devdojo.com">
                             <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
@@ -582,13 +607,14 @@
         <div class="pt-4 pt-6 mt-10 text-center text-gray-500 border-t border-gray-100">© 2020 Landmark. All rights
             reserved.</div>
 
-            <div class="pt-2 pt-4 mt-2 text-center text-gray-600 border-t border-gray-100">Distributed By <a href="https://themewagon.com/">Themewagon</a></div>
+        <div class="pt-2 pt-4 mt-2 text-center text-gray-600 border-t border-gray-100">Distributed By <a
+                href="https://themewagon.com/">Themewagon</a></div>
     </footer>
 
     <!-- a little JS for the mobile nav button -->
     <script>
         if (document.getElementById('nav-mobile-btn')) {
-            document.getElementById('nav-mobile-btn').addEventListener('click', function () {
+            document.getElementById('nav-mobile-btn').addEventListener('click', function() {
                 if (this.classList.contains('close')) {
                     document.getElementById('nav').classList.add('hidden');
                     this.classList.remove('close');
