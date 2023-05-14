@@ -1,130 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AboutUS</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        *{
-            font-family: montserrat;
-        }
-        body{
-            background: f1fbff;
-        }
-        .section-padding{
-            padding: 100px 0;
-        }
-        .carousel-item{
-            height: 100vh;
-            min-height: 300px;
-        }
-        .carousel-caption{
-            bottom: 220px;
-            z-index:2;
-        }
-        .carousel-caption h5{
-            font-size: 45px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 25px;
-            color: white;
-            
-        }
-        .carousel-caption p{
-            width: 60%;
-            margin: auto;
-            font-size: 18px;
-            line-height: 1.9;
-            color: white;
-        }
-        .carousel-inner::before{
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: rgba(0,0,0,0.7);
-            z-index: 1;
-        }
-
-        /* responsif*/
-        @media only screen and (min-width: 768px) and (max-width: 991px){
-            .carousel-caption{
-                bottom: 370px;
-            }
-            .carousel-caption p{
-                width: 100%;
-            }
-        }
-
-        @media only screen and (max-width: 767px){
-            .navbar-nav{
-                text-align: center;
-            }
-            .carousel-caption{
-                bottom: 125px;
-            }
-            .carousel-caption h5{
-                font-size: 17px;
-            }
-            .carousel-caption a{
-                padding: 10px 15px;
-            }
-            .carousel-caption p{
-                width: 100%;
-                line-height: 1.6;
-                font-size: 12px;
-            }
-        }
-
-    </style>
-</head>
-<body>
+<html>
+    <head>
+        <body>
         @extends('layouts.template')
         @section('title', 'Home')
         @section('content')
 
-<header class="relative z-50 w-full h-24">
-        <div class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0">
-
-            <a href="/" class="relative flex items-center inline-block h-5 h-full font-black leading-none">
-                <span class="ml-3 font-playfair tracking-widest text-2xl text-gray-800">Eventation<span
-                        class="text-red-700">.</span></span>
-            </a>
-
-            <nav id="nav"
-                class="">
-                <a href="#"
-                    class="">Home</a>
-                <a href="/templates"
-                    class="">Undangan</a>
-                <a href="#pricing"
-                    class=>Portofolio</a>
-                <a href="#testimonials"
-                    class="">About Us</a>
-               
-            </nav>
-    </header>
-    
-    <!-- Slide Show Start -->
-    <div class="carousel-inner">
-    <img src={{ asset ('image/prom.jpg') }} style="width: 100%; height: 100%;"class="rounded mx-auto d-block" alt="...">
-    <div class="carousel-caption ">
-                <h5>Our Creative Team Member</h5>
-                <p>"Welcome to our network of strengths and brilliant ideas. We are a team that doesn't just talk, but produces concrete actions that drive positive change."</p>
-                <p><a href="#Team" class="btn btn-warning mt-3">Learn More</a></p>
-            </div>
-    </div>
-
     <!-- Start About Us-->
-    <div id="Team"
+
+    <div id="testimonials"
         class="flex items-center justify-center w-full px-8 py-10 border-t border-gray-200 md:py-11 lg:py-24 xl:py-40 xl:px-0">
         <div class="max-w-6xl mx-auto">
             <div class="flex-col items-center ">
+                <div class="flex flex-col items-center justify-center w-full h-full max-w-2xl pr-8 mx-auto text-center">
+                    <h5
+                        class="text-4xl font-extrabold leading-10 tracking-tight text-gray-900 sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl">
+                        Our Creative Team Member</h5>
+                    <p class="my-6 text-xl font-medium text-gray-500">"Welcome to our network of strengths and brilliant ideas. We are a team that doesn't just talk, but produces concrete actions that drive positive change."</p>
+
+                </div>
                 <div class="flex flex-col items-center justify-center max-w-2xl py-8 mx-auto xl:flex-row xl:max-w-full">
                     <div class="w-full xl:w-1/2 xl:pr-8">
                         <blockquote
@@ -265,7 +159,7 @@
                                 <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                             </div>
                             <img class="flex-shrink-0 object-cover w-24 h-24 mb-5 bg-gray-300 rounded-full md:mb-0"
-                                src={{ asset('image/EVI.jpg') }}
+                                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1700&q=80"
                                 alt="">
                         </blockquote>
                         <blockquote
@@ -369,6 +263,7 @@
         </div>
     
     </div>
+    <!-- End Testimonials-->
 
     <!-- a little JS for the mobile nav button -->
     <script>
@@ -386,7 +281,7 @@
     </script>
 
 @endsection
-    <!-- end team -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+
+        </body>
+    </head>
 </html>
