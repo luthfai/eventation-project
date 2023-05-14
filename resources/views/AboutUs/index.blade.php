@@ -98,7 +98,7 @@
 
             <nav id="nav"
                 class="">
-                <a href="#"
+                <a href="/resources/views/index.blade.php"
                     class="">Home</a>
                 <a href="/templates"
                     class="">Undangan</a>
