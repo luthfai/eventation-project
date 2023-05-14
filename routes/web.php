@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutUs;
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -39,4 +41,4 @@ Route::middleware(['auth','role:super'])->group(function () {
     Route::get('/super/dashboard', [SuperAdminController::class, 'SuperDashboard'])->name('super.dash');
 });
 
-
+Route::resource('AboutUs', AboutUsController::class);
