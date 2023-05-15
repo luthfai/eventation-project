@@ -549,7 +549,7 @@
                     <li><a href="#_"
                             class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Portofolio</a>
                     </li>
-                    <li><a href="#_"
+                    <li><a href="#_\"
                             class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">About Us</a>
                     </li>
                 </ul>

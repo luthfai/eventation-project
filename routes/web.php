@@ -42,3 +42,7 @@ Route::middleware(['auth','role:super'])->group(function () {
 });
 
 Route::resource('AboutUs', AboutUsController::class);
+
+// Route::get('/AboutUs', function () {
+//     return view('AboutUs');
+// });

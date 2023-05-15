@@ -96,17 +96,11 @@
                         class="text-red-700">.</span></span>
             </a>
 
-            <nav id="nav"
-                class="">
-                <a href="/resources/views/index.blade.php"
-                    class="">Home</a>
-                <a href="/templates"
-                    class="">Undangan</a>
-                <a href="#pricing"
-                    class=>Portofolio</a>
-                <a href="#testimonials"
-                    class="">About Us</a>
-               
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="" >Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                </ol>     
             </nav>
     </header>
     
@@ -136,8 +130,8 @@
                                         <path
                                             d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z" />
                                     </svg>
-                                    <p class="mt-2 text-base text-gray-600">"I direct a team with a clear vision towards achieving the desired goal."
-                                    </p>
+                                    <h2 class="mt-2 text-base text-gray-600">"I direct a team with a clear vision towards achieving the desired goal."
+                                    </h2>
                                 </div>
 
                                 <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">Aido Luthfi Al Hakim
@@ -170,7 +164,7 @@
 
                                 <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                             </div>
-                            <img class="flex-shrink-0 object-cover w-24 h-24 mb-5 bg-gray-300 rounded-full md:mb-0"
+                            <img class="flex-shrink-0 object-cover w-24 h-24 mb-5 bg-gray-300 rounded-full md:mb-0 "
                                 src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2694&q=80"
                                 alt="">
                         </blockquote>
@@ -183,7 +177,7 @@
                                         <path
                                             d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z" />
                                     </svg>
-                                    <p class="mt-2 text-base text-gray-600">"I am a digital architect who creates attractive and easy-to-use interfaces."</p>
+                                    <h2 class="mt-2 text-base text-gray-600">"I am a digital architect who creates attractive and easy-to-use interfaces."</h2>
                                 </div>
                                 <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">Brilliyand Noval Herdana Putra
                                     <span class="mt-1 text-sm leading-5 text-gray-500 truncate">- UI/UX Designer
@@ -230,12 +224,12 @@
                                         <path
                                             d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z" />
                                     </svg>
-                                    <p class="mt-2 text-base text-gray-600">"I am the project governance custodian, ensuring all administrative aspects run smoothly and on time."
-                                    </p>
+                                    <h2 class="mt-2 text-base text-gray-600">"I am the project governance custodian, ensuring all administrative aspects run smoothly and on time."
+                                    </h2>
                                 </div>
 
                                 <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">Evi Amalia Midfia
-                                    <span class="mt-1 text-sm leading-5 text-gray-500 truncate">- Project Administration & Data analyst</span>
+                                    <span class="mt-1 text-sm leading-5 text-gray-500 truncate">-  Project Administrator</span>
                                 </h3>
 
                                 <div class="flex justify-start pl-12 mt-3">
@@ -277,7 +271,7 @@
                                         <path
                                             d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z" />
                                     </svg>
-                                    <p class="mt-2 text-base text-gray-600">"I'm the quality control and marketing team that makes sure every element of website design and functionality works flawlessly"</p>
+                                    <h2 class="mt-2 text-base text-gray-600">"I'm the quality control and marketing team that makes sure every element of website design and functionality works flawlessly" </h2>
                                 </div>
 
                                 <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">M.Rizky Mafazan
@@ -327,8 +321,8 @@
                                         <path
                                             d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z" />
                                     </svg>
-                                    <p class="mt-2 text-base text-gray-600">"I am the guardian of quality to ensure the existing systems and processes run well and meet the set quality standards."
-                                    </p>
+                                    <h2 class="mt-2 text-base text-gray-600">"I am the guardian of quality to ensure the existing systems and processes run well and meet the set quality standards."
+                                    </h2>
                                 </div>
 
                                 <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">Mellyana Tundjung
