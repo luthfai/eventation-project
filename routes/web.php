@@ -41,6 +41,10 @@ Route::middleware(['auth','role:super'])->group(function () {
     Route::get('/super/dashboard', [SuperAdminController::class, 'SuperDashboard'])->name('super.dash');
 });
 
+Route::middleware(['auth','role:user'])->group(function () {
+    Route::get('/user/dashboard', [UserController::class, 'UserDashboard'])->name('user.dash');
+});
+
 Route::resource('AboutUs', AboutUsController::class);
 
 // Route::get('/AboutUs', function () {
