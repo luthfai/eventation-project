@@ -16,7 +16,7 @@ Eventation adalah projek aplikasi website untuk pembuatan undangan digital.
 
 1. Aido Luthfi Al Hakim (luthf-ai)
 2. Evi Amalia Midfia (evi03)
-3.
+3. Brilliyand Noval Herdana Putra (Brilliyandddd)
 4.
 5. Mellyana Tundjung (mylyyyyy)
 
