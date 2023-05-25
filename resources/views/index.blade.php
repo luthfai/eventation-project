@@ -46,7 +46,7 @@
                 <div
                     class="absolute left-0 flex-col items-center justify-center hidden w-full pb-8 mt-48 border-b border-gray-200 md:relative md:w-auto md:bg-transparent md:border-none md:mt-0 md:flex-row md:p-0 md:items-end md:flex md:justify-between">
                     <a href="{{ route('login') }}"
-                        class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-indigo-700  md:px-5 lg:indigo-700  sm:mr-3 md:mt-0">Login</a>
+                        class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-indigo-700  md:px-5 lg:indigo-700  sm:mr-3 md:mt-0 hover:shadow-xl">Login</a>
                     <a href="{{ route('register') }}"
                         class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-bold leading-none text-white  transition-all transition duration-100 duration-300 bg-indigo-700 rounded shadow-md fold-bold lg:bg-indigo-700 lg:white sm:w-full lg:shadow-none hover:shadow-xl">Sign
                         up</a>
