@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Admin',
             'username' => 'admin',
             'email' => 'admin@gmail.com',
-            'password' => bcrypt('password1'),
+            'password' => Hash::make('password1'),
             'role' => 'admin',
         ]);
 
@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'User',
             'username' => 'user',
             'email' => 'user@gmail.com',
-            'password' => bcrypt('password2'),
+            'password' => Hash::make('password2'),
             'role' => 'user',
         ]);
 
@@ -35,7 +35,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Super Admin',
             'username' => 'superadmin',
             'email' => 'superadmin@gmail.com',
-            'password' => bcrypt('password3'),
+            'password' => Hash::make('password3'),
             'role' => 'superadmin',
         ]);
     }
