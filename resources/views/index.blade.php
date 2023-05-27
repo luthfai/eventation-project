@@ -30,8 +30,8 @@
             @auth
                 <div
                     class="relative flex flex-col items-center justify-center hidden w-full pb-8 mt-48 border-b border-gray-200 md:relative md:w-auto md:bg-transparent md:border-none md:mt-0 md:flex-row md:p-0 md:items-end md:flex md:justify-between">
-                    <a href="{{ route('dashboard') }}"
-                        class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-indigo-700  md:px-5 lg:indigo-700  sm:mr-3 md:mt-0">Dashboard</a>
+                    <a href="{{ route('login') }}"
+                        class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-indigo-700  md:px-5 lg:indigo-700  sm:mr-3 md:mt-0">Login</a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
