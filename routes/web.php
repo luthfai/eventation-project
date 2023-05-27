@@ -5,6 +5,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\SuperAdminController;
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,6 @@ use App\Http\Controllers\SuperAdminController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('index');
 });
@@ -37,8 +37,12 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dash');
 });
 
-Route::middleware(['auth','role:super'])->group(function () {
+Route::middleware(['auth','role:superadmin'])->group(function () {
     Route::get('/super/dashboard', [SuperAdminController::class, 'SuperDashboard'])->name('super.dash');
+});
+
+Route::middleware(['auth','role:user'])->group(function () {
+    Route::get('/user/dashboard', [UserController::class, 'UserDashboard'])->name('user.dash');
 });
 
 Route::resource('AboutUs', AboutUsController::class);
