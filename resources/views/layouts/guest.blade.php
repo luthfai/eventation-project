@@ -25,7 +25,7 @@
             <div class="w-full sm:max-w-md mt-6 px-10 py-8 bg-white shadow-md overflow-hidden sm:rounded-xl">
                 <div>
                     <a href="/">
-                        <h1 class="font-[Merriweather] tracking-widest text-center font-extrabold mb-10 px-10 text-2xl text-gray-900">Eventation</h1>
+                        <h1 class="font-playfair tracking-widest text-center font-extrabold mb-10 px-10 text-2xl text-gray-900">Eventation</h1>
                     </a>
                 </div>
                 {{ $slot }}
