@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +19,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Admin',
             'username' => 'admin',
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('password'),
+            'password' => bcrypt('password1'),
             'role' => 'admin',
         ]);
 
@@ -26,7 +27,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'User',
             'username' => 'user',
             'email' => 'user@gmail.com',
-            'password' => Hash::make('password'),
+            'password' => bcrypt('password2'),
             'role' => 'user',
         ]);
 
@@ -34,7 +35,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Super Admin',
             'username' => 'superadmin',
             'email' => 'superadmin@gmail.com',
-            'password' => Hash::make('password'),
+            'password' => bcrypt('password3'),
             'role' => 'superadmin',
         ]);
     }

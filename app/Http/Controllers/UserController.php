@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class SuperAdminController extends Controller
+class UserController extends Controller
 {
-    public function SuperDashboard()
+    public function UserDashboard()
     {
         return view('user.dashboard');
     }
