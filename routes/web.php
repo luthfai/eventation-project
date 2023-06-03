@@ -49,6 +49,11 @@ Route::middleware(['auth','role:admin'])->group(function () {
 
 Route::middleware(['auth','role:superadmin'])->group(function () {
     Route::get('/super/dashboard', [SuperAdminController::class, 'SuperDashboard'])->name('super.dash');
+    Route::get('/super/dashboard/admin', [SuperAdminController::class, 'AdminList'])->name('super.admin');
+    Route::get('/super/dashboard/admin/{id}', [SuperAdminController::class, 'AdminEdit'])->name('super.admin.edit');
+    Route::patch('/super/dashboard/admin/{id}', [SuperAdminController::class, 'AdminUpdate'])->name('super.admin.update');
+    Route::delete('/super/dashboard/admin/{id}', [SuperAdminController::class, 'AdminDestroy'])->name('super.admin.destroy');
+
 });
 
 // user dashboard
