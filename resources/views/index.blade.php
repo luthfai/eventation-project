@@ -11,7 +11,8 @@
             </a>
 
             <nav id="nav"
-                class="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-64 pt-5 mt-24 text-sm text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-[17px] md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative">
+                class="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-64 pt-5 mt-24 text-sm text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-[17px] md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative"
+                aria-label="secondary">
                 <a href="#"
                     class="ml-0 mr-0  font-playfair font-medium duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Home</a>
                 <a href="/templates"
@@ -28,20 +29,50 @@
                 </div>
             </nav>
             @auth
-                <div
-                    class="relative flex flex-col items-center justify-center hidden w-full pb-8 mt-48 border-b border-gray-200 md:relative md:w-auto md:bg-transparent md:border-none md:mt-0 md:flex-row md:p-0 md:items-end md:flex md:justify-between">
-                    <a href="{{ route('dashboard') }}"
-                        class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-indigo-700  md:px-5 lg:indigo-700  sm:mr-3 md:mt-0">Dashboard</a>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
+                <div class="flex items-center gap-3" aria-label="secondary" x-data="{ open: false }"
+                    class="sticky top-0 z-99 flex items-center justify-between px-4 py-4 sm:px-6 transition-transform duration-500 bg-white dark:bg-dark-eval-1"
+                    :class="{
+                        '-translate-y-full': scrollingDown,
+                        'translate-y-0': scrollingUp,
+                    }"x-data="{ open: false }"
+                    class="sticky top-0 z-10 flex items-center justify-between px-4 py-4 sm:px-6 transition-transform duration-500 bg-white dark:bg-dark-eval-1"
+                    :class="{
+                        '-translate-y-full': scrollingDown,
+                        'translate-y-0': scrollingUp,
+                    }">
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button
+                                class="flex items-center p-2 text-sm font-medium text-gray-500 rounded-md transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none focus:ring focus:ring-purple-500 focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark-eval-1 dark:text-gray-400 dark:hover:text-gray-200">
+                                <div>{{ Auth::user()->name }}</div>
 
-                        <a href="route('logout')"
-                            onclick="event.preventDefault();
-                                                this.closest('form').submit();"
-                            class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-bold leading-none text-white  transition-all transition duration-100 duration-300 bg-indigo-700 rounded shadow-md fold-bold lg:bg-indigo-700 lg:white sm:w-full lg:shadow-none hover:shadow-xl">
-                            {{ __('Log Out') }}
-                        </a>
-                    </form>
+                                <div class="ml-1">
+                                    <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </x-slot>
+
+                        <x-slot name="content" class="z-10">
+                            <!-- Profile -->
+                            <x-dropdown-link :href="route('profile.edit')">
+                                {{ __('Profile') }}
+                            </x-dropdown-link>
+
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault(); this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </form>
+                        </x-slot>
+                    </x-dropdown>
                 </div>
             @else
                 <div
@@ -110,7 +141,7 @@
                     </g>
                 </svg>
             </div>
-            <div class="relative z-50 flex flex-col items-end justify-center w-full h-full lg:w-1/2 ms:pl-10">
+            <div class="relative z-30 flex flex-col items-end justify-center w-full h-full lg:w-1/2 ms:pl-10">
                 <div class="container relative left-0 w-full max-w-4xl lg:absolute xl:max-w-6xl lg:w-screen">
                     <img src="https://cdn.devdojo.com/images/september2020/macbook-mockup.png"
                         class="w-full h-auto mt-20 mb-20 ml-0 lg:mt-24 xl:mt-40 lg:mb-0 lg:h-full lg:-ml-12">
@@ -540,9 +571,8 @@
             <div class="block w-full pl-10 mt-6 text-sm lg:w-3/4 sm:flex lg:mt-0">
                 <ul class="flex flex-col w-full p-0 font-medium text-left text-gray-700 list-none">
                     <li class="inline-block px-3 py-2 mt-5 font-bold tracking-wide text-gray-800 uppercase md:mt-0">
-                    Main</li>
-                    <li><a
-                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Home</a>
+                        Main</li>
+                    <li><a class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Home</a>
                     </li>
                     <li><a href="#_"
                             class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Undangan</a>
@@ -551,7 +581,8 @@
                             class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Portofolio</a>
                     </li>
                     <li><a href="#_\"
-                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">About Us</a>
+                            class="inline-block px-3 py-2 text-gray-500 no-underline
+                            hover:text-gray-600">About Us</a>
                     </li>
                 </ul>
 
@@ -570,7 +601,8 @@
                         Product
                     </li>
                     <li><a href="https://devdojo.com/tailwindcss/components"
-                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Template Invitation</a></li>
+                            class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Template
+                            Invitation</a></li>
                 </ul>
                 <div class="flex flex-col w-full text-gray-700">
                     <div class="inline-block px-3 py-2 mt-5 font-bold text-gray-800 uppercase md:mt-0">Follow Us</div>

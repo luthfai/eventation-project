@@ -1,19 +1,19 @@
 <?php
 
-use App\Http\Controllers\AboutUs;
-use App\Http\Controllers\AboutUsController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SuperAdminController;
+use App\Http\Controllers\AboutUsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
 |
 */
 
@@ -21,9 +21,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Route::get('/', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,7 +28,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+// create route that automatically redirects to the dashboard based on the user's role
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        $url = '';
+        if (Auth::user()->role === 'admin') {
+            $url = '/admin/dashboard';
+        } elseif (Auth::user()->role === 'superadmin') {
+            $url = '/super/dashboard';
+        } else {
+            $url = '/user/dashboard';
+        }
+        return redirect($url);
+    })->name('dashboard');
+});
 
 Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dash');
@@ -41,14 +51,18 @@ Route::middleware(['auth','role:superadmin'])->group(function () {
     Route::get('/super/dashboard', [SuperAdminController::class, 'SuperDashboard'])->name('super.dash');
 });
 
-// Route::resource('AboutUs', AboutUsController::class);
-
+// user dashboard
 Route::middleware(['auth','role:user'])->group(function () {
-    Route::get('/dashboard', function () {
+    Route::get('/user/dashboard', function () {
         return view('dashboard');
-    })->name('dashboard');
+    })->name('user.dash');
 });
+
+// Route::resource('AboutUs', AboutUsController::class);
 
 Route::get('/AboutUs', function () {
     return view('AboutUs');
 });
+
+
+require __DIR__ . '/auth.php';
