@@ -1,8 +1,8 @@
-<x-layouts.super>
+<x-layouts.admin>
     <x-slot name="header">
         <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <h2 class="text-xl font-semibold leading-tight">
-                {{ __('Admin List') }}
+                {{ __('User List') }}
             </h2>
             <x-button target="_blank" href="https://github.com/kamona-wd/kui-laravel-breeze" variant="black"
                 class="justify-center max-w-xs gap-2">
@@ -15,11 +15,11 @@
     <div class="p-6 overflow-hidden bg-white rounded-md shadow-md dark:bg-dark-eval-1">
         <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <h2 class="text-xl font-semibold leading-tight">
-                {{ __('Admin List') }}
+                {{ __('User List') }}
             </h2>
-            <x-button target="_blank" href="TODO" variant="warning" class="justify-center max-w-xs gap-2">
+            <x-button target="_blank" href="/register" variant="warning" class="justify-center max-w-xs gap-2">
                 <span class="w-6 h-6" aria-hidden="true">+</span>
-                <span>Create Admin</span>
+                <span>Create User</span>
             </x-button>
         </div>
         {{-- list all of admin with crud --}}
@@ -30,35 +30,31 @@
                     <th class="px-4 py-3">ID</th>
                     <th class="px-4 py-3">Name</th>
                     <th class="px-4 py-3">Email</th>
-                    <th class="px-4 py-3">Role</th>
                     <th class="px-4 py-3 w-1/5">Action</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-dark-eval-2">
-                @foreach ($admins as $admin)
+                @foreach ($users as $user)
                     <tr class="text-sm text-gray-500 dark:text-dark-eval-3">
                         <td class="px-4 py-3 text-sm font-medium text-gray-900 dark:text-dark-eval-3">
-                            {{ $admin->id }}
+                            {{ $user->id }}
                         </td>
                         <td class="px-4 py-3 text-sm font-medium text-gray-900 dark:text-dark-eval-3">
-                            {{ $admin->name }}
+                            {{ $user->name }}
                         </td>
                         <td class="px-4 py-3 text-sm font-medium text-gray-900 dark:text-dark-eval-3">
-                            {{ $admin->email }}
-                        </td>
-                        <td class="px-4 py-3 text-sm font-medium text-gray-900 dark:text-dark-eval-3">
-                            {{ $admin->role }}
+                            {{ $user->email }}
                         </td>
                         <td class="px-4 py-3 flex text-sm font-medium text-gray-900 dark:text-dark-eval-3">
-                            <x-button target="_blank" href="{{ route('super.admin.edit', $admin->id) }}" variant="info"
+                            <x-button target="_blank" href="{{ route('admin.user.edit', $user->id) }}" variant="info"
                                 class="justify-center text-center max-w-xs gap-2 mx-2">
                                 <x-icons.edit class="w-6 h-6" aria-hidden="true" />
                                 <span class="w-16 h-6" aria-hidden="true">Edit</span>
                             </x-button>
-                            <form action="{{ route('super.admin.destroy', $admin->id) }}" method="POST">
+                            <form action="{{ route('admin.user.destroy', $user->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <x-button target="_blank" href="{{ route('super.admin.destroy', $admin->
+                                <x-button target="_blank" href="{{ route('admin.user.destroy', $user->
                                     id) }}" variant="danger" class="justify-center max-w-xs gap-2 text-center">
                                     <x-icons.trash class="w-6 h-6" aria-hidden="true" />
                                     <span class="w-16 h-6" aria-hidden="true">Delete</span>
@@ -70,4 +66,4 @@
             </tbody>
         </table>
     </div>
-</x-layouts.super>
+</x-layouts.admin>

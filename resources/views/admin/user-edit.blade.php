@@ -2,7 +2,7 @@
     <x-auth-card>
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-        <form method="POST" action="{{ route('super.admin.update', $admin->id) }}">
+        <form method="POST" action="{{ route('admin.user.update', $user->id) }}">
             @csrf
             @method('PATCH')
             <div class="grid gap-6">
@@ -24,7 +24,7 @@
                             class="block w-full"
                             type="text"
                             name="name"
-                            :value="old('name', $admin->name)"
+                            :value="old('name', $user->name)"
                             required
                             autofocus
                             placeholder="{{ __('Name') }}"
@@ -49,7 +49,7 @@
                             class="block w-full"
                             type="email"
                             name="email"
-                            :value="old('email', $admin->email)"
+                            :value="old('email', $user->email)"
                             required
                             placeholder="{{ __('Email') }}"
                         />
@@ -73,16 +73,17 @@
                             id="role"
                             class="block w-full"
                             name="role"
-                            :value="old('role', $admin->role)"
+                            :value="old('role', $user->role)"
                             required
                             autofocus
                             placeholder="{{ __('Role') }}"
                         >
-                            <option value="super">Super</option>
                             <option value="admin">Admin</option>
+                            <option value="user">User</option>
                         </x-form.select>
                     </x-form.input-with-icon-wrapper>
                 </div>
+
                 <!-- Password -->
                 <div class="space-y-2">
                     <x-form.label
@@ -102,7 +103,6 @@
                             type="password"
                             name="password"
                             required
-                            autocomplete="new-password"
                             placeholder="{{ __('Password') }}"
                         />
                     </x-form.input-with-icon-wrapper>
@@ -130,8 +130,8 @@
                             placeholder="{{ __('Confirm Password') }}"
                         />
                     </x-form.input-with-icon-wrapper>
-
                 </div>
+
                 <div>
                     <x-button class="justify-center w-full gap-2">
                         <x-heroicon-o-user-add class="w-6 h-6" aria-hidden="true" />

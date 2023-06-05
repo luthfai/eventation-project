@@ -1,100 +1,8 @@
 @extends('layouts.template')
 @section('title', 'Home')
 @section('content')
-    <!-- Header Section -->
-    <header class="relative z-50 w-full h-24">
-        <div class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0">
 
-            <a href="/" class="relative flex items-center inline-block h-5 h-full font-black leading-none">
-                <span class="ml-3 font-playfair tracking-widest text-3xl text-gray-800">Eventation<span
-                        class="text-red-700">.</span></span>
-            </a>
-
-            <nav id="nav"
-                class="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-64 pt-5 mt-24 text-sm text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-[17px] md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative"
-                aria-label="secondary">
-                <a href="#"
-                    class="ml-0 mr-0  font-playfair font-medium duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Home</a>
-                <a href="/templates"
-                    class="mr-0 font-medium font-playfair duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Undangan</a>
-                <a href="#pricing"
-                    class="mr-0 font-medium font-playfair duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Portofolio</a>
-                <a href="#testimonials"
-                    class="font-medium font-playfair duration-100 transition-color hover:text-indigo-600">About Us</a>
-                <div class="flex flex-col block w-full font-medium border-t border-gray-200 md:hidden">
-                    <a href="{{ route('login') }}" class="w-full py-2 font-medium text-center text-pink-500">Login</a>
-                    <a href="#_"
-                        class="relative inline-block w-full px-5 py-3 text-sm leading-none text-center text-white bg-indigo-700 fold-bold">Get
-                        Started</a>
-                </div>
-            </nav>
-            @auth
-                <div class="flex items-center gap-3" aria-label="secondary" x-data="{ open: false }"
-                    class="sticky top-0 z-99 flex items-center justify-between px-4 py-4 sm:px-6 transition-transform duration-500 bg-white dark:bg-dark-eval-1"
-                    :class="{
-                        '-translate-y-full': scrollingDown,
-                        'translate-y-0': scrollingUp,
-                    }"x-data="{ open: false }"
-                    class="sticky top-0 z-10 flex items-center justify-between px-4 py-4 sm:px-6 transition-transform duration-500 bg-white dark:bg-dark-eval-1"
-                    :class="{
-                        '-translate-y-full': scrollingDown,
-                        'translate-y-0': scrollingUp,
-                    }">
-                    <x-dropdown align="right" width="48">
-                        <x-slot name="trigger">
-                            <button
-                                class="flex items-center p-2 text-sm font-medium text-gray-500 rounded-md transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none focus:ring focus:ring-purple-500 focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark-eval-1 dark:text-gray-400 dark:hover:text-gray-200">
-                                <div>{{ Auth::user()->name }}</div>
-
-                                <div class="ml-1">
-                                    <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                            </button>
-                        </x-slot>
-
-                        <x-slot name="content" class="z-10">
-                            <x-dropdown-link :href="route('dashboard')">
-                                {{ __('Dashboard') }}
-                            </x-dropdown-link>
-                            <!-- Profile -->
-                            <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Profile') }}
-                            </x-dropdown-link>
-
-                            <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-
-                                <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault(); this.closest('form').submit();">
-                                    {{ __('Log Out') }}
-                                </x-dropdown-link>
-                            </form>
-                        </x-slot>
-                    </x-dropdown>
-                </div>
-            @else
-                <div
-                    class="absolute left-0 flex-col items-center justify-center hidden w-full pb-8 mt-48 border-b border-gray-200 md:relative md:w-auto md:bg-transparent md:border-none md:mt-0 md:flex-row md:p-0 md:items-end md:flex md:justify-between">
-                    <a href="{{ route('login') }}"
-                        class="relative z-40 px-3 py-2 mr-0 text-sm font-medium text-indigo-700  md:px-5 lg:indigo-700  sm:mr-3 md:mt-0">Login</a>
-                    <a href="{{ route('register') }}"
-                        class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-medium leading-none text-white  transition-all transition duration-100 duration-300 bg-indigo-700 rounded shadow-md fold-bold lg:bg-indigo-700 lg:white sm:w-full lg:shadow-none hover:shadow-xl">Sign
-                        up</a>
-                @endauth
-                <div id="nav-mobile-btn"
-                    class="absolute top-0 right-0 z-50 block w-6 mt-8 mr-10 cursor-pointer select-none md:hidden sm:mt-10">
-                    <span class="block w-full h-1 mt-2 duration-200 transform bg-gray-800 rounded-full sm:mt-1"></span>
-                    <span class="block w-full h-1 mt-1 duration-200 transform bg-gray-800 rounded-full"></span>
-                </div>
-            </div>
-    </header>
-    <!-- End Header Section-->
-
+    <x-header></x-header>
     <!-- BEGIN HERO SECTION -->
     <div class="relative items-center justify-center w-full overflow-x-hidden lg:pt-40 lg:pb-40 xl:pt-40 xl:pb-64">
         <div
@@ -121,8 +29,8 @@
                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <defs>
                         <linearGradient x1="100%" y1="0%" x2="4.48%" y2="0%" id="linearGradient-1">
-                            <stop stop-color="#5C54DB" offset="0%" />
-                            <stop stop-color="#6A82E7" offset="100%" />
+                            <stop stop-color="red" offset="0%" />
+                            <stop stop-color="red" offset="100%" />
                         </linearGradient>
                         <filter x="-9.3%" y="-6.7%" width="118.7%" height="118.7%" filterUnits="objectBoundingBox"
                             id="filter-3">
@@ -130,12 +38,14 @@
                             <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1" />
                             <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" in="shadowBlurOuter1" />
                         </filter>
-                        <rect id="path-2" x="63" y="504" width="300" height="300" rx="40" />
+                        <rect id="path-2" x="63" y="504" width="200" height="300"
+                            rx="40" />
                     </defs>
-                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity=".9">
-                        <g id="Desktop-HD" transform="translate(-39 -531)">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
+                        opacity=".99">
+                        <g id="Desktop-HD" transform="translate(-0 -531)">
                             <g id="Hero" transform="translate(43 83)">
-                                <g id="Rectangle-6" transform="rotate(45 213 654)">
+                                <g id="Rectangle-6" transform="rotate(21 213 654)">
                                     <use fill="#000" filter="url(#filter-3)" xlink:href="#path-2" />
                                     <use fill="url(#linearGradient-1)" xlink:href="#path-2" />
                                 </g>

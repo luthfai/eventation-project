@@ -19,7 +19,7 @@ use App\Http\Controllers\AboutUsController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 
 Route::middleware('auth')->group(function () {
@@ -45,6 +45,10 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dash');
+    Route::get('/admin/dashboard/user', [AdminController::class, 'UserList'])->name('admin.user');
+    Route::get('/admin/dashboard/user/{id}', [AdminController::class, 'UserEdit'])->name('admin.user.edit');
+    Route::patch('/admin/dashboard/user/{id}', [AdminController::class, 'UserUpdate'])->name('admin.user.update');
+    Route::delete('/admin/dashboard/user/{id}', [AdminController::class, 'UserDestroy'])->name('admin.user.destroy');
 });
 
 Route::middleware(['auth','role:superadmin'])->group(function () {
@@ -53,7 +57,6 @@ Route::middleware(['auth','role:superadmin'])->group(function () {
     Route::get('/super/dashboard/admin/{id}', [SuperAdminController::class, 'AdminEdit'])->name('super.admin.edit');
     Route::patch('/super/dashboard/admin/{id}', [SuperAdminController::class, 'AdminUpdate'])->name('super.admin.update');
     Route::delete('/super/dashboard/admin/{id}', [SuperAdminController::class, 'AdminDestroy'])->name('super.admin.destroy');
-
 });
 
 // user dashboard
