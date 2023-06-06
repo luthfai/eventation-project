@@ -15,7 +15,7 @@
                 <a href="#"
                     class="ml-0 mr-0  font-playfair font-medium duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Home</a>
                 <a href="/templates"
-                    class="mr-0 font-medium font-playfair duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Undangan</a>
+                    class="mr-0 font-medium font-playfair duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Template</a>
                 <a href="#pricing"
                     class="mr-0 font-medium font-playfair duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Portofolio</a>
                 <a href="#testimonials"
@@ -196,7 +196,7 @@
     <!-- END FEATURES SECTION -->
 
     <!-- Pricing Section -->
-    <div class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0">
+    {{-- <div class="relative px-8 py-10 bg-white border-t border-gray-200 md:py-16 lg:py-24 xl:py-40 xl:px-0">
 
         <div id="pricing" class="container flex flex-col items-center h-full max-w-6xl mx-auto">
             <h2 class="my-5 text-base font-medium tracking-tight text-indigo-500 uppercase">Our Pricing</h2>
@@ -391,7 +391,7 @@
 
         </div>
 
-    </div>
+    </div> --}}
     <!-- End Pricing Section -->
 
     <!-- Start Testimonials -->
