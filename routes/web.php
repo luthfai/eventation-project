@@ -21,6 +21,9 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
+Route::get('/templates', function () {
+    return view('katalog-undangan');
+})->name('templates');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

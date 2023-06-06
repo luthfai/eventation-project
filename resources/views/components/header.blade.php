@@ -13,11 +13,11 @@
                 <a href="/"
                     class="ml-0 mr-0  font-playfair font-medium duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600{{ request()->is('/') ? ' text-indigo-600' : '' }}">Home</a>
                 <a href="/templates"
-                    class="mr-0 font-medium font-playfair duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Undangan</a>
+                    class="mr-0 font-medium font-playfair duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600{{ request()->is('templates') ? ' text-indigo-600' : '' }}">Templates</a>
                 <a href="/portofolio"
-                    class="mr-0 font-medium font-playfair duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600{ request()->is('/portofolio') ? ' text-indigo-600' : '' }}">Portofolio</a>
+                    class="mr-0 font-medium font-playfair duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600{{  request()->is('portofolio') ? ' text-indigo-600' : ''  }}">Portofolio</a>
                 <a href="/about"
-                    class="font-medium font-playfair duration-100 transition-color hover:text-indigo-600{ request()->is('/about') ? ' text-indigo-600' : '' }}">About</a>
+                    class="font-medium font-playfair duration-100 transition-color hover:text-indigo-600{{  request()->is('about') ? ' text-indigo-600' : ''  }}">About</a>
                 @auth
                     <div class="w-full items-center font-medium border-t border-gray-200 md:hidden">
                         <a href="{{ route('dashboard') }}"

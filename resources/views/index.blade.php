@@ -1,7 +1,6 @@
 @extends('layouts.template')
 @section('title', 'Home')
 @section('content')
-
     <x-header></x-header>
     <!-- BEGIN HERO SECTION -->
     <div class="relative items-center justify-center w-full overflow-x-hidden lg:pt-40 lg:pb-40 xl:pt-40 xl:pb-64">
