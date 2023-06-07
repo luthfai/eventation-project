@@ -25,6 +25,14 @@ Route::get('/templates', function () {
     return view('katalog-undangan');
 })->name('templates');
 
+Route::get('/templates/{id}', function () {
+    return view('detail-undangan');
+})->name('detail-undangan');
+
+Route::get('/portofolio', function () {
+    return view('portofolio');
+})->name('portofolio');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

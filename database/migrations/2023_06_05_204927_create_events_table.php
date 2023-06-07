@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('names');
+            $table->string('name1');
+            $table->string('nickname1');
+            $table->string('name2');
+            $table->string('nickname2');
+            $table->string('slug'); // this is the URL-friendly version of the title
             $table->string('description');
             $table->string('location');
             $table->timestamp('event_date');
@@ -32,7 +36,7 @@ return new class extends Migration
             $table->string('event_audio_alt');
             $table->string('event_audio_title');
             $table->string('event_audio_caption');
-            $table->string('event_map');
+            $table->string('location_url');
             // user_id is the foreign key that references the id field on the users table
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
