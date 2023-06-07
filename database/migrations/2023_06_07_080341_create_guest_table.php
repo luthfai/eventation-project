@@ -19,7 +19,7 @@ return new class extends Migration
             // attendance status (hadir, tidak hadir, belum dikonfirmasi)
             $table->string('status')->default('belum dikonfirmasi');
             // fk event id
-            $table->foreignId('event_id')->constrained('event');
+            $table->foreignId('event_id')->constrained('events');
             $table->timestamps();
         });
     }

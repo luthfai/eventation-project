@@ -36,9 +36,10 @@ return new class extends Migration
             $table->string('event_audio_alt');
             $table->string('event_audio_title');
             $table->string('event_audio_caption');
-            $table->string('location_url');
+            // location url need to be longtext
+            $table->longText('location_url');
             // user_id is the foreign key that references the id field on the users table
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

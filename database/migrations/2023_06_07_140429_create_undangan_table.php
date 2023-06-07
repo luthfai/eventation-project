@@ -23,7 +23,7 @@ return new class extends Migration
             // token
             $table->string('token');
             // fk event id and guest id
-            $table->foreignId('event_id')->constrained('event');
+            $table->foreignId('event_id')->constrained('events');
             $table->foreignId('guest_id')->constrained('guest');
             $table->timestamps();
         });
