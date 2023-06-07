@@ -11,20 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('undangan', function (Blueprint $table) {
+        Schema::create('guest', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
-            $table->integer('price');
-            $table->string('image');
-            $table->string('image_alt');
-            $table->string('paket');
-            $table->string('kategori');
-            // token
-            $table->string('token');
-            // fk event id and guest id
+            $table->string('email')->unique()->nullable();
+            $table->string('phone')->unique()->nullable();
+            // attendance status (hadir, tidak hadir, belum dikonfirmasi)
+            $table->string('status')->default('belum dikonfirmasi');
+            // fk event id
             $table->foreignId('event_id')->constrained('event');
-            $table->foreignId('guest_id')->constrained('guest');
             $table->timestamps();
         });
     }
@@ -34,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('undangan');
+        Schema::dropIfExists('guest');
     }
 };

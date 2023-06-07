@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SuperAdminController;
-use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\UndanganController;
+use App\Http\Controllers\EventController;
+// use App\Http\Controllers\GuestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,8 +82,10 @@ Route::middleware(['auth','role:user'])->group(function () {
 // Route::resource('AboutUs', AboutUsController::class);
 
 Route::get('/about', function () {
-    return view('AboutUs.index');
+    return view('about');
 });
 
+// route undangan controller with id parameter
 
+Route::get('/undangan/{id}', [UndanganController::class, 'show'])->name('undangan.show');
 require __DIR__ . '/auth.php';

@@ -19,7 +19,7 @@
                     <div class="mt-4 flex justify-between">
                         <div>
                             <h3 class="text-sm text-gray-700">
-                                <a href="#">
+                                <a href="undangan/1">
                                     <span aria-hidden="true" class="absolute inset-0"></span>
                                     Basic Tee
                                 </a>
