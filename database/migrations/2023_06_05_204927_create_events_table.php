@@ -22,8 +22,6 @@ return new class extends Migration
             $table->string('description');
             $table->string('location');
             $table->timestamp('event_date');
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
             $table->string('event_image');
             $table->string('event_image_alt');
             $table->string('event_image_title');
