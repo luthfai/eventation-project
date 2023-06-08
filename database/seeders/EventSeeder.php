@@ -70,6 +70,7 @@ class EventSeeder extends Seeder
             'event_audio_caption' => 'wedding-invitation',
             'location_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.085742821737!2d106.8227453147699!3d-6.186711995519999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fcf0b3b0b6d1%3A0x2b0b0d0b0b0b0b0b!2sJl.%20Kemang%20Sel.%20No.125%2C%20RT.1%2FRW.1%2C%20Bangka%2C%20Kec.%20Mampang%20Prpt.%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012710!5e0!3m2!1sen!2sid!4v1622903388989!5m2!1sen!2sid',
             'user_id' => 4,
+            'undangan_id' => 1,
         ]);
     }
 }

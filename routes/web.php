@@ -6,7 +6,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\UndanganController;
 use App\Http\Controllers\EventController;
-// use App\Http\Controllers\GuestController;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\InvitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,14 +23,6 @@ use App\Http\Controllers\EventController;
 Route::get('/', function () {
     return view('index');
 })->name('index');
-
-Route::get('/templates', function () {
-    return view('katalog-undangan');
-})->name('templates');
-
-Route::get('/templates/{id}', function () {
-    return view('detail-undangan');
-})->name('detail-undangan');
 
 Route::get('/portofolio', function () {
     return view('portofolio');
@@ -87,7 +80,6 @@ Route::get('/about', function () {
 
 // route undangan controller with id parameter
 
-Route::get('/undangan/{id}', [UndanganController::class, 'show'])->name('undangan.show');
 require __DIR__ . '/auth.php';
 
 // Route::get('/event', [EventController::class, 'index'])->name('event.index');
@@ -97,4 +89,9 @@ require __DIR__ . '/auth.php';
 // Route::get('/event/{id}/edit', [EventController::class, 'edit'])->name('event.edit');
 // Route::patch('/event/{id}', [EventController::class, 'update'])->name('event.update');
 // Route::delete('/event/{id}', [EventController::class, 'destroy'])->name('event.destroy');
-Route::get('/event/guest/{token}', [EventController::class, 'guest'])->name('event.guest');
+// guest get link from email with token
+Route::get('/event/guest/{token}', [InvitController::class, 'guest'])->name('invite.guest');
+
+// katalog undangan
+Route::get('/templates', [UndanganController::class, 'katalog'])->name('undangan.katalog');
+Route::get('/templates/{id}', [UndanganController::class, 'detail'])->name('undangan.detail');

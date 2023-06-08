@@ -13,34 +13,32 @@ class UndanganSeeder extends Seeder
      */
     public function run(): void
     {
-        // seed undangan
-        // Schema::create('undangan', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('name');
-        //     $table->string('description');
-        //     $table->integer('price');
-        //     $table->string('image');
-        //     $table->string('image_alt');
-        //     $table->string('paket');
-        //     $table->string('kategori');
-        //     // token
-        //     $table->string('token');
-        //     // fk event id and guest id
-        //     $table->foreignId('event_id')->constrained('events');
-        //     $table->foreignId('guest_id')->constrained('guest');
-        //     $table->timestamps();
-        // });
-        DB::table('undangan')->insert([
-            'name' => 'Undangan Pernikahan',
-            'description' => 'Undangan pernikahan dengan desain yang elegan',
+        DB::table('undangans')->insert([
+            'name' => 'undangan1',
+            'description' => 'undangan1',
             'price' => 100000,
-            'image' => 'undangan-pernikahan1.jpg',
-            'image_alt' => 'undangan pernikahan',
+            'image' => "https://cdn0.hitched.co.uk/article/1084/3_2/960/jpg/64801-wedding-evites-etsy.jpeg",
+            'image_alt' => 'undangan1',
             'paket' => 'Basic',
-            'kategori' => 'Pernikahan',
-            'token' => '1234567890',
-            'event_id' => 1,
-            'guest_id' => 1,
+            'kategori' => 'Wedding'
+        ]);
+        DB::table('undangans')->insert([
+            'name' => 'undangan2',
+            'description' => 'undangan2',
+            'price' => 100000,
+            'image' => "https://cdn0.hitched.co.uk/article/1084/3_2/960/jpg/64801-wedding-evites-etsy.jpeg",
+            'image_alt' => 'undangan2',
+            'paket' => 'Basic',
+            'kategori' => 'Wedding'
+        ]);
+        DB::table('undangans')->insert([
+            'name' => 'undangan3',
+            'description' => 'undangan3',
+            'price' => 100000,
+            'image' => "https://cdn0.hitched.co.uk/article/1084/3_2/960/jpg/64801-wedding-evites-etsy.jpeg",
+            'image_alt' => 'undangan3',
+            'paket' => 'Basic',
+            'kategori' => 'Wedding'
         ]);
     }
 }

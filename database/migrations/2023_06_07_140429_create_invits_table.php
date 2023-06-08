@@ -11,15 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('undangan', function (Blueprint $table) {
+        Schema::create('invits', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->integer('price');
-            $table->string('image');
-            $table->string('image_alt');
-            $table->string('paket');
-            $table->string('kategori');
             // token
             $table->string('token');
             // fk event id and guest id
