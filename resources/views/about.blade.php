@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('title', 'Home')
 @section('content')
-
+p
     <x-header></x-header>
 
     <div id="about"
