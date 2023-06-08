@@ -19,3 +19,18 @@ Eventation adalah projek aplikasi website untuk pembuatan undangan digital.
 3. Brilliyand Noval Herdana Putra (Brilliyandddd)
 4. M. Rizky Mafazan (mafazann)
 5. Mellyana Tundjung (mylyyyyy)
+
+
+## TO DO :
+-Undangan template
+-Detail Undangan
+-Pembayaran
+-Pengecekan ulang login,register,dll
+-finishing CRUD admin/superadmin
+-pembuatan undangan user
+-CRUD user undangan
+-dashboard user
+-finishing view
+-factory dummy data
+-pengiriman undangan
+-pembayaran transaksi

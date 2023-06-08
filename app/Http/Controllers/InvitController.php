@@ -22,7 +22,7 @@ class InvitController extends Controller
         // find guest with guest id
         $guest = DB::table('guest')->where('id', $guest_id)->first();
         // find undangan with event id
-        $undanganname = DB::table('undangan')->where('id', $event->undangan_id)->value('name');
+        $undanganname = DB::table('undangans')->where('id', $event->undangan_id)->value('name');
         // return view undangan.[undanganname]
         return view('undangan.' . $undanganname, compact('event', 'guest'));
     }

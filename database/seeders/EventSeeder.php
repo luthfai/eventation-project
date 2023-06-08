@@ -54,8 +54,6 @@ class EventSeeder extends Seeder
             'description' => 'Wedding Invitation',
             'location' => 'Jakarta',
             'event_date' => '2021-06-05 20:49:27',
-            'start_date' => '2021-06-05 20:49:27',
-            'end_date' => '2021-06-05 20:49:27',
             'event_image' => 'wedding-invitation.jpg',
             'event_image_alt' => 'wedding-invitation',
             'event_image_title' => 'wedding-invitation',
