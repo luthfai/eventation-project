@@ -33,6 +33,32 @@
                     </x-form.input-with-icon-wrapper>
                 </div>
 
+                {{-- Username --}}
+                <div class="space-y-2">
+                    <x-form.label
+                        for="username"
+                        :value="__('Username')"
+                    />
+
+                    <x-form.input-with-icon-wrapper>
+                        <x-slot name="icon">
+                            <x-heroicon-o-user aria-hidden="true" class="w-5 h-5" />
+                        </x-slot>
+
+                        <x-form.input
+                            withicon
+                            id="username"
+                            class="block w-full"
+                            type="text"
+                            name="username"
+                            :value="old('username')"
+                            required
+                            autofocus
+                            placeholder="{{ __('Username') }}"
+                        />
+                    </x-form.input-with-icon-wrapper>
+                </div>
+
                 <!-- Email Address -->
                 <div class="space-y-2">
                     <x-form.label
