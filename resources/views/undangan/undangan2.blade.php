@@ -8,12 +8,12 @@
 	<!-- Font -->
 	<link href="https://fonts.googleapis.com/css?family=Playball%7CBitter" rel="stylesheet">
 	<!-- Stylesheets -->
-	<link href="undangan2/css/bootstrap.css" rel="stylesheet">
-	<link href="undangan2/css/fluidbox.min.css" rel="stylesheet">
-	<link href="undangan2/css/font-icon.css" rel="stylesheet">
-	<link href="undangan2/css/styles.css" rel="stylesheet">
-	<link href="undangan2/css/responsive.css" rel="stylesheet">
-	<link rel="icon" type="image/png" href="undangan2/images/logo-black.png">
+	<link href="resources/undangan2/css/bootstrap.css" rel="stylesheet">
+	<link href="resources/undangan2/css/fluidbox.min.css" rel="stylesheet">
+	<link href="resources/undangan2/css/font-icon.css" rel="stylesheet">
+	<link href="resources/undangan2/css/styles.css" rel="stylesheet">
+	<link href="resources/undangan2/css/responsive.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="resources/undangan2/images/logo-black.png">
 	
 </head>
 <body>
@@ -21,7 +21,7 @@
 	<!-- start = Menu -->
 	<header>
 		<div class="container">
-			<a class="logo" href="#"><img src="css/undangan2/images/logo-white.png" alt="Logo"></a>
+			<a class="logo" href="#"><img src="resources/undangan2/images/logo-white.png" alt="Logo"></a>
 			<div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="icon icon-bars"></i></div>
 			<ul class="main-menu visible-on-click" id="main-menu">
 				<li><a href="index.php">BERANDA</a></li>
@@ -350,7 +350,7 @@
 		<div class="container center-text" id="sosmed">
 			
 			<div class="logo-wrapper">
-				<a class="logo" href="#"><img src="css/undangan2/images/logo-black.png" alt="Logo Image"></a>
+				<a class="logo" href="#"><img src="resources/undangan2/images/logo-black.png" alt="Logo Image"></a>
 				<i class="icon icon-star"></i>
 			</div>
 			<ul class="social-icons">
@@ -381,12 +381,12 @@
 	</footer>
 	<!-- end = footer -->
 
-	<script src="undangan2/js/jquery-3.1.1.min.js"></script>	
-	<script src="undangan2/js/tether.min.js"></script>
-	<script src="undangan2/js/bootstrap.js"></script>
-	<script src="undangan2/js/jquery.countdown.min.js"></script>
-	<script src="undangan2/js/jquery.fluidbox.min.js"></script>
-	<script src="undangan2/js/scripts.js"></script>
+	<script src="resources/undangan2/js/jquery-3.1.1.min.js"></script>	
+	<script src="resources/undangan2/js/tether.min.js"></script>
+	<script src="resources/undangan2/js/bootstrap.js"></script>
+	<script src="resources/undangan2/js/jquery.countdown.min.js"></script>
+	<script src="resources/undangan2/js/jquery.fluidbox.min.js"></script>
+	<script src="resources/undangan2/js/scripts.js"></script>
 	
 </body>
 </html>
