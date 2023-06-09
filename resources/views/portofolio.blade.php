@@ -26,8 +26,8 @@
         class="w-32 rounded-full shadow-lg dark:shadow-black/30" />
     </div>
     <h5 class="mb-4 text-xl font-semibold">Ratna</h5>
-    <h6 class="mb-4 font-semibold text-primary dark:text-primary-500">
-      @ratna_
+    <h6 class="mb-4 text-neutral-600 dark:text-neutral-300">
+      ratna@gmail.com
     </h6>
     <p class="mb-4">
       <svg
@@ -114,8 +114,8 @@
             class="w-32 rounded-full shadow-lg dark:shadow-black/30" />
     </div>
     <h5 class="mb-4 text-xl font-semibold">Lisa blackpink</h5>
-    <h6 class="mb-4 font-semibold text-primary dark:text-primary-500">
-      @fandomlisa
+    <h6 class="mb-4 text-neutral-600 dark:text-neutral-300">
+      fandomlisa33@gmail.com
     </h6>
     <p class="mb-4">
       <svg
@@ -201,8 +201,8 @@
     </div>
     <div class="mb-12 md:mb-0">
       <h5 class="mb-4 text-xl font-semibold">hasan</h5>
-      <h6 class="mb-4 font-semibold text-primary dark:text-primary-400">
-        @hasannnnnn
+      <h6 class="mb-4 text-neutral-600 dark:text-neutral-300">
+        hasannnn@gmail.com
       </h6>
       <p class="mb-4">
         <svg
