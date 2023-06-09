@@ -68,7 +68,7 @@ Route::middleware(['auth','role:superadmin'])->group(function () {
 // user dashboard
 Route::middleware(['auth','role:user'])->group(function () {
     Route::get('/user/dashboard', function () {
-        return view('dashboard');
+        return view('/user/dashboard');
     })->name('user.dash');
 });
 
@@ -95,3 +95,9 @@ Route::get('/event/guest/{token}', [InvitController::class, 'guest'])->name('inv
 // katalog undangan
 Route::get('/templates', [UndanganController::class, 'katalog'])->name('undangan.katalog');
 Route::get('/templates/{id}', [UndanganController::class, 'detail'])->name('undangan.detail');
+
+Route::get('/event/edit/{id}', [EventController::class, 'edit'])->name('event.edit');
+
+Route::get('/event/undangan2', function () {
+    return view('undangan.undangan2');
+});

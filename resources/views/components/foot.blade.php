@@ -10,10 +10,10 @@
                 <li class="inline-block px-3 py-2 mt-5 font-bold tracking-wide text-gray-800 uppercase md:mt-0">
                     Main</li>
                 <li><a href="/"
-                        class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Undangan</a>
+                        class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Home</a>
                 </li>
                 <li><a href="/template"
-                        class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Undangan</a>
+                        class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Template</a>
                 </li>
                 <li><a href="/portofolio"
                         class="inline-block px-3 py-2 text-gray-500 no-underline hover:text-gray-600">Portofolio</a>
@@ -59,8 +59,8 @@
             </div>
         </div>
     </div>
-    <div class="pt-4 pt-6 mt-10 text-center text-gray-500 border-t border-gray-100">© 2023 Landmark. All rights
-        reserved.</div>
+    {{-- <div class="pt-4 pt-6 mt-10 text-center text-gray-500 border-t border-gray-100">© 2023 Landmark. All rights
+        reserved.</div> --}}
 
     <div class="pt-2 pt-4 mt-2 text-center text-gray-600 border-t border-gray-100">Distributed By <a
             href="https://themewagon.com/">Kelompok 1</a></div>

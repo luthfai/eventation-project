@@ -138,6 +138,79 @@
         </div>
     </div>
 
+
+    <!-- TUTORIALS -->
+    <div class="relative items-center justify-center w-full overflow-x-hidden lg:pt-40 lg:pb-40 xl:pt-40 xl:pb-50">
+        <div
+            class="container flex flex-col items-center justify-between h-full max-w-6xl px-8 mx-auto -mt-32 lg:flex-row xl:px-0">
+            <div
+                class="z-30 flex flex-col items-center w-full max-w-xl pt-48 text-center lg:items-start lg:w-1/2 lg:pt-20 xl:pt-40 lg:text-left">
+                <h1 class="relative mb-2 text-2xl font-black leading-tight text-red-700 sm:text-3xl xl:mb-5">Cara Membuat Undangan Kamu</h1>
+               
+
+                
+
+        
+
+                <div class="flex flex-col items-center justify-center w-full h-full max-w-2xl mb-4 mx-auto text-center">
+                    <blockquote
+                        class="flex flex-col-reverse items-center justify-between w-full col-span-1 p-6 mt-16 text-center transition-all duration-200 bg-gray-100 rounded-lg md:flex-row md:text-left hover:bg-white hover:shadow ease">
+                        <div class="flex flex-col pr-7">
+                            <div class="relative pl-10">
+                                   
+                                <p class="mt-2 text-base text-gray-600">
+                                1. Registrasi untuk membuat akun undangan kamu </p>
+                                <p class="mt-2 text-base text-gray-600">
+                                2. Isi Info Acara & Profile dan juga upload foto/gallery. Customize undangan kamu.</p>
+                                <p class="mt-2 text-base text-gray-600">
+                                3. Pilih Preset / Template. </p>
+                                <p class="mt-2 text-base text-gray-600">
+                                4. Aktifkan/lakukan pembayaran, dan undangan kamu siap untuk di sebarkan.</p>
+                            </div>
+                            <p class="mt-1 text-sm leading-2 text-gray-500 truncate"></p>
+                        </div>
+                        <img class="flex-shrink-0 object-cover w-24 h-24 mb-5 bg-gray-300 rounded-full md:mb-0"
+                            src="https://global-uploads.webflow.com/6100d0111a4ed76bc1b9fd54/6343bd802e9da71be2e29c20_metode%20user%20research%201.jpg"
+                            alt="">
+
+                            
+                    </blockquote>
+                </div>
+
+                {{-- <div class="flex flex-col items-center justify-center w-full h-full max-w-2xl mb-4 mx-auto text-center">
+
+                
+                    <blockquote
+                        class="flex flex-col-reverse items-center justify-between w-full col-span-1 p-6 mt-16 text-center transition-all duration-200 bg-gray-100 rounded-lg md:flex-row md:text-left hover:bg-white hover:shadow ease">
+                        <div class="flex flex-col pr-7">
+                            <div class="relative pl-10">
+                                   
+                                <p class="mt-2 text-base text-gray-600">
+                                3. Pilih Preset / Template. </p>
+                                <p class="mt-2 text-base text-gray-600">
+                                4. Aktifkan/lakukan pembayaran, dan undangan kamu siap untuk di sebarkan.</p>
+                            </div>
+
+                            <p class="mt-1 text-sm leading-2 text-gray-500 truncate"></p>
+                        </div>
+                        <img class="flex-shrink-0 object-cover w-24 h-24 mb-5 bg-gray-300 rounded-full md:mb-0"
+                            src="https://www.playbookux.com/wp-content/uploads/2020/05/2901_main-image-scaled.jpg"
+                            alt="">
+
+                            
+                    </blockquote>
+                </div> --}}
+            </div>
+            <div class="relative z-30 flex flex-col items-end justify-center w-full h-full lg:w-1/2 ms:pl-10">
+                <div class="container relative left-0 w-full max-w-4xl lg:absolute xl:max-w-6xl lg:w-screen">
+                    <img src="{{ asset('image/invite.png') }}" alt="mockup mobile"
+                        class="w-1/2 h-auto mt-20 mb-20 ml-0 lg:mt-24 xl:mt-40 lg:mb-0 lg:h-full lg:-ml-0">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- TUTORIALS END -->
+
     <!-- FOOTER -->
     <x-foot></x-foot>
     <!-- a little JS for the mobile nav button -->
