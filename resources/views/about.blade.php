@@ -14,7 +14,7 @@
                     <h2
                         class="text-4xl font-extrabold leading-10 tracking-tight text-gray-900 sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl">
                         Kelompok 1</h2>
-                    <p class="my-6 text-xl font-medium text-gray-500">what is this team for ?</p>
+                    <p class="my-6 text-xl font-medium text-gray-500">Welcome to our network of strengths and brilliant ideas. We are a team that doesn't just talk, but produces concrete actions that drive positive change</p>
                 </div>
                 <div class="flex flex-col items-center justify-center w-full h-full max-w-2xl mb-6 mx-auto text-center">
                     <blockquote
@@ -26,14 +26,12 @@
                                     <path
                                         d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z" />
                                 </svg>
-                                <p class="mt-2 text-base text-gray-600">Finally a quick and easy system I can use
-                                    for any type of
-                                    project.</p>
+                                <p class="mt-2 text-base text-gray-600">I direct a team with a clear vision towards achieving the desired goal.</p>
                             </div>
 
-                            <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">Molly
-                                Sanchez <span class="mt-1 text-sm leading-5 text-gray-500 truncate">- CEO
-                                    SomeCompany</span></h3>
+                            <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">Aido Luthfi Al Hakim
+                                 <span class="mt-1 text-sm leading-5 text-gray-500 truncate">- Project Manager
+                                 </span></h3>
                             <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                         </div>
                         <img class="flex-shrink-0 object-cover w-24 h-24 mb-5 bg-gray-300 rounded-full md:mb-0"
@@ -52,14 +50,12 @@
                                         <path
                                             d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z" />
                                     </svg>
-                                    <p class="mt-2 text-base text-gray-600">I'm loving these templates! Very nice
-                                        features and layouts.
+                                    <p class="mt-2 text-base text-gray-600">I am a digital architect who creates attractive and easy-to-use interfaces.
                                     </p>
                                 </div>
 
-                                <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">Sandra
-                                    Walton <span class="mt-1 text-sm leading-5 text-gray-500 truncate">- CEO
-                                        SomeCompany</span></h3>
+                                <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">Brilliyand Noval H.P
+                                     <span class="mt-1 text-sm leading-5 text-gray-500 truncate">- UI/UX Designer</span></h3>
                                 <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                             </div>
                             <img class="flex-shrink-0 object-cover w-24 h-24 mb-5 bg-gray-300 rounded-full md:mb-0"
@@ -75,13 +71,10 @@
                                         <path
                                             d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z" />
                                     </svg>
-                                    <p class="mt-2 text-base text-gray-600">Really digging this service. Now I can
-                                        quickly bootstrap any
-                                        project.</p>
+                                    <p class="mt-2 text-base text-gray-600">I look after project governance ensuring all aspects run smoothly and on time.</p>
                                 </div>
-                                <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">Kenny
-                                    Jones <span class="mt-1 text-sm leading-5 text-gray-500 truncate">- CEO
-                                        SomeCompany</span></h3>
+                                <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">Evi Amalia Midfia
+                                     <span class="mt-1 text-sm leading-5 text-gray-500 truncate">- Project Administrator</span></h3>
                                 <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                             </div>
                             <img class="flex-shrink-0 object-cover w-24 h-24 mb-5 bg-gray-300 rounded-full md:mb-0"
@@ -99,13 +92,12 @@
                                         <path
                                             d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z" />
                                     </svg>
-                                    <p class="mt-2 text-base text-gray-600">Extremely helpful in every single project we
-                                        have released.
+                                    <p class="mt-2 text-base text-gray-600">I make sure every element of the website design works flawlessly
                                     </p>
                                 </div>
 
-                                <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">Mike Smith
-                                    <span class="mt-1 text-sm leading-5 text-gray-500 truncate">- CEO SomeCompany</span>
+                                <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">M.Rizky Mafazan
+                                    <span class="mt-1 text-sm leading-5 text-gray-500 truncate">- Design Tester</span>
                                 </h3>
                                 <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                             </div>
@@ -122,18 +114,15 @@
                                         <path
                                             d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z" />
                                     </svg>
-                                    <p class="mt-2 text-base text-gray-600">Finally a quick and easy system I can use
-                                        for any type of
-                                        project.</p>
+                                    <p class="mt-2 text-base text-gray-600">I make sure the existing systems and processes run well and meet the set quality standards.</p>
                                 </div>
 
-                                <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">Molly
-                                    Sanchez <span class="mt-1 text-sm leading-5 text-gray-500 truncate">- CEO
-                                        SomeCompany</span></h3>
+                                <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 truncate">Mellyana Tundjung
+                                     <span class="mt-1 text-sm leading-5 text-gray-500 truncate">- Quality Control</span></h3>
                                 <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                             </div>
                             <img class="flex-shrink-0 object-cover w-24 h-24 mb-5 bg-gray-300 rounded-full md:mb-0"
-                                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80"
+                                src="https://secure.gravatar.com/avatar/83a9f4edaf2cb1c2a7afc02481ae2e82?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMT-4.png"
                                 alt="">
                         </blockquote>
                     </div>
