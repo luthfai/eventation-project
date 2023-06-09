@@ -11,3 +11,4 @@
            @dd($event, $guest)
         </div>
     </div>
+

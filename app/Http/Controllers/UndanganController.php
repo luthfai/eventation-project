@@ -21,4 +21,6 @@ class UndanganController extends Controller
         $undangan = Undangan::find($id);
         return view('detail-undangan', compact('undangan'));
     }
+
+
 }

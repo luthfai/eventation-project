@@ -22,4 +22,19 @@ class EventController extends Controller
         $token = request()->token;
         // find event id from
     }
+
+    public function edit()
+
+    {
+        // only authenticated users can see this page
+        $event = Event::find(request()->id);
+        return view('event.edit', compact('event'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // only authenticated users can see this page
+        $event = Event::find($id);
+        return redirect()->route('event.edit', $id)->with('success', 'Event updated successfully');
+    }
 }
