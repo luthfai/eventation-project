@@ -95,3 +95,9 @@ Route::get('/event/guest/{token}', [InvitController::class, 'guest'])->name('inv
 // katalog undangan
 Route::get('/templates', [UndanganController::class, 'katalog'])->name('undangan.katalog');
 Route::get('/templates/{id}', [UndanganController::class, 'detail'])->name('undangan.detail');
+
+Route::get('/event/edit/{id}', [EventController::class, 'edit'])->name('event.edit');
+
+Route::get('/event/undangan2', function () {
+    return view('undangan.undangan2');
+});

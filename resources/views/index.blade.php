@@ -167,7 +167,6 @@
                                 <p class="mt-2 text-base text-gray-600">
                                 4. Aktifkan/lakukan pembayaran, dan undangan kamu siap untuk di sebarkan.</p>
                             </div>
-
                             <p class="mt-1 text-sm leading-2 text-gray-500 truncate"></p>
                         </div>
                         <img class="flex-shrink-0 object-cover w-24 h-24 mb-5 bg-gray-300 rounded-full md:mb-0"
@@ -179,6 +178,8 @@
                 </div>
 
                 {{-- <div class="flex flex-col items-center justify-center w-full h-full max-w-2xl mb-4 mx-auto text-center">
+
+                
                     <blockquote
                         class="flex flex-col-reverse items-center justify-between w-full col-span-1 p-6 mt-16 text-center transition-all duration-200 bg-gray-100 rounded-lg md:flex-row md:text-left hover:bg-white hover:shadow ease">
                         <div class="flex flex-col pr-7">

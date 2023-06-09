@@ -40,5 +40,7 @@ class UndanganSeeder extends Seeder
             'paket' => 'Basic',
             'kategori' => 'Wedding'
         ]);
+        // using factory
+        \App\Models\Undangan::factory()->count(10)->create();
     }
 }
