@@ -7,7 +7,7 @@
     <div class="mx-auto text-center md:max-w-xl lg:max-w-3xl">
   <h3
     class="mb-6 text-3xl font-bold text-neutral-800 dark:text-neutral-200">
-    Testimonials
+    customer reviews
   </h3>
   <p class="mb-6 pb-2 md:mb-12 md:pb-0">
     jangan hanya percaya dengan kata-kata kami,
