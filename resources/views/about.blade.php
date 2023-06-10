@@ -122,7 +122,7 @@
                                 <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                             </div>
                             <img class="flex-shrink-0 object-cover w-24 h-24 mb-5 bg-gray-300 rounded-full md:mb-0"
-                                src="https://secure.gravatar.com/avatar/83a9f4edaf2cb1c2a7afc02481ae2e82?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FMT-4.png"
+                                src="https://avatars.githubusercontent.com/u/93071012?v=4"
                                 alt="">
                         </blockquote>
                     </div>
