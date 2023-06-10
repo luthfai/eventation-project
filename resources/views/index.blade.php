@@ -2,6 +2,7 @@
 @section('title', 'Home')
 @section('content')
     <x-header></x-header>
+    
     <!-- BEGIN HERO SECTION -->
     <div class="relative items-center justify-center w-full overflow-x-hidden lg:pt-40 lg:pb-40 xl:pt-40 xl:pb-64">
         <div
@@ -86,9 +87,7 @@
                         <!-- FEATURE Icon 1 -->
                         <h4 class="relative mt-6 text-lg font-bold">All Events</h4>
                         <p class="relative mt-2 text-base text-center text-gray-600">Implementasikan undangan digital untuk
-                            semua keperluan acara anda mulai dari pernikahan hingga ulah tahun</p>
-                        <a href="#_" class="relative flex mt-2 text-sm font-medium text-red-500 underline">Learn
-                            More</a>
+                            semua keperluan acara anda mulai dari pernikahan hingga ulang tahun</p>
                     </div>
                 </div>
 
@@ -107,9 +106,7 @@
 
                         <h4 class="relative mt-6 text-lg font-bold">Easy for Use</h4>
                         <p class="relative mt-2 text-base text-center text-gray-600">Dibuat dan dirancang untuk kemudahan
-                            user dalam pembuatan undangan digital</p>
-                        <a href="#_" class="relative flex mt-2 text-sm font-medium text-red-500 underline">Learn
-                            More</a>
+                            tuan rumah dalam pembuatan undangan digital</p>
                     </div>
                 </div>
 
@@ -129,8 +126,6 @@
                         <h4 class="relative mt-6 text-lg font-bold">Send via WhatsApp</h4>
                         <p class="relative mt-2 text-base text-center text-gray-600">Kirim undangan anda dengan aplikasi
                             chat yang umum dan sudah banyak digunakan oleh banyak orang.</p>
-                        <a href="#_" class="relative flex mt-2 text-sm font-medium text-red-500 underline">Learn
-                            More</a>
                     </div>
                 </div>
 
