@@ -1,175 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Undangan Pernikahan</title>
-    <style>
-        body {
-            font-family: 'Cedarville Cursive', cursive;
-            text-align: center;
-            color: #ffffff;
-            padding: 20px;
-            background-image: url("{{ asset('undangan2/wallpaperbetter.jpg') }}");
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .card {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 40px;
-        background-color: rgba(2, 45, 44, 0.9);
-        border-radius: 20px;
-        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+  <title>Undangan Pernikahan</title>
+  <style>
+    /* CSS untuk tata letak dan tampilan halaman */
+    body {
+      font-family: 'Cedarville Cursive', cursive;
+      margin: 0;
+      padding: 0;
     }
     
-    h1 {
-        font-family: 'Parisienne', cursive;
-        font-size: 36px;
-        margin-bottom: 20px;
-    }
-    h3{
-        font-family: 'Parisienne', cursive;
-        font-size: 32px;
+    .header {
+      background-color: #f5d5e6;
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+      height: 100vh;
     }
     
-    .couple-photos {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
+    .content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #f9e2f3;
+      padding: 50px;
+      width: 100%;
+      height: 100vh;
     }
     
-    .couple-photo {
-        width: 25%;
-        border-radius: 50%;
+    .couple-info {
+      text-align: center;
+      width: 50%;
     }
     
-    p {
-        font-family: 'Crimson Text', serif;
-        line-height: 1.5;
-        font-size: 22px;
-        margin-bottom: 20px;
-        font-weight: bold;
+    .event-details {
+      text-align: center;
+      width: 50%;
     }
     
-    .date-time {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px;
+    .rsvp-form {
+      text-align: center;
+      width: 100%;
     }
     
-    .location {
-        font-size: 16px;
+    .rsvp-form input[type="text"],
+    .rsvp-form input[type="email"],
+    .rsvp-form select {
+      font-family: 'Cedarville Cursive', cursive;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 10px;
     }
     
-    .contact-info {
-        font-size: 14px;
+    .rsvp-form input[type="submit"] {
+      background-color: #f5d5e6;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
     }
-    
-    .audio-controls {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-    
-    .audio-controls button {
-        margin: 0 10px;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        font-family: 'Crimson Text', serif;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    .form-container {
-        margin-top: 20px;
-        text-align: left;
-    }
-
-    .form-container input[type="text"],
-    .form-container input[type="email"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        border: none;
-    }
-
-    .form-container button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        background-color: #ff4c60;
-        color: #ffffff;
-        font-family: 'Crimson Text', serif;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    .form-container button:hover {
-        background-color: #e63b4d;
-    }
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Parisienne&family=Crimson+Text&display=swap" rel="stylesheet">
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="card">
-        <h1>Undangan Pernikahan</h1>
-        <div class="couple-photos">
-            <img class="couple-photo" src="{{ asset('undangan2\1.png') }}" alt="Foto Pasangan 1">
-            <img class="couple-photo" src="{{ asset('undangan2\2.png') }}" alt="Foto Pasangan 2">
-        </div>
-        <p>Kami dengan gembira mengundang Anda untuk merayakan momen bahagia kami saat kami bergabung dalam ikatan pernikahan.</p>
-        <p>Harap bergabung dengan kami pada:</p>
-        <div class="date-time">
-            <p>[Tanggal]</p>
-            <p>[Waktu]</p>
-        </div>
-        <div class="location">
-            <p>[Lokasi]</p>
-            <p>[Alamat]</p>
-        </div>
-        <div class="contact-info">
-            <p>Silakan hubungi kami di [Nomor Telepon] atau [Email] jika Anda memiliki pertanyaan atau konfirmasi kehadiran.</p>
-        </div>
-        <p>Terima kasih dan kami harap dapat berbagi kebahagiaan ini bersama Anda.</p>
-        <p>Salam hangat,</p>
-        <p>[Nama Pasangan]</p>
-
-        <div class="audio-controls">
-            <button id="play-btn">Play</button>
-            <button id="pause-btn">Pause</button>
-        </div>
-    
-        <audio id="audio" autoplay>
-            <source src="{{ asset('undangan2\audio.mp3') }}" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    
-        <div class="form-container">
-            <h3>Konfirmasi Kehadiran</h3>
-            <form action="" method="POST">
-                @csrf
-                <input type="text" name="nama" placeholder="Nama Anda" required>
-                <input type="email" name="email" placeholder="Email Anda" required>
-                <button type="submit">Konfirmasi</button>
-            </form>
-        </div>
+  <div class="header">
+    <h1>Undangan Pernikahan</h1>
+    <p>Foto kedua mempelai dan informasi mengenai mempelai</p>
+    <!-- Masukkan foto kedua mempelai di sini -->
+    <img src="foto-mempelai.jpg" alt="Foto Mempelai">
+  </div>
+  
+  <div class="content">
+    <div class="couple-info">
+      <h2>Informasi Mempelai</h2>
+      <p>Deskripsi mengenai mempelai</p>
     </div>
     
-    <script>
-        var audio = document.getElementById("audio");
-        var playBtn = document.getElementById("play-btn");
-        var pauseBtn = document.getElementById("pause-btn");
+    <div class="event-details">
+      <h2>Detail Acara</h2>
+      <p>Tanggal, Waktu, dan Tempat Acara</p>
+    </div>
     
-        playBtn.addEventListener("click", function() {
-            audio.play();
-        });
-    
-        pauseBtn.addEventListener("click", function() {
-            audio.pause();
-        });
-    </script>
-    </body>
-    </html>
+    <div class="rsvp-form">
+      <h2>Konfirmasi Kehadiran</h2>
+      <form>
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="attendance">Kehadiran:</label>
+        <select id="attendance" name="attendance" required>
+          <option value="">Pilih Kehadiran</option>
+          <option value="hadir">Hadir</option>
+          <option value="tidak_hadir">Tidak Hadir</option>
+        </select><br><br>
+        
+        <input type="submit" value="Konfirmasi">
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    // JavaScript untuk logika tambahan, jika diperlukan
+  </script>
+</body>
+</html>
