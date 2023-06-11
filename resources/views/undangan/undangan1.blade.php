@@ -18,7 +18,10 @@
     }
     
     .header {
-      background-color: #110c0c; /* Warna latar belakang yang lebih gelap pada header */
+      background-image: url({{asset ('undangan2/road_turn_sunlight_861830_3840x2400.jpg') }});
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
       padding: 20px;
       text-align: center;
     }
@@ -82,7 +85,10 @@
       margin: 0 auto;
       padding: 50px;
       text-align: center;
-      background-color: #110c0c; /* Warna latar belakang form */
+      background-image: url({{asset ('undangan2/forest_jungle_path_139709_2560x1440.jpg') }});
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
       border-radius: 10px; /* Membulatkan sudut form */
       margin-bottom: 50px; /* Jarak antara form kehadiran dan form RSVP */
     }
