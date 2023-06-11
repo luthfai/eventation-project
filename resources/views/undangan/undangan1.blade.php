@@ -145,7 +145,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-  <audio id="background-music" src="background-music.mp3" autoplay loop></audio>
+  <audio id="background-music" src="{{asset ('undangan2/audio.mp3') }}" autoplay loop></audio>
   
   <div class="header">
     <h1>Undangan Pernikahan</h1>
