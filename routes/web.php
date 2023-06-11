@@ -28,6 +28,15 @@ Route::get('/portofolio', function () {
     return view('portofolio');
 })->name('portofolio');
 
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+// no access route
+Route::get('/no-access', function () {
+    return view('no-access');
+})->name('no.access');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -73,16 +82,9 @@ Route::middleware(['auth','role:user'])->group(function () {
 
     Route::get('/user/dashboard/event', [EventController::class, 'userShow'])->name('user.event');
     Route::get('/user/dashboard/event/edit/{slug}', [EventController::class, 'edit'])->name('user.event.edit');
-
+    Route::get('/user/dashboard/event/view/{slug}', [EventController::class, 'view'])->name('user.event.view');
 });
 
-// Route::resource('AboutUs', AboutUsController::class);
-
-Route::get('/about', function () {
-    return view('about');
-});
-
-// route undangan controller with id parameter
 
 require __DIR__ . '/auth.php';
 

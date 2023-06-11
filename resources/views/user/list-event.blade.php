@@ -22,7 +22,7 @@
                     <div class="mt-4 flex justify-between">
                         <div>
                             <h3 class="text-sm text-gray-700">
-                                <a href="/user/dashboard/event/edit/{{ $event->slug }}">
+                                <a href="/user/dashboard/event/view/{{ $event->slug }}">
                                     <span aria-hidden="true" class="absolute inset-0"></span>
                                     {{ $event->title }}
                                 </a>

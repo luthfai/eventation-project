@@ -82,4 +82,15 @@ class EventController extends Controller
 
         return view('user.list-event', compact('events'));
     }
+
+    public function view($slug)
+    {
+        // only authenticated users can see this page
+        $event = DB::table('events')->where('slug', $slug)->first();
+        $undangan = DB::table('undangans')->where('id', $event->undangan_id)->first();
+        if ($event->user_id != auth()->user()->id) {
+            return redirect()->route('no.access');
+        }
+        return view('undangan.' . $undangan->slug, compact('event'));
+    }
 }

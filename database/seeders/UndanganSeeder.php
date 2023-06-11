@@ -17,6 +17,7 @@ class UndanganSeeder extends Seeder
             'name' => 'Modern Minimalisiqie',
             'description' => 'Modern Minimalisique adalah undangan yang dibuat dengan desain minimalis dan modern, cocok untuk kamu yang ingin mengadakan acara pernikahan dengan tema minimalis dan modern, dengan harga yang terjangkau.',
             'price' => 100000,
+            'slug' => 'undangan1',
             'image' => 'thumb-u1-1.png',
             'image2' => 'thumb-u1-2.png',
             'image3' => 'thumb-u1-3.png',
