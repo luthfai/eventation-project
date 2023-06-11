@@ -70,6 +70,10 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::get('/user/dashboard', function () {
         return view('/user/dashboard');
     })->name('user.dash');
+
+    Route::get('/user/dashboard/event', [EventController::class, 'userShow'])->name('user.event');
+    Route::get('/user/dashboard/event/edit/{slug}', [EventController::class, 'edit'])->name('user.event.edit');
+
 });
 
 // Route::resource('AboutUs', AboutUsController::class);
@@ -99,3 +103,8 @@ Route::get('/templates/{id}', [UndanganController::class, 'detail'])->name('unda
 Route::get('/test', function () {
     return view('undangan.undangan1');
 })->name('index');
+Route::get('/event/edit/{slug}', [EventController::class, 'edit'])->name('event.edit');
+
+Route::get('/event/undangan2', function () {
+    return view('undangan.undangan2');
+});

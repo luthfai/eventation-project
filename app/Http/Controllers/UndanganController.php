@@ -22,5 +22,6 @@ class UndanganController extends Controller
         return view('detail-undangan', compact('undangan'));
     }
 
+    // undangan user
 
 }
