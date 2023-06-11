@@ -97,5 +97,5 @@ Route::get('/templates', [UndanganController::class, 'katalog'])->name('undangan
 Route::get('/templates/{id}', [UndanganController::class, 'detail'])->name('undangan.detail');
 
 Route::get('/test', function () {
-    return view('undangan.undangan2');
+    return view('undangan.undangan1');
 })->name('index');

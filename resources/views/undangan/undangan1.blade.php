@@ -8,7 +8,7 @@
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #1e1e1e; /* Warna latar belakang yang bertema alam */
+      background-color: #070606; /* Warna latar belakang yang bertema alam */
       color: #fff; /* Warna teks yang kontras dengan latar belakang */
       position: relative;
     }
@@ -18,13 +18,13 @@
     }
     
     .header {
-      background-color: #262626; /* Warna latar belakang yang lebih gelap pada header */
+      background-color: #110c0c; /* Warna latar belakang yang lebih gelap pada header */
       padding: 20px;
       text-align: center;
     }
     
     .content {
-      background-color: #333333; /* Warna latar belakang yang lebih gelap pada konten pertama */
+      background-color: #1e1d1d; /* Warna latar belakang yang lebih gelap pada konten pertama */
       padding: 50px;
       text-align: center;
     }
@@ -82,7 +82,7 @@
       margin: 0 auto;
       padding: 50px;
       text-align: center;
-      background-color: #1e1e1e; /* Warna latar belakang form */
+      background-color: #110c0c; /* Warna latar belakang form */
       border-radius: 10px; /* Membulatkan sudut form */
       margin-bottom: 50px; /* Jarak antara form kehadiran dan form RSVP */
     }
@@ -185,16 +185,10 @@
         <input type="text" id="name" name="name" required>
         
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required><br>
         
-        <label for="attendance">Kehadiran:</label>
-        <select id="attendance" name="attendance" required>
-          <option value="">Pilih Kehadiran</option>
-          <option value="hadir">Hadir</option>
-          <option value="tidak_hadir">Tidak Hadir</option>
-        </select>
         
-        <input type="submit" value="Konfirmasi" style="background-color: darkgreen; ">
+        <input type="submit" value="Konfirmasi" style="background-color: rgb(109, 57, 66); ">
       </form>
     </div>
   </div>
