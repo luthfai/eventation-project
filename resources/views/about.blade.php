@@ -35,8 +35,7 @@
                             <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                         </div>
                         <img class="flex-shrink-0 object-cover w-24 h-24 mb-5 bg-gray-300 rounded-full md:mb-0"
-                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80"
-                            alt="">
+                            src = "{{ asset('image/aido.jpeg') }}" alt="">
                     </blockquote>
                 </div>
                 <div class="flex flex-col items-center justify-center max-w-2xl py-8 mx-auto xl:flex-row xl:max-w-full">
