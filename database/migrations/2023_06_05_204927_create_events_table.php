@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nickname1');
             $table->string('name2');
             $table->string('nickname2');
-            $table->string('slug'); // this is the URL-friendly version of the title
+            $table->string('slug')->unique();
             $table->string('description');
             $table->string('location');
             $table->timestamp('event_date');

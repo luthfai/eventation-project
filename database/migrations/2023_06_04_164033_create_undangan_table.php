@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string('description');
             $table->integer('price');
             $table->string('image');
-            $table->string('image_alt');
+            $table->string('image2');
+            $table->string('image3');
+            $table->string('image4');
             $table->string('paket');
             $table->string('kategori');
             $table->timestamps();

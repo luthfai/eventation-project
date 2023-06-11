@@ -132,7 +132,7 @@
                             :value="old('location',$event->location)" required autofocus placeholder="{{ __('Location') }}" />
                     </x-form.input-with-icon-wrapper>
                 </div>
-                <!-- Event Date -->
+                {{-- <!-- Event Date -->
                 <div class="space-y-2">
                     <x-form.label for="event_date" :value="__('Event Date')" />
 
@@ -155,33 +155,14 @@
                         <x-form.input withicon id="event_time" class="block w-full" type="time" name="event_time"
                             :value="old('time',$event->event_time)" required autofocus placeholder="{{ __('Event Time') }}" />
                     </x-form.input-with-icon-wrapper>
-                </div>
+                </div> --}}
 
-                <!-- Event Type -->
-                <div class="space-y-2">
-                    <x-form.label for="event_type" :value="__('Event Type')" />
-
-                    <x-form.input-with-icon-wrapper>
-                        <x-slot name="icon">
-                            <x-heroicon-o-tag aria-hidden="true" class="w-5 h-5" />
-                        </x-slot>
-                        <x-form.select withicon id="event_type" class="block w-full" type="text" name="event_type"
-                            :value="old('event_type',$event->event_type)" required autofocus placeholder="{{ __('Event Type') }}">
-                            <option value="wedding">Wedding</option>
-                            <option value="engagement">Engagement</option>
-                            <option value="birthday">Birthday</option>
-                            <option value="anniversary">Anniversary</option>
-                            <option value="other">Other</option>
-                        </x-form.select>
-                    </x-form.input-with-icon-wrapper>
-                </div>
 
                 <!-- Event Status -->
             </div>
             <div>
                 <x-button class="justify-center w-full gap-2 my-2">
                     <x-heroicon-o-check aria-hidden="true" class="w-5 h-5" />
-
                     <span>{{ __('Apply') }}</span>
                 </x-button>
             </div>

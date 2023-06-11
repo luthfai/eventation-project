@@ -50,7 +50,7 @@ class EventSeeder extends Seeder
             'nickname1' => 'Rizky',
             'name2' => 'Leslie wong',
             'nickname2' => 'Leslie',
-            'slug' => 'wedding-invitation',
+            'slug' => 'RiskyLeslie',
             'description' => 'Wedding Invitation',
             'location' => 'Jakarta',
             'event_date' => '2021-06-05 20:49:27',
