@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Guest;
 // event model
 use App\Models\Event;
+//undaangan model
+use App\Models\Undangan;
 // db
 use Illuminate\Support\Facades\DB;
 
@@ -70,7 +72,14 @@ class EventController extends Controller
     public function userShow()
     {
         // only show events that belong to the user
-        $events = DB::table('events')->where('user_id', auth()->user()->id)->get();
+        // add undangan data to events using undangan_id
+        // $events = Event::where('user_id', auth()->user()->id)->get();
+        $events = DB::table('events')
+            ->join('undangans', 'events.undangan_id', '=', 'undangans.id')
+            ->select('events.*', 'undangans.name', 'undangans.image')
+            ->where('events.user_id', auth()->user()->id)
+            ->get();
+
         return view('user.list-event', compact('events'));
     }
 }

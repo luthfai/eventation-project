@@ -22,6 +22,12 @@ class UndanganController extends Controller
         return view('detail-undangan', compact('undangan'));
     }
 
+    public function checkout($id)
+    {
+        $undangan = Undangan::find($id);
+        return view('pembayaran', compact('undangan'));
+    }
+
     // undangan user
 
 }
