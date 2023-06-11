@@ -271,7 +271,7 @@ Font yang digunakan pada undangan ini adalah font yang elegan dan legible. Huruf
               <li class="text-gray-400"><span class="text-gray-600">Motif Bunga yang Indah</span></li>
               <li class="text-gray-400"><span class="text-gray-600">Teks Elegan</span></li>
               <li class="text-gray-400"><span class="text-gray-600">Suasana Mewah dan Romantis</span></li>
-              <li class="text-gray-400"><span class="text-gray-600">Fleksibilitas</span></li>
+              <li class="text-gray-400"><span class="text-gray-600">Fleksi bilitas</span></li>
             </ul>
           </div>
         </div>
