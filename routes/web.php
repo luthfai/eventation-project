@@ -66,9 +66,11 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::delete('/admin/dashboard/user/{id}', [AdminController::class, 'UserDestroy'])->name('admin.user.destroy');
 });
 
-Route::middleware(['auth','role:superadmin'])->group(function () {
+Route::middleware(['auth', 'role:superadmin'])->group(function () {
     Route::get('/super/dashboard', [SuperAdminController::class, 'SuperDashboard'])->name('super.dash');
     Route::get('/super/dashboard/admin', [SuperAdminController::class, 'AdminList'])->name('super.admin');
+    Route::get('/super/dashboard/admin-create', [SuperAdminController::class, 'AdminCreate'])->name('super.admin.create');
+    Route::post('/super/dashboard/admin-store', [SuperAdminController::class, 'AdminStore'])->name('super.admin.store');
     Route::get('/super/dashboard/admin/{id}', [SuperAdminController::class, 'AdminEdit'])->name('super.admin.edit');
     Route::patch('/super/dashboard/admin/{id}', [SuperAdminController::class, 'AdminUpdate'])->name('super.admin.update');
     Route::delete('/super/dashboard/admin/{id}', [SuperAdminController::class, 'AdminDestroy'])->name('super.admin.destroy');
@@ -79,10 +81,10 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::get('/user/dashboard', function () {
         return view('/user/dashboard');
     })->name('user.dash');
-
     Route::get('/user/dashboard/event', [EventController::class, 'userShow'])->name('user.event');
     Route::get('/user/dashboard/event/edit/{slug}', [EventController::class, 'edit'])->name('user.event.edit');
     Route::get('/user/dashboard/event/view/{slug}', [EventController::class, 'view'])->name('user.event.view');
+    Route::patch('/user/dashboard/event/edit/{slug}', [EventController::class, 'update'])->name('user.event.update');
 });
 
 

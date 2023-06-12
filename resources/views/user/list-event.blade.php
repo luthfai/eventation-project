@@ -14,7 +14,7 @@
                 @foreach ($events as $event)
                 <div class="group relative">
                     <div
-                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 hover:shadow-md lg:h-80 transition-all duration-150">
                         <img src='/image/undangan/{{ $event->image }}'
                             alt="{{ $event->name }}"
                             class="h-full w-full object-cover object-center lg:h-full lg:w-full">
@@ -23,14 +23,19 @@
                         <div>
                             <h3 class="text-sm text-gray-700">
                                 <a href="/user/dashboard/event/view/{{ $event->slug }}">
-                                    <span aria-hidden="true" class="absolute inset-0"></span>
+
                                     {{ $event->title }}
                                 </a>
                             </h3>
-                            <p class="mt-1 text-sm text-gray-500">{{ $event->event_date }}</p>
+                            {{-- format tanggal --}}
+                            <p class="mt-1 mb-2 text-sm text-gray-500"> {{ date('l, d-m-Y', strtotime($event->event_date)) }}</li>
                         </div>
                     </div>
+                    <a href="/user/dashboard/event/view/{{ $event->slug }}" class="text-sm bg-indigo-500 text-gray-800 px-6 py-2 rounded-md hover:bg-indigo-600 hover:shadow-md">View</a>
+                    <a href="/user/dashboard/event/edit/{{ $event->slug }}" class="text-sm bg-indigo-500 text-gray-800 px-6 py-2 rounded-md hover:bg-indigo-600 hover:shadow-md">Edit</a>
+
                 </div>
+                {{-- delete button --}}
                 @endforeach
                 <!-- More products... -->
             </div>

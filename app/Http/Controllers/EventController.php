@@ -39,33 +39,49 @@ class EventController extends Controller
 
     public function update(Request $request, $slug)
     {
-        // only authenticated users can see this page
-        $event = Event::find($slug);
-        $event->title = $request->title;
-        $event->name1 = $request->name1;
-        $event->nickname1 = $request->nickname1;
-        $event->name2 = $request->name2;
-        $event->nickname2 = $request->nickname2;
-        $event->description = $request->description;
-        $event->location = $request->location;
-        $event->event_date = $request->event_date;
-        $event->event_image = $request->event_image;
-        $event->event_image_alt = $request->event_image_alt;
-        $event->event_image_title = $request->event_image_title;
-        $event->event_image_caption = $request->event_image_caption;
-        $event->event_video = $request->event_video;
-        $event->event_video_alt = $request->event_video_alt;
-        $event->event_video_title = $request->event_video_title;
-        $event->event_video_caption = $request->event_video_caption;
-        $event->event_audio = $request->event_audio;
-        $event->event_audio_alt = $request->event_audio_alt;
-        $event->event_audio_title = $request->event_audio_title;
-        $event->event_audio_caption = $request->event_audio_caption;
-        $event->location_url = $request->location_url;
-        $event->undangan_id = $request->undangan_id;
+        // validate the request
+        $request->validate([
+            'name' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+            'place' => 'required',
+            'address' => 'required',
+            'description' => 'required',
+        ]);
 
-        $event->save();
-        return redirect()->route('event.edit', $id)->with('success', 'Event updated successfully');
+        // get the event
+        $event = DB::table('events')->where('slug', $slug)->first();
+
+        // check if the user is authorized to update the event
+        if ($event->user_id != auth()->user()->id) {
+            return redirect()->route('no.access');
+        }
+
+        // check if the request has an image
+        if ($request->hasFile('image')) {
+            // delete the old image
+            unlink(public_path('images/' . $event->image));
+            // upload the new image
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+        } else {
+            // use the old image
+            $imageName = $event->image;
+        }
+
+        // update the event
+        DB::table('events')->where('slug', $slug)->update([
+            'name' => $request->name,
+            'date' => $request->date,
+            'time' => $request->time,
+            'place' => $request->place,
+            'address' => $request->address,
+            'description' => $request->description,
+            'image' => $imageName,
+        ]);
+
+        // redirect to the dashboard
+        return redirect()->route('dashboard');
     }
 
     // show user events

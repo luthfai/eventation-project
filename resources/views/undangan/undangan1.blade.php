@@ -180,8 +180,6 @@
     <div class="event-details">
       <h2>Detail Acara</h2>
       <ul>
-        {{-- format date to hari, tanggal-bulan-tahun --}}
-        {{-- set locale to indonesia --}}
         {{ setlocale(LC_TIME, 'id_ID') }}
         <li>Tanggal Acara: {{ date('l, d-m-Y', strtotime($event->event_date)) }}</li>
         <li>Waktu Acara: {{ date('H:i', strtotime($event->start_date)) }} - {{ date('H:i', strtotime($event->end_date)) }}</li>
@@ -198,7 +196,7 @@
             marginwidth="0"></iframe>
         </div>
       </div>
-
+    </div>
 
 
     <div class="attendance-form">

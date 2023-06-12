@@ -57,7 +57,6 @@ class EventSeeder extends Seeder
             'user_id' => 4,
             'undangan_id' => 1,
         ]);
-
         DB::table('events')->insert([
             'title' => 'Wedding Invitation',
             'name1' => 'Rizky Billiard',
