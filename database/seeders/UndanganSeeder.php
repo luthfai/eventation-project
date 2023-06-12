@@ -25,23 +25,18 @@ class UndanganSeeder extends Seeder
             'paket' => 'Basic',
             'kategori' => 'Wedding'
         ]);
-        // DB::table('undangans')->insert([
-        //     'name' => 'undangan2',
-        //     'description' => 'undangan2',
-        //     'price' => 100000,
-        //     'image' => "https://cdn0.hitched.co.uk/article/1084/3_2/960/jpg/64801-wedding-evites-etsy.jpeg",
-        //     'image_alt' => 'undangan2',
-        //     'paket' => 'Basic',
-        //     'kategori' => 'Wedding'
-        // ]);
-        // DB::table('undangans')->insert([
-        //     'name' => 'undangan3',
-        //     'description' => 'undangan3',
-        //     'price' => 100000,
-        //     'image' => "https://cdn0.hitched.co.uk/article/1084/3_2/960/jpg/64801-wedding-evites-etsy.jpeg",
-        //     'image_alt' => 'undangan3',
-        //     'paket' => 'Basic',
-        //     'kategori' => 'Wedding'
-        // ]);
+
+        DB::table('undangans')->insert([
+            'name' => 'Elegante',
+            'description' => 'Elegante adalah undangan yang dibuat dengan desain elegan dan mewah, cocok untuk kamu yang ingin mengadakan acara pernikahan dengan tema elegan dan mewah, dengan harga yang terjangkau.',
+            'price' => 100000,
+            'slug' => 'undangan2',
+            'image' => 'thumb-u2-1.png',
+            'image2' => 'thumb-u2-2.png',
+            'image3' => 'thumb-u2-3.png',
+            'image4' => 'thumb-u2-4.png',
+            'paket' => 'Basic',
+            'kategori' => 'Wedding'
+        ]);
     }
 }

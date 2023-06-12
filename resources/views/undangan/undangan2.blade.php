@@ -1,113 +1,241 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Undangan Pernikahan</title>
-  <style>
+@extends('layouts.template')
+
+<style>
     /* CSS untuk tata letak dan tampilan halaman */
     body {
-      font-family: 'Cedarville Cursive', cursive;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #660000; /* Warna latar belakang yang bertema alam */
+      color: #cc9900; /* Warna teks yang kontras dengan latar belakang */
+      position: relative;
     }
-
+    
+    h1 {
+      font-family: 'Cedarville Cursive', cursive;
+    }
+    
     .header {
-      background-color: #f5d5e6;
+      background-color: #262626; /* Warna latar belakang yang lebih gelap pada header */
       padding: 20px;
       text-align: center;
-      width: 100%;
-      height: 100vh;
     }
-
+    
     .content {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      background-color: #f9e2f3;
+      background-color: #fff; /* Warna latar belakang yang lebih gelap pada konten pertama */
       padding: 50px;
-      width: 100%;
-      height: 100vh;
+      text-align: center;
     }
-
+    
     .couple-info {
-      text-align: center;
-      width: 50%;
+      width: 70%;
+      margin: 0 auto;
+      margin-top: 30px; /* Jarak antara foto dan informasi mempelai */
     }
 
+    .couple-nama{
+        font-family: "Lucida Console", "Courier New", monospace;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .couple-nama h3{
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    .pria , .wanita{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    
+
+    
     .event-details {
-      text-align: center;
-      width: 50%;
+      width: 70%;
+      margin: 0 auto;
+      margin-bottom: 50px; /* Jarak antara informasi acara dan rsvp form */
     }
-
-    .rsvp-form {
-      text-align: center;
-      width: 100%;
+    
+    .event-details ul {
+      list-style-type: none;
+      padding: 0;
     }
-
-    .rsvp-form input[type="text"],
-    .rsvp-form input[type="email"],
-    .rsvp-form select {
-      font-family: 'Cedarville Cursive', cursive;
+    
+    .event-details li {
+      margin-bottom: 20px;
+    }
+    
+    .attendance-form {
+      width: 70%;
+      margin: 0 auto;
+      padding: 50px;
+      text-align: center;
+      background-color: #660000; /* Warna latar belakang form */
+      border-radius: 10px; /* Membulatkan sudut form */
+      margin-bottom: 50px; /* Jarak antara form kehadiran dan form RSVP */
+    }
+    
+    .attendance-form h2 {
+      color: #fff; /* Warna teks pada form */
+      margin-bottom: 20px;
+    }
+    
+    .attendance-form label {
+      display: block;
+      text-align: center;
+      color: #fff; /* Warna teks pada form */
+      margin-bottom: 1em;
+    }
+    
+    .attendance-form input[type="text"],
+    .attendance-form input[type="email"],
+    .attendance-form select {
+      font-family: 'Poppins', sans-serif;
       padding: 10px;
       border-radius: 5px;
-      border: 1px solid #ccc;
+      border: none;
       width: 100%;
       max-width: 300px;
       margin-bottom: 10px;
     }
-
-    .rsvp-form input[type="submit"] {
-      background-color: #f5d5e6;
-      color: #fff;
+    
+    .attendance-form input[type="submit"] {
+      background-color: #000;
+      color: #000; /* Warna teks pada tombol */
       border: none;
       padding: 10px 20px;
       border-radius: 5px;
       cursor: pointer;
     }
+    
+    .audio-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #000; /* Warna latar belakang audio control */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 9999;
+    }
+    
+    .audio-control i {
+      color: #fff; /* Warna ikon pada audio control */
+      font-size: 24px;
+    }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-  <div class="header">
-    <h1>Undangan Pernikahan</h1>
-    <p>Foto kedua mempelai dan informasi mengenai mempelai</p>
-    <!-- Masukkan foto kedua mempelai di sini -->
-    <img src="http://aidogroup.me/img/63a72d4e06052.jpg" alt="Foto Mempelai">
-  </div>
+  <audio id="background-music" src="background-music.mp3" autoplay loop></audio>
+  
 
-  <div class="content">
-    <div class="couple-info">
-      <h2>Informasi Mempelai</h2>
-      <p>Deskripsi mengenai mempelai</p>
+
+<br><br><div class="mx-auto text-center md:max-w-xl lg:max-w-3xl">
+  <h3
+    class="mb-6 text-3xl font-bold text-yellow-600 dark:text-neutral-200">
+    Undangan Pernikahan
+  </h3>
+
+    <!-- Image gallery -->
+    <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+    <div class="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
+        <img src="https://d.wattpad.com/story_parts/33/images/15b4cdd751d194c5198240135214.jpg" 
+        alt="Two each of gray, white, and black shirts laying flat." class="h-full w-full object-cover object-center" alt="Model wearing plain white basic tee." class="h-full w-full object-cover object-center">
+      </div>
+      <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+        <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+          <img src="https://imgsrv2.voi.id/gB2lUt0-1EpZYA8NV_MsHPjAru0Sjt31wg4vUVMP9ww/auto/1200/675/sm/1/bG9jYWw6Ly8vcHVibGlzaGVycy8yNjYyOTQvMjAyMzAzMjMyMTMyLW1haW4uY3JvcHBlZF8xNjc5NTgxOTcwLmpwZWc.jpg" 
+          alt="Model wearing plain black basic tee." class="h-full w-full object-cover object-center">
+        </div>
+        <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+          <img src="https://assets.ayobandung.com/crop/0x0:0x0/750x500/webp/photo/2023/03/23/Kevin-Sanjaya-dan-Valencia-Tanoesoedibjo-yang-diduga-beda-agama-resmi-menikah-ini-profil-keduanya-4128384275.jpg" alt="Model wearing plain gray basic tee." class="h-full w-full object-cover object-center">
+        </div>
+      </div>
+      <div class="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
+        <img src="https://weddingmarket.com/storage/images/artikelideacontent/new/843e8f59cf6fcb37e3cb929c9d5a3cba299b7a31.webp" 
+        alt="Two each of gray, white, and black shirts laying flat." class="h-full w-full object-cover object-center" alt="Model wearing plain white basic tee." class="h-full w-full object-cover object-center">
+      </div>
     </div>
 
+    
+
+      <div class="couple-info">
+        <div class="couple-nama">
+            <div class="pria">
+                <p>[Nama Pria]</p>
+                <p>Putra dari bapak dan ibu</p>
+            </div>
+            <h3>Dengan</h3>
+            <div class="wanita">
+                <p>[Nama Wanita]</p>
+                <p>Putra dari bapak dan ibu</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  
+  <div class="content">
     <div class="event-details">
       <h2>Detail Acara</h2>
-      <p>Tanggal, Waktu, dan Tempat Acara</p>
+      <ul>
+        <li>Tanggal Acara: 1 Januari 2024</li>
+        <li>Waktu Acara: 12:00 - 16:00</li>
+        <li>Tempat Acara: Gedung Pernikahan Indah</li>
+      </ul>
     </div>
-
-    <div class="rsvp-form">
-      <h2>Konfirmasi Kehadiran</h2>
+    
+    <div class="attendance-form">
+      <h2>Kehadiran</h2>
       <form>
         <label for="name">Nama:</label>
-        <input type="text" id="name" name="name" required><br><br>
-
+        <input type="text" id="name" name="name" required>
+        
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-
+        <input type="email" id="email" name="email" required>
+        
         <label for="attendance">Kehadiran:</label>
         <select id="attendance" name="attendance" required>
           <option value="">Pilih Kehadiran</option>
           <option value="hadir">Hadir</option>
           <option value="tidak_hadir">Tidak Hadir</option>
-        </select><br><br>
-
-        <input type="submit" value="Konfirmasi">
+        </select>
+        
+        <input type="submit" value="Konfirmasi" style="background-color: cc9000; ">
       </form>
     </div>
   </div>
-
+  
+  <div class="audio-control" onclick="toggleAudio()">
+    <i class="fas fa-play" id="audio-icon"></i>
+  </div>
+  
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
   <script>
-    // JavaScript untuk logika tambahan, jika diperlukan
+    var audio = document.getElementById('background-music');
+    var audioIcon = document.getElementById('audio-icon');
+    
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play();
+        audioIcon.classList.remove('fa-play');
+        audioIcon.classList.add('fa-pause');
+      } else {
+        audio.pause();
+        audioIcon.classList.remove('fa-pause');
+        audioIcon.classList.add('fa-play');
+      }
+    }
   </script>
 </body>
 </html>
