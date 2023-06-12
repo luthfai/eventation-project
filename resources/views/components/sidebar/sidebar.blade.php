@@ -17,11 +17,11 @@
                 <x-icons.dashboard class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
             </x-slot>
         </x-sidebar.link>
-        {{-- <x-sidebar.link title="Admin list" href="/super/dashboard/admin" :isActive="request()->routeIs('super.admin')">
+        <x-sidebar.link title="Admin list" href="/super/dashboard/admin" :isActive="request()->routeIs('super.admin')">
             <x-slot name="icon">
                 <x-icons.menu-fold-right class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
             </x-slot>
-        </x-sidebar.link> --}}
+        </x-sidebar.link>
         <div x-transition x-show="isSidebarOpen || isSidebarHovered" class="text-sm text-gray-500">
 
     </x-perfect-scrollbar>
