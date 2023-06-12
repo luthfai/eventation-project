@@ -28,6 +28,15 @@ Route::get('/portofolio', function () {
     return view('portofolio');
 })->name('portofolio');
 
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+// no access route
+Route::get('/no-access', function () {
+    return view('no-access');
+})->name('no.access');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -70,32 +79,33 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::get('/user/dashboard', function () {
         return view('/user/dashboard');
     })->name('user.dash');
+
+    Route::get('/user/dashboard/event', [EventController::class, 'userShow'])->name('user.event');
+    Route::get('/user/dashboard/event/edit/{slug}', [EventController::class, 'edit'])->name('user.event.edit');
+    Route::get('/user/dashboard/event/view/{slug}', [EventController::class, 'view'])->name('user.event.view');
 });
 
-// Route::resource('AboutUs', AboutUsController::class);
-
-Route::get('/about', function () {
-    return view('about');
-});
-
-// route undangan controller with id parameter
 
 require __DIR__ . '/auth.php';
 
-// Route::get('/event', [EventController::class, 'index'])->name('event.index');
-// Route::get('/event/create', [EventController::class, 'create'])->name('event.create');
-// Route::post('/event', [EventController::class, 'store'])->name('event.store');
-// Route::get('/event/{id}', [EventController::class, 'show'])->name('event.show');
-// Route::get('/event/{id}/edit', [EventController::class, 'edit'])->name('event.edit');
-// Route::patch('/event/{id}', [EventController::class, 'update'])->name('event.update');
-// Route::delete('/event/{id}', [EventController::class, 'destroy'])->name('event.destroy');
-// guest get link from email with token
 Route::get('/event/guest/{token}', [InvitController::class, 'guest'])->name('invite.guest');
 
 // katalog undangan
 Route::get('/templates', [UndanganController::class, 'katalog'])->name('undangan.katalog');
 Route::get('/templates/{id}', [UndanganController::class, 'detail'])->name('undangan.detail');
+Route::get('/templates/{id}/preview', [UndanganController::class, 'preview'])->name('undangan.preview');
+Route::get('/templates/{id}/checkout', [UndanganController::class, 'checkout'])->name('undangan.checkout');
 
 Route::get('/test', function () {
     return view('undangan.undangan1');
 })->name('index');
+
+Route::get('/event/edit/{slug}', [EventController::class, 'edit'])->name('event.edit');
+
+Route::get('/event/undangan2', function () {
+    return view('undangan.undangan2');
+});
+
+Route::get('/event/undangan3', function () {
+    return view('undangan.undangan3');
+});

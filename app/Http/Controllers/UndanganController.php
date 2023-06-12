@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Undangan;
+use App\Models\Event;
 
 class UndanganController extends Controller
 {
@@ -22,5 +23,18 @@ class UndanganController extends Controller
         return view('detail-undangan', compact('undangan'));
     }
 
+    public function checkout($id)
+    {
+        $undangan = Undangan::find($id);
+        return view('pembayaran', compact('undangan'));
+    }
+
+    // preview
+    public function preview($id)
+    {
+        $event = Event::find(1);
+        $undangan = Undangan::find($id);
+        return view('undangan.' . $undangan->slug, compact('event'));
+    }
 
 }

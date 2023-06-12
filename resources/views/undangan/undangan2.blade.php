@@ -1,220 +1,241 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Wedding Invitation</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap">
-    <style>
-        body {
-            background-image: url({{asset ('undangan2/roses_bush_bloom_128901_3840x2400.jpg') }});
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-
-        }
+@extends('layouts.template')
 
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            z-index: -1;
-        }
+<style>
+    /* CSS untuk tata letak dan tampilan halaman */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #660000; /* Warna latar belakang yang bertema alam */
+      color: #cc9900; /* Warna teks yang kontras dengan latar belakang */
+      position: relative;
+    }
+    
+    h1 {
+      font-family: 'Cedarville Cursive', cursive;
+    }
+    
+    .header {
+      background-color: #262626; /* Warna latar belakang yang lebih gelap pada header */
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .content {
+      background-color: #fff; /* Warna latar belakang yang lebih gelap pada konten pertama */
+      padding: 50px;
+      text-align: center;
+    }
+    
+    .couple-info {
+      width: 70%;
+      margin: 0 auto;
+      margin-top: 30px; /* Jarak antara foto dan informasi mempelai */
+    }
 
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 40px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            background-color: rgba(132, 3, 3, 0.8);
-        }
+    .couple-nama{
+        font-family: "Lucida Console", "Courier New", monospace;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
 
-        h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
+    .couple-nama h3{
+        margin-left: 1em;
+        margin-right: 1em;
+    }
 
-        .couple-photo {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
+    .pria , .wanita{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    
 
-        .couple-photo img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-        }
-
-        .details {
-            margin-bottom: 40px;
-        }
-
-        .details h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .details p {
-            font-size: 18px;
-            margin: 5px 0;
-        }
-
-        .event-details {
-            margin-bottom: 40px;
-        }
-
-        .event-details h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .event-details p {
-            font-size: 18px;
-            margin: 5px 0;
-        }
-
-        .form-rsvp {
-            margin-bottom: 40px;
-        }
-
-        .form-rsvp h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .form-rsvp form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .form-rsvp label {
-            font-size: 18px;
-            margin-bottom: 10px;
-            display: block;
-            width: 100%;
-        }
-
-        .form-rsvp input[type="text"],
-        .form-rsvp input[type="email"] {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            margin-bottom: 16px;
-            border: none;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #fff;
-        }
-
-        .form-rsvp input[type="submit"] {
-            background-color: #d00101;
-            color: #fff;
-            border: none;
-            padding: 12px 24px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .form-rsvp input[type="submit"]:hover {
-            background-color: #ff0000;
-        }
-
-        .audio-player {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            display: flex;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 50px;
-        }
-
-        .audio-player button {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            color: #fff;
-            font-size: 24px;
-            margin-right: 10px;
-        }
-
-        .audio-player button:focus {
-            outline: none;
-        }
-    </style>
+    
+    .event-details {
+      width: 70%;
+      margin: 0 auto;
+      margin-bottom: 50px; /* Jarak antara informasi acara dan rsvp form */
+    }
+    
+    .event-details ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    .event-details li {
+      margin-bottom: 20px;
+    }
+    
+    .attendance-form {
+      width: 70%;
+      margin: 0 auto;
+      padding: 50px;
+      text-align: center;
+      background-color: #660000; /* Warna latar belakang form */
+      border-radius: 10px; /* Membulatkan sudut form */
+      margin-bottom: 50px; /* Jarak antara form kehadiran dan form RSVP */
+    }
+    
+    .attendance-form h2 {
+      color: #fff; /* Warna teks pada form */
+      margin-bottom: 20px;
+    }
+    
+    .attendance-form label {
+      display: block;
+      text-align: center;
+      color: #fff; /* Warna teks pada form */
+      margin-bottom: 1em;
+    }
+    
+    .attendance-form input[type="text"],
+    .attendance-form input[type="email"],
+    .attendance-form select {
+      font-family: 'Poppins', sans-serif;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 10px;
+    }
+    
+    .attendance-form input[type="submit"] {
+      background-color: #000;
+      color: #000; /* Warna teks pada tombol */
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .audio-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #000; /* Warna latar belakang audio control */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 9999;
+    }
+    
+    .audio-control i {
+      color: #fff; /* Warna ikon pada audio control */
+      font-size: 24px;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <div class="background"></div>
-    <div class="container">
-        <h1>Wedding Invitation</h1>
+  <audio id="background-music" src="background-music.mp3" autoplay loop></audio>
+  
 
-        <div class="couple-photo">
-            <img src="{{asset ('undangan2\1.png') }}" alt="Foto Pria">
-            <img src="{{asset ('undangan2\2.png') }}" alt="Foto Wanita">
-        </div>
 
-        <div class="details">
-            <h2>Detail Mempelai</h2>
-            <p>Nama Pria: John Doe</p>
-            <p>Nama Wanita: Jane Smith</p>
-        </div>
+<br><br><div class="mx-auto text-center md:max-w-xl lg:max-w-3xl">
+  <h3
+    class="mb-6 text-3xl font-bold text-yellow-600 dark:text-neutral-200">
+    Undangan Pernikahan
+  </h3>
 
-        <div class="event-details">
-            <h2>Detail Acara</h2>
-            <p>Tanggal: 25 Juni 2023</p>
-            <p>Waktu: 10:00 - 13:00</p>
-            <p>Tempat: Gedung Pernikahan Bahagia</p>
-        </div>
-
-        <div class="form-rsvp">
-            <h2>Konfirmasi Kehadiran</h2>
-            <form>
-                <label for="name">Nama:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <input type="submit" value="Konfirmasi">
-            </form>
-        </div>
-
-        <div class="audio-player">
-          <button id="play-pause-btn">&#9658;</button>
-          <audio id="audio" src="{{asset ('undangan2/audio.mp3') }}" autoplay></audio>
+    <!-- Image gallery -->
+    <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+    <div class="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
+        <img src="https://d.wattpad.com/story_parts/33/images/15b4cdd751d194c5198240135214.jpg" 
+        alt="Two each of gray, white, and black shirts laying flat." class="h-full w-full object-cover object-center" alt="Model wearing plain white basic tee." class="h-full w-full object-cover object-center">
       </div>
-  
-      <script>
-          var audio = document.getElementById("audio");
-          var playPauseBtn = document.getElementById("play-pause-btn");
-  
-          playPauseBtn.addEventListener("click", function() {
-              if (audio.paused) {
-                  audio.play();
-                  playPauseBtn.innerHTML = "&#10074;&#10074;";
-              } else {
-                  audio.pause();
-                  playPauseBtn.innerHTML = "&#9658;";
-              }
-          });
-      </script>
+      <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+        <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+          <img src="https://imgsrv2.voi.id/gB2lUt0-1EpZYA8NV_MsHPjAru0Sjt31wg4vUVMP9ww/auto/1200/675/sm/1/bG9jYWw6Ly8vcHVibGlzaGVycy8yNjYyOTQvMjAyMzAzMjMyMTMyLW1haW4uY3JvcHBlZF8xNjc5NTgxOTcwLmpwZWc.jpg" 
+          alt="Model wearing plain black basic tee." class="h-full w-full object-cover object-center">
+        </div>
+        <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+          <img src="https://assets.ayobandung.com/crop/0x0:0x0/750x500/webp/photo/2023/03/23/Kevin-Sanjaya-dan-Valencia-Tanoesoedibjo-yang-diduga-beda-agama-resmi-menikah-ini-profil-keduanya-4128384275.jpg" alt="Model wearing plain gray basic tee." class="h-full w-full object-cover object-center">
+        </div>
+      </div>
+      <div class="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
+        <img src="https://weddingmarket.com/storage/images/artikelideacontent/new/843e8f59cf6fcb37e3cb929c9d5a3cba299b7a31.webp" 
+        alt="Two each of gray, white, and black shirts laying flat." class="h-full w-full object-cover object-center" alt="Model wearing plain white basic tee." class="h-full w-full object-cover object-center">
+      </div>
     </div>
+
+    
+
+      <div class="couple-info">
+        <div class="couple-nama">
+            <div class="pria">
+                <p>[Nama Pria]</p>
+                <p>Putra dari bapak dan ibu</p>
+            </div>
+            <h3>Dengan</h3>
+            <div class="wanita">
+                <p>[Nama Wanita]</p>
+                <p>Putra dari bapak dan ibu</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  
+  <div class="content">
+    <div class="event-details">
+      <h2>Detail Acara</h2>
+      <ul>
+        <li>Tanggal Acara: 1 Januari 2024</li>
+        <li>Waktu Acara: 12:00 - 16:00</li>
+        <li>Tempat Acara: Gedung Pernikahan Indah</li>
+      </ul>
+    </div>
+    
+    <div class="attendance-form">
+      <h2>Kehadiran</h2>
+      <form>
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="attendance">Kehadiran:</label>
+        <select id="attendance" name="attendance" required>
+          <option value="">Pilih Kehadiran</option>
+          <option value="hadir">Hadir</option>
+          <option value="tidak_hadir">Tidak Hadir</option>
+        </select>
+        
+        <input type="submit" value="Konfirmasi" style="background-color: cc9000; ">
+      </form>
+    </div>
+  </div>
+  
+  <div class="audio-control" onclick="toggleAudio()">
+    <i class="fas fa-play" id="audio-icon"></i>
+  </div>
+  
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+  <script>
+    var audio = document.getElementById('background-music');
+    var audioIcon = document.getElementById('audio-icon');
+    
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play();
+        audioIcon.classList.remove('fa-play');
+        audioIcon.classList.add('fa-pause');
+      } else {
+        audio.pause();
+        audioIcon.classList.remove('fa-pause');
+        audioIcon.classList.add('fa-play');
+      }
+    }
+  </script>
 </body>
 </html>
