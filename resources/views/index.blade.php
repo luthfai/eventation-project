@@ -2,6 +2,7 @@
 @section('title', 'Home')
 @section('content')
     <x-header></x-header>
+    
     <!-- BEGIN HERO SECTION -->
     <div class="relative items-center justify-center w-full overflow-x-hidden lg:pt-40 lg:pb-40 xl:pt-40 xl:pb-64">
         <div
@@ -86,9 +87,7 @@
                         <!-- FEATURE Icon 1 -->
                         <h4 class="relative mt-6 text-lg font-bold">All Events</h4>
                         <p class="relative mt-2 text-base text-center text-gray-600">Implementasikan undangan digital untuk
-                            semua keperluan acara anda mulai dari pernikahan hingga ulah tahun</p>
-                        <a href="#_" class="relative flex mt-2 text-sm font-medium text-red-500 underline">Learn
-                            More</a>
+                            semua keperluan acara anda mulai dari pernikahan hingga ulang tahun</p>
                     </div>
                 </div>
 
@@ -107,9 +106,7 @@
 
                         <h4 class="relative mt-6 text-lg font-bold">Easy for Use</h4>
                         <p class="relative mt-2 text-base text-center text-gray-600">Dibuat dan dirancang untuk kemudahan
-                            user dalam pembuatan undangan digital</p>
-                        <a href="#_" class="relative flex mt-2 text-sm font-medium text-red-500 underline">Learn
-                            More</a>
+                            tuan rumah dalam pembuatan undangan digital</p>
                     </div>
                 </div>
 
@@ -129,8 +126,6 @@
                         <h4 class="relative mt-6 text-lg font-bold">Send via WhatsApp</h4>
                         <p class="relative mt-2 text-base text-center text-gray-600">Kirim undangan anda dengan aplikasi
                             chat yang umum dan sudah banyak digunakan oleh banyak orang.</p>
-                        <a href="#_" class="relative flex mt-2 text-sm font-medium text-red-500 underline">Learn
-                            More</a>
                     </div>
                 </div>
 
@@ -162,8 +157,11 @@
                                 1. Registrasi untuk membuat akun undangan kamu </p>
                                 <p class="mt-2 text-base text-gray-600">
                                 2. Isi Info Acara & Profile dan juga upload foto/gallery. Customize undangan kamu.</p>
+                                <p class="mt-2 text-base text-gray-600">
+                                3. Pilih Preset / Template. </p>
+                                <p class="mt-2 text-base text-gray-600">
+                                4. Aktifkan/lakukan pembayaran, dan undangan kamu siap untuk di sebarkan.</p>
                             </div>
-
                             <p class="mt-1 text-sm leading-2 text-gray-500 truncate"></p>
                         </div>
                         <img class="flex-shrink-0 object-cover w-24 h-24 mb-5 bg-gray-300 rounded-full md:mb-0"
@@ -174,7 +172,9 @@
                     </blockquote>
                 </div>
 
-                <div class="flex flex-col items-center justify-center w-full h-full max-w-2xl mb-4 mx-auto text-center">
+                {{-- <div class="flex flex-col items-center justify-center w-full h-full max-w-2xl mb-4 mx-auto text-center">
+
+                
                     <blockquote
                         class="flex flex-col-reverse items-center justify-between w-full col-span-1 p-6 mt-16 text-center transition-all duration-200 bg-gray-100 rounded-lg md:flex-row md:text-left hover:bg-white hover:shadow ease">
                         <div class="flex flex-col pr-7">
@@ -194,7 +194,7 @@
 
                             
                     </blockquote>
-                </div>
+                </div> --}}
             </div>
             <div class="relative z-30 flex flex-col items-end justify-center w-full h-full lg:w-1/2 ms:pl-10">
                 <div class="container relative left-0 w-full max-w-4xl lg:absolute xl:max-w-6xl lg:w-screen">
