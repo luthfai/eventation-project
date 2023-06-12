@@ -106,3 +106,6 @@ Route::get('/event/undangan2', function () {
     return view('undangan.undangan2');
 });
 
+Route::get('/event/undangan3', function () {
+    return view('undangan.undangan3');
+});
