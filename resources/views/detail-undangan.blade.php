@@ -141,5 +141,133 @@
                     </div>
                 </div>
             </div>
+
+            <fieldset class="mt-4">
+              <legend class="sr-only">Choose a size</legend>
+              <div class="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
+                <!-- Active: "ring-2 ring-indigo-500" -->
+                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-900 shadow-sm">
+                  <input type="radio" name="size-choice" value="XS" class="sr-only" aria-labelledby="size-choice-1-label">
+                  <span id="size-choice-1-label">50</span>
+                  <!--
+                    Active: "border", Not Active: "border-2"
+                    Checked: "border-indigo-500", Not Checked: "border-transparent"
+                  -->
+                  <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                </label>
+                <!-- Active: "ring-2 ring-indigo-500" -->
+                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-900 shadow-sm">
+                  <input type="radio" name="size-choice" value="XS" class="sr-only" aria-labelledby="size-choice-1-label">
+                  <span id="size-choice-1-label">100</span>
+                  <!--
+                    Active: "border", Not Active: "border-2"
+                    Checked: "border-indigo-500", Not Checked: "border-transparent"
+                  -->
+                  <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                </label>
+                <!-- Active: "ring-2 ring-indigo-500" -->
+                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-900 shadow-sm">
+                  <input type="radio" name="size-choice" value="S" class="sr-only" aria-labelledby="size-choice-2-label">
+                  <span id="size-choice-2-label">150</span>
+                  <!--
+                    Active: "border", Not Active: "border-2"
+                    Checked: "border-indigo-500", Not Checked: "border-transparent"
+                  -->
+                  <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                </label>
+                <!-- Active: "ring-2 ring-indigo-500" -->
+                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-900 shadow-sm">
+                  <input type="radio" name="size-choice" value="M" class="sr-only" aria-labelledby="size-choice-3-label">
+                  <span id="size-choice-3-label">200</span>
+                  <!--
+                    Active: "border", Not Active: "border-2"
+                    Checked: "border-indigo-500", Not Checked: "border-transparent"
+                  -->
+                  <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                </label>
+                <!-- Active: "ring-2 ring-indigo-500" -->
+                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-900 shadow-sm">
+                  <input type="radio" name="size-choice" value="L" class="sr-only" aria-labelledby="size-choice-4-label">
+                  <span id="size-choice-4-label">250</span>
+                  <!--
+                    Active: "border", Not Active: "border-2"
+                    Checked: "border-indigo-500", Not Checked: "border-transparent"
+                  -->
+                  <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                </label>
+                <!-- Active: "ring-2 ring-indigo-500" -->
+                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-900 shadow-sm">
+                  <input type="radio" name="size-choice" value="XL" class="sr-only" aria-labelledby="size-choice-5-label">
+                  <span id="size-choice-5-label">300</span>
+                  <!--
+                    Active: "border", Not Active: "border-2"
+                    Checked: "border-indigo-500", Not Checked: "border-transparent"
+                  -->
+                  <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                </label>
+                <!-- Active: "ring-2 ring-indigo-500" -->
+                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-900 shadow-sm">
+                  <input type="radio" name="size-choice" value="2XL" class="sr-only" aria-labelledby="size-choice-6-label">
+                  <span id="size-choice-6-label">400</span>
+                  <!--
+                    Active: "border", Not Active: "border-2"
+                    Checked: "border-indigo-500", Not Checked: "border-transparent"
+                  -->
+                  <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                </label>
+                <!-- Active: "ring-2 ring-indigo-500" -->
+                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-4 cursor-pointer bg-white text-gray-900 shadow-sm">
+                  <input type="radio" name="size-choice" value="3XL" class="sr-only" aria-labelledby="size-choice-7-label">
+                  <span id="size-choice-5-label">400<</span>
+                  <!--
+                    Active: "border", Not Active: "border-2"
+                    Checked: "border-indigo-500", Not Checked: "border-transparent"
+                  -->
+                  <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-red-700 px-8 py-3 text-base font-medium text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Preview Preset</button>
+        </form>
+      </div>
+
+      <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r justify-center lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+        <!-- Description and details -->
+        <div>
+          <h3 class="sr-only">Description</h3>
+
+          <div class="space-y-6">
+            <p class="text-base text-gray-900"> Tema Golden Floral adalah sebuah template undangan yang dipenuhi dengan sentuhan keemasan (golden) dan motif bunga (floral). Template ini menggabungkan elegansi dan keindahan alam untuk menciptakan suasana yang mewah dan romantis.
+
+Desain undangan ini menampilkan latar belakang berwarna emas yang menciptakan kesan mewah dan glamour. Di sekitar undangan, terdapat elemen floral yang indah dengan bunga-bunga yang dirancang dengan detail. Bunga-bunga tersebut memberikan sentuhan kelembutan dan keindahan alami pada template.
+
+Font yang digunakan pada undangan ini adalah font yang elegan dan legible. Huruf-huruf yang tercetak dengan indah memberikan kesan formal dan memperkuat kesan mewah pada undangan.
+
+</p>
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
+
+          <div class="mt-4">
+            <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
+              <li class="text-gray-400"><span class="text-gray-600">Elemen Emas yang Mewah</span></li>
+              <li class="text-gray-400"><span class="text-gray-600">Motif Bunga yang Indah</span></li>
+              <li class="text-gray-400"><span class="text-gray-600">Teks Elegan</span></li>
+              <li class="text-gray-400"><span class="text-gray-600">Suasana Mewah dan Romantis</span></li>
+              <li class="text-gray-400"><span class="text-gray-600">Fleksi bilitas</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <h2 class="text-sm font-medium text-gray-900">Note :</h2>
+
+          <div class="mt-4 space-y-6">
+            <p class="text-sm text-gray-600">Semua Template Undangan berisikan Nama , Foto, Lokasi Acara, Tempat, Waktu, dll</p>
+          </div>
         </div>
     </div>
