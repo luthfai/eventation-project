@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('description');
             $table->string('location');
-            $table->timestamp('event_date');
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->string('event_date');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->string('image1')->nullable();
             $table->string('image2')->nullable();
             $table->string('image3')->nullable();
