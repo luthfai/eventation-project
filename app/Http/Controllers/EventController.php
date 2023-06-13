@@ -73,13 +73,14 @@ class EventController extends Controller
         $request_['start_date'] = $request->event_date . ' ' . $request->start_date;
         // end_date = eventdate date + enddate time
         $request_['end_date'] = $request->event_date . ' ' . $request->end_date;
-
         if ($request->hasFile('image1')) {
             $image1 = $request->file('image1');
             // name to slug + random unique
             $filename1 = $slug . '-' . uniqid() . '.' . $image1->getClientOriginalExtension();
             $image1->move(public_path('image/event'), $filename1);
             $request_['image1'] = $filename1;
+        }else{
+            $request_['image1'] = $event->image1;
         }
         if ($request->hasFile('image2')) {
             $image2 = $request->file('image2');
@@ -87,6 +88,8 @@ class EventController extends Controller
             $filename2 = $slug . '-' . uniqid() . '.' . $image2->getClientOriginalExtension();
             $image2->move(public_path('image/event'), $filename2);
             $request_['image2'] = $filename2;
+        }else{
+            $request_['image2'] = $event->image2;
         }
         if ($request->hasFile('image3')) {
             $image3 = $request->file('image3');
@@ -94,6 +97,8 @@ class EventController extends Controller
             $filename3 = $slug . '-' . uniqid() . '.' . $image3->getClientOriginalExtension();
             $image3->move(public_path('image/event'), $filename3);
             $request_['image3'] = $filename3;
+        }else{
+            $request_['image3'] = $event->image3;
         }
         if ($request->hasFile('image4')) {
             $image4 = $request->file('image4');
@@ -101,6 +106,8 @@ class EventController extends Controller
             $filename4 = $slug . '-' . uniqid() . '.' . $image4->getClientOriginalExtension();
             $image4->move(public_path('image/event'), $filename4);
             $request_['image4'] = $filename4;
+        }else{
+            $request_['image4'] = $event->image4;
         }
         if ($request->hasFile('event_audio')) {
             $event_audio = $request->file('event_audio');
@@ -108,6 +115,8 @@ class EventController extends Controller
             $filename5 = $slug . '-' . uniqid() . '.' . $event_audio->getClientOriginalExtension();
             $event_audio->move(public_path('audio/event'), $filename5);
             $request_['event_audio'] = $filename5;
+        }else{
+            $request_['event_audio'] = $event->event_audio;
         }
 
         if ($request->hasFile('guest_list')) {

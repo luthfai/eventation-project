@@ -7,7 +7,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="">
+        <form method="POST" action="" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
             {{-- make 2 collumn --}}
