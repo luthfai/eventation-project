@@ -32,10 +32,7 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-// no access route
-Route::get('/no-access', function () {
-    return view('no-access');
-})->name('no.access');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -85,6 +82,7 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::get('/user/dashboard/event/edit/{slug}', [EventController::class, 'edit'])->name('user.event.edit');
     Route::get('/user/dashboard/event/view/{slug}', [EventController::class, 'view'])->name('user.event.view');
     Route::patch('/user/dashboard/event/edit/{slug}', [EventController::class, 'update'])->name('user.event.update');
+    Route::delete('/user/dashboard/event/delete/{slug}', [EventController::class, 'destroy'])->name('user.event.destroy');
 });
 
 

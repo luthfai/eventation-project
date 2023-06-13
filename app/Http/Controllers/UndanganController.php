@@ -25,8 +25,12 @@ class UndanganController extends Controller
 
     public function checkout($id)
     {
-        $undangan = Undangan::find($id);
-        return view('pembayaran', compact('undangan'));
+        if (auth()->user()) {
+            $undangan = Undangan::find($id);
+            return view('pembayaran', compact('undangan'));
+        } else {
+            return redirect()->route('login');
+        }
     }
 
     // preview

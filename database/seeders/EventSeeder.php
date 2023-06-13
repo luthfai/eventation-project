@@ -13,29 +13,6 @@ class EventSeeder extends Seeder
      */
     public function run(): void
     {
-        //     $table->id();
-        //     $table->string('title');
-        //     $table->string('name1');
-        //     $table->string('nickname1');
-        //     $table->string('name2');
-        //     $table->string('nickname2');
-        //     $table->string('slug')->unique();
-        //     $table->string('description');
-        //     $table->string('location');
-        //     $table->timestamp('event_date');
-        //     $table->timestamp('start_date');
-        //     $table->timestamp('end_date');
-        //     $table->string('image1')->nullable();
-        //     $table->string('image2')->nullable();
-        //     $table->string('image3')->nullable();
-        //     $table->string('image4')->nullable();
-        //     $table->string('video_url')->nullable();
-        //     $table->string('event_audio')->nullable();
-        //     $table->longText('location_url')->nullable();
-        //     // user_id is the foreign key that references the id field on the users table
-        //     $table->foreignId('user_id')->constrained('users');
-        //     $table->foreignId('undangan_id')->constrained('undangans');
-        //     $table->timestamps();
 
         DB::table('events')->insert([
             'title' => 'Wedding Invitation',

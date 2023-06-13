@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('video_url')->nullable();
             $table->string('event_audio')->nullable();
             $table->longText('location_url')->nullable();
-            // user_id is the foreign key that references the id field on the users table
+            $table->string('guest_list')->nullable();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('undangan_id')->constrained('undangans');
             $table->timestamps();

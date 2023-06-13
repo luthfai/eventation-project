@@ -34,53 +34,113 @@ class EventController extends Controller
         if (!$event) {
             return redirect()->route('dashboard');
         }
+        if ($event->user_id != auth()->user()->id) {
+            return view('no-access');
+        }
         return view('event.edit', compact('event'));
     }
 
     public function update(Request $request, $slug)
     {
-        // validate the request
-        $request->validate([
-            'name' => 'required',
-            'date' => 'required',
-            'time' => 'required',
-            'place' => 'required',
-            'address' => 'required',
-            'description' => 'required',
-        ]);
-
-        // get the event
         $event = DB::table('events')->where('slug', $slug)->first();
-
-        // check if the user is authorized to update the event
         if ($event->user_id != auth()->user()->id) {
             return redirect()->route('no.access');
         }
 
-        // check if the request has an image
-        if ($request->hasFile('image')) {
-            // delete the old image
-            unlink(public_path('images/' . $event->image));
-            // upload the new image
-            $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images'), $imageName);
-        } else {
-            // use the old image
-            $imageName = $event->image;
-        }
-
-        // update the event
-        DB::table('events')->where('slug', $slug)->update([
-            'name' => $request->name,
-            'date' => $request->date,
-            'time' => $request->time,
-            'place' => $request->place,
-            'address' => $request->address,
-            'description' => $request->description,
-            'image' => $imageName,
+        // validate the request
+        $request_ = $request->validate([
+            'title' => 'required',
+            'name1' => 'required',
+            'nickname1' => 'required',
+            'name2' => 'required',
+            'nickname2' => 'required',
+            'description' => 'nullable',
+            'location' => 'required',
+            'event_date' => 'nullable',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'image1' => 'nullable',
+            'image2' => 'nullable',
+            'image3' => 'nullable',
+            'image4' => 'nullable',
+            'video_url' => 'nullable',
+            'event_audio' => 'nullable',
+            'location_url' => 'nullable',
+            'guest_list' => 'nullable',
         ]);
 
-        // redirect to the dashboard
+        // start_date = eventdate date + startdate time
+        $request_['start_date'] = $request->event_date . ' ' . $request->start_date;
+        // end_date = eventdate date + enddate time
+        $request_['end_date'] = $request->event_date . ' ' . $request->end_date;
+
+        if ($request->hasFile('image1')) {
+            $image1 = $request->file('image1');
+            // name to slug + random unique
+            $filename1 = $slug . '-' . uniqid() . '.' . $image1->getClientOriginalExtension();
+            $image1->move(public_path('image/event'), $filename1);
+            $request_['image1'] = $filename1;
+        }
+        if ($request->hasFile('image2')) {
+            $image2 = $request->file('image2');
+            // name to slug + random unique
+            $filename2 = $slug . '-' . uniqid() . '.' . $image2->getClientOriginalExtension();
+            $image2->move(public_path('image/event'), $filename2);
+            $request_['image2'] = $filename2;
+        }
+        if ($request->hasFile('image3')) {
+            $image3 = $request->file('image3');
+            // name to slug + random unique
+            $filename3 = $slug . '-' . uniqid() . '.' . $image3->getClientOriginalExtension();
+            $image3->move(public_path('image/event'), $filename3);
+            $request_['image3'] = $filename3;
+        }
+        if ($request->hasFile('image4')) {
+            $image4 = $request->file('image4');
+            // name to slug + random unique
+            $filename4 = $slug . '-' . uniqid() . '.' . $image4->getClientOriginalExtension();
+            $image4->move(public_path('image/event'), $filename4);
+            $request_['image4'] = $filename4;
+        }
+        if ($request->hasFile('event_audio')) {
+            $event_audio = $request->file('event_audio');
+            // name to slug + random unique
+            $filename5 = $slug . '-' . uniqid() . '.' . $event_audio->getClientOriginalExtension();
+            $event_audio->move(public_path('audio/event'), $filename5);
+            $request_['event_audio'] = $filename5;
+        }
+
+        if ($request->hasFile('guest_list')) {
+            // check if extension is csv
+            $guest_list = $request->file('guest_list');
+            // check if extension is csv
+            $extension = $guest_list->getClientOriginalExtension();
+            if ($extension != 'csv') {
+                return redirect()->back()->with('error', 'File harus berupa csv');
+            }
+            // name to slug + random unique
+            $filename6 = $slug . '-' . uniqid() . '.' . $guest_list->getClientOriginalExtension();
+            $guest_list->move(public_path('csv'), $filename6);
+            // import csv to database
+            $file = public_path('csv/' . $filename6);
+            $csv = array_map('str_getcsv', file($file));
+            $csv = array_map('array_filter', $csv);
+            $csv = array_filter($csv);
+            // delete first row
+            unset($csv[0]);
+            // insert to database
+            foreach ($csv as $row) {
+                Guest::create([
+                    'event_id' => $event->id,
+                    'name' => $row[0],
+                    'email' => $row[1],
+                    'phone' => $row[2],
+                ]);
+            }
+        }
+        // update the event
+        Event::where('slug', $slug)->update($request_);
+        // redirect to dashboard
         return redirect()->route('dashboard');
     }
 
