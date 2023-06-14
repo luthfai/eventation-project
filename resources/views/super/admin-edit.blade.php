@@ -78,7 +78,7 @@
                             autofocus
                             placeholder="{{ __('Role') }}"
                         >
-                            <option value="super">Super</option>
+                            <option value="superadmin">Super</option>
                             <option value="admin">Admin</option>
                         </x-form.select>
                     </x-form.input-with-icon-wrapper>

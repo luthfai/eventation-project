@@ -17,10 +17,6 @@
             <h2 class="text-xl font-semibold leading-tight">
                 {{ __('User List') }}
             </h2>
-            <x-button target="_blank" href="/register" variant="warning" class="justify-center max-w-xs gap-2">
-                <span class="w-6 h-6" aria-hidden="true">+</span>
-                <span>Create User</span>
-            </x-button>
         </div>
         {{-- list all of admin with crud --}}
         <table class="table-auto w-full mt-4 overflow-auto bg-white border rounded-md dark:bg-dark-eval-1">
@@ -54,8 +50,7 @@
                             <form action="{{ route('admin.user.destroy', $user->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <x-button target="_blank" href="{{ route('admin.user.destroy', $user->
-                                    id) }}" variant="danger" class="justify-center max-w-xs gap-2 text-center">
+                                <x-button type="submit" variant="danger" class="justify-center max-w-xs gap-2 text-center">
                                     <x-icons.trash class="w-6 h-6" aria-hidden="true" />
                                     <span class="w-16 h-6" aria-hidden="true">Delete</span>
                                 </x-button>

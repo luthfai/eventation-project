@@ -87,7 +87,7 @@
                     <x-button class="justify-center w-full gap-2">
                         <x-heroicon-o-user-add class="w-6 h-6" aria-hidden="true" />
 
-                        <span>{{ __('Update') }}</span>
+                        <span>{{ __('Create') }}</span>
                     </x-button>
                 </div>
             </div>

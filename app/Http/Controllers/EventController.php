@@ -154,7 +154,7 @@ class EventController extends Controller
     }
 
     // show user events
-    public function userShow()
+    public function showEvents()
     {
         // only show events that belong to the user
         // add undangan data to events using undangan_id

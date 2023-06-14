@@ -29,7 +29,9 @@ class UndanganController extends Controller
             $undangan = Undangan::find($id);
             return view('pembayaran', compact('undangan'));
         } else {
-            return redirect()->route('login');
+            $errors = ['login' => 'Silahkan login terlebih dahulu'];
+            return redirect()->route('login')->withErrors($errors);
+
         }
     }
 

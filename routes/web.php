@@ -78,11 +78,13 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::get('/user/dashboard', function () {
         return view('/user/dashboard');
     })->name('user.dash');
-    Route::get('/user/dashboard/event', [EventController::class, 'userShow'])->name('user.event');
+    Route::get('/user/dashboard/event', [EventController::class, 'showEvents'])->name('user.event');
     Route::get('/user/dashboard/event/edit/{slug}', [EventController::class, 'edit'])->name('user.event.edit');
     Route::get('/user/dashboard/event/view/{slug}', [EventController::class, 'view'])->name('user.event.view');
     Route::patch('/user/dashboard/event/edit/{slug}', [EventController::class, 'update'])->name('user.event.update');
     Route::delete('/user/dashboard/event/delete/{slug}', [EventController::class, 'destroy'])->name('user.event.destroy');
+    Route::get('/user/dashboard/tamu', [GuestController::class, 'showTamus'])->name('user.tamu');
+
 });
 
 

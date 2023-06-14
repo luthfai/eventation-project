@@ -46,6 +46,10 @@ class SuperAdminController extends Controller
         $admin = User::find($id);
         $admin->name = $request->name;
         $admin->email = $request->email;
+        $admin->role = $request->role;
+        if ($request->password) {
+            $admin->password = bcrypt($request->password);
+        }
         $admin->save();
         return redirect()->route('super.admin')->with('success', 'Admin updated successfully');
     }
