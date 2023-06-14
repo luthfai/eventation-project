@@ -17,6 +17,7 @@ class GuestSeeder extends Seeder
             'name' => 'Dummy guest',
             'email' => 'dummyguest@gmail.com',
             'phone' => '081234567890',
+            'token' => 'dummytoken',
             'status' => 'belum dikonfirmasi',
             'event_id' => 1,
         ]);

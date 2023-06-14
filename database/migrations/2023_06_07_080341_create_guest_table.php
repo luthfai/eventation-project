@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('phone')->unique()->nullable();
             // attendance status (hadir, tidak hadir, belum dikonfirmasi)
             $table->string('status')->default('belum dikonfirmasi');
-            // fk event id
+            $table->string('token')->unique();
             $table->foreignId('event_id')->constrained('events');
             $table->timestamps();
         });
