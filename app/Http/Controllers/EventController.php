@@ -205,4 +205,16 @@ class EventController extends Controller
             ->get();
         return view('admin.event-list', compact('events'));
     }
+
+    public function showGuests($slug)
+    {
+        // only admin can see this page
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
+            return redirect()->route('no.access');
+        }
+        // show all guests
+        $event = Event::where('slug', $slug)->first();
+        $guests = Guest::where('event_id', $event->id)->get();
+        return view('admin.guest-list', compact('guests', 'event'));
+    }
 }

@@ -19,7 +19,7 @@ return new class extends Migration
             // attendance status (hadir, tidak hadir, belum dikonfirmasi)
             $table->string('status')->default('belum dikonfirmasi');
             $table->string('token')->unique();
-            $table->foreignId('event_id')->constrained('events');
+            $table->foreignId('event_id')->constrained('events')->onDelete('cascade');
             $table->timestamps();
         });
     }
