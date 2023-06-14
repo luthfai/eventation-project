@@ -57,9 +57,9 @@
                             <x-icons.edit class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
                         </x-slot>
                     </x-sidebar.link>
-                    <x-sidebar.link title="Undangan" href="/admin/dashboard/undangan" :isActive="request()->routeIs('admin.undangan')">
+                    <x-sidebar.link title="Events" href="/admin/dashboard/events" :isActive="request()->routeIs('admin.undangan')">
                         <x-slot name="icon">
-                            <x-icons.empty-circle class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+                            <x-heroicon-o-calendar class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
                         </x-slot>
                     </x-sidebar.link>
                     <div x-transition x-show="isSidebarOpen || isSidebarHovered" class="text-sm text-gray-500">

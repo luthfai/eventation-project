@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-dark-eval-2">
-                @dd($guests)
+                @dd($guests->
             </tbody>
         </table>
     </div>

@@ -34,7 +34,7 @@ class EventController extends Controller
         if (!$event) {
             return redirect()->route('dashboard');
         }
-        if ($event->user_id != auth()->user()->id) {
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
             return view('no-access');
         }
         return view('event.edit', compact('event'));
@@ -43,7 +43,7 @@ class EventController extends Controller
     public function update(Request $request, $slug)
     {
         $event = DB::table('events')->where('slug', $slug)->first();
-        if ($event->user_id != auth()->user()->id) {
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
             return redirect()->route('no.access');
         }
 
@@ -173,9 +173,36 @@ class EventController extends Controller
         // only authenticated users can see this page
         $event = DB::table('events')->where('slug', $slug)->first();
         $undangan = DB::table('undangans')->where('id', $event->undangan_id)->first();
-        if ($event->user_id != auth()->user()->id) {
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
             return redirect()->route('no.access');
         }
         return view('undangan.' . $undangan->slug, compact('event'));
+    }
+
+    public function destroy($slug)
+    {
+        // only authenticated users can delete this event
+        $event = Event::where('slug', $slug)->first();
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
+            return redirect()->route('no.access');
+        }
+        // delete the event
+        $event->delete();
+        // redirect to dashboard
+        return redirect()->route('dashboard');
+    }
+
+    public function showAdmin()
+    {
+        // only admin can see this page
+        if (auth()->user()->role != 'admin') {
+            return redirect()->route('no.access');
+        }
+        // show all events
+        $events = DB::table('events')
+            ->join('undangans', 'events.undangan_id', '=', 'undangans.id')
+            ->select('events.*', 'undangans.name', 'undangans.image')
+            ->get();
+        return view('admin.event-list', compact('events'));
     }
 }

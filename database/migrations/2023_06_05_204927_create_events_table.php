@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+// db
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -33,7 +35,7 @@ return new class extends Migration
             $table->longText('location_url')->nullable();
             $table->string('guest_list')->nullable();
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('undangan_id')->constrained('undangans');
+            $table->foreignId('undangan_id')->nullable()->constrained('undangans')->onDelete('set null');
             $table->timestamps();
         });
     }
