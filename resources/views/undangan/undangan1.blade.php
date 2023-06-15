@@ -225,20 +225,34 @@
                 <form action='/event/{{ $event->slug }}/{{ $guest->token }}/konfirmasi' method="POST">
                     @csrf
                     @method('patch')
-                @else
-                    <form action='' method="">
-                    @endisset
                     <label for="name">Nama:</label>
                     <h1>{{ $guest->name ?? 'Nama Tamu' }}</h1>
                     <label for="status">Kehadiran:</label>
+                    @if($guest->status == 'hadir')
+                    <h1> Anda sudah mengkonfirmasi kehadiran </h1>
+                    @else
                     <select id="status" name="status" required>
                         <option value="">Pilih Kehadiran</option>
                         <option value="hadir">Hadir</option>
                         <option value="tidak hadir">Tidak Hadir</option>
                     </select>
-
                     <input type="submit" value="Konfirmasi" style="background-color: darkgreen; ">
+                    @endif
                 </form>
+            @else
+                <form action='' method="">
+            @endisset
+                <label for="name">Nama:</label>
+                <h1>{{ $guest->name ?? 'Nama Tamu' }}</h1>
+                <label for="status">Kehadiran:</label>
+                <select id="status" name="status" required>
+                    <option value="">Pilih Kehadiran</option>
+                    <option value="hadir">Hadir</option>
+                    <option value="tidak hadir">Tidak Hadir</option>
+                </select>
+
+                <input type="submit" value="Konfirmasi" style="background-color: darkgreen; ">
+            </form>
         </div>
     </div>
 

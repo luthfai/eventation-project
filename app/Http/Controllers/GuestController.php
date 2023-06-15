@@ -64,7 +64,7 @@ class GuestController extends Controller
             'event_id' => $guest->event_id,
         ]);
 
-        return route('dashboard');
+        return redirect()->route('user.guests', $slug)->with('success', 'Tamu berhasil ditambahkan');
     }
     public function storeCSV(Request $request, $slug)
     {
@@ -108,7 +108,7 @@ class GuestController extends Controller
             // delete csv file
             unlink($file);
         }
-    return redirect()->route('dashboard')->with('success', 'Guests added successfully');
+        return redirect()->route('user.guests', $slug)->with('success', 'Tamu berhasil ditambahkan');
     }
 
 
@@ -137,13 +137,13 @@ class GuestController extends Controller
             'status' => $guest->status,
             // 'event_id' => $guest->event_id,
         ]);
-        return redirect()->route('dashboard')->with('success', 'Guest updated successfully');
+        return redirect()->route('user.guests', $slug)->with('success', 'Tamu berhasil diupdate');
     }
 
     public function destroy($id)
     {
         DB::table('guest')->where('id', $id)->delete();
-        return redirect()->route('dashboard')->with('success', 'Guest deleted successfully');
+        return redirect()->back()->with('success', 'Tamu berhasil dihapus');
     }
 
     public function showGuests($slug)
