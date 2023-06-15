@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 // guest model
 use App\Models\Guest;
+// event model
+use App\Models\Event;
+//undaangan model
+use App\Models\Undangan;
 
 use Illuminate\Http\Request;
 
@@ -64,5 +68,16 @@ class GuestController extends Controller
         }
         $guests = DB::table('guest')->where('event_id', $event->id)->get();
         return view('user.list-tamu', compact('guests', 'event'));
+    }
+
+    public function invit($slug, $token)
+    {
+        $event = DB::table('events')->where('slug', $slug)->first();
+        $undangan = Undangan::find($event->undangan_id);
+        $guests = DB::table('guest')->where('token', $token)->first();
+        if (!$guests) {
+            return redirect()->route('no.access');
+        }
+        return view('undangan.' . $undangan->slug, compact('event', 'guests'));
     }
 }
