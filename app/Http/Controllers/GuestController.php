@@ -22,36 +22,47 @@ class GuestController extends Controller
 
     public function edit($id)
     {
-        $guest = Guest::find($id);
-        return view('guest.edit', compact('guest'));
+        $guest = DB::table('guest')->where('id', $id)->first();
+        $event = DB::table('events')->where('id', $guest->event_id)->first();
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
+            return redirect()->route('no.access');
+        }
+        return view('user.edit-tamu', compact('guest', 'event'));
     }
 
     public function update(Request $request, $id)
     {
-        $guest = Guest::find($id);
+        $guest = DB::table('guest')->where('id', $id)->first();
         $guest->name = $request->name;
         $guest->email = $request->email;
         $guest->phone = $request->phone;
-        $guest->save();
-        return redirect()->route('guest.index')->with('success', 'Guest updated successfully');
+        $guest->status = $request->status;
+        // $guest->event_id = $request->event_id;
+        DB::table('guest')->where('id', $id)->update([
+            'name' => $guest->name,
+            'email' => $guest->email,
+            'phone' => $guest->phone,
+            'status' => $guest->status,
+            // 'event_id' => $guest->event_id,
+        ]);
+        return redirect()->route('dashboard')->with('success', 'Guest updated successfully');
     }
 
     public function destroy($id)
     {
-        $guest = Guest::find($id);
-        $guest->delete();
-        return redirect()->route('guest.index')->with('success', 'Guest deleted successfully');
+        DB::table('guest')->where('id', $id)->delete();
+        return redirect()->route('dashboard')->with('success', 'Guest deleted successfully');
     }
 
-    public function showTamus()
+    public function showGuests($slug)
     {
-        // for each event that has been created by the user (auth()->user()->id) get the guests
-        $events = DB::table('events')->where('user_id', auth()->user()->id)->get();
-        $guests = [];
-        foreach ($events as $event) {
-            $guest = DB::table('guest')->where('event_id', $event->id)->get();
-            array_push($guests, $guest);
+        // only admin can see this page
+        // show all guests
+        $event = DB::table('events')->where('slug', $slug)->first();
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
+            return redirect()->route('no.access');
         }
-        return view('user.list-tamu', compact('guests'));
+        $guests = DB::table('guest')->where('event_id', $event->id)->get();
+        return view('user.list-tamu', compact('guests', 'event'));
     }
 }

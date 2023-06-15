@@ -94,13 +94,18 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::patch('/user/dashboard/event/edit/{slug}', [EventController::class, 'update'])->name('user.event.update');
     Route::delete('/user/dashboard/event/delete/{slug}', [EventController::class, 'destroy'])->name('user.event.destroy');
     Route::get('/user/dashboard/guests/{slug}', [GuestController::class, 'showGuests'])->name('user.guests');
+    Route::get('/user/dashboard/guests/{slug}/create', [GuestController::class, 'create'])->name('user.guests.create');
+    Route::post('/user/dashboard/guests/{slug}/store', [GuestController::class, 'store'])->name('user.guests.store');
+    Route::get('/user/dashboard/guests/edit/{id}', [GuestController::class, 'edit'])->name('user.guests.edit');
+    Route::patch('/user/dashboard/guests/edit/{id}', [GuestController::class, 'update'])->name('user.guests.update');
+    Route::delete('/user/dashboard/guests/delete/{id}', [GuestController::class, 'destroy'])->name('user.guests.destroy');
 
 });
 
 
 require __DIR__ . '/auth.php';
 
-Route::get('/event/guest/{token}', [InvitController::class, 'guest'])->name('invite.guest');
+Route::get('/event/{slug}/{token}', [InvitController::class, 'guest'])->name('invite.guest');
 
 // katalog undangan
 Route::get('/templates', [UndanganController::class, 'katalog'])->name('undangan.katalog');
