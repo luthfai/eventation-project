@@ -14,14 +14,45 @@ use Illuminate\Http\Request;
 
 class GuestController extends Controller
 {
-    public function store(Request $request)
+    public function create()
     {
+        $slug = request()->slug;
+        $event = DB::table('events')->where('slug', $slug)->first();
+        if (!$event) {
+            return redirect()->route('dashboard');
+        }
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
+            return view('no-access');
+        }
+        return view('user.add-tamu', compact('event'));
+    }
+    public function store(Request $request, $slug)
+    {
+        $event = DB::table('events')->where('slug', $slug)->first();
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
+            return redirect()->route('no.access');
+        }
+        // dd($request->all());
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+        ]);
         $guest = new Guest();
         $guest->name = $request->name;
         $guest->email = $request->email;
         $guest->phone = $request->phone;
-        $guest->save();
-        return redirect()->route('guest.index')->with('success', 'Guest added successfully');
+        $guest->token = substr(md5(microtime()), rand(0, 26), 5);
+        $guest->event_id = $event->id;
+        DB::table('guest')->insert([
+            'name' => $guest->name,
+            'email' => $guest->email,
+            'phone' => $guest->phone,
+            'token' => $guest->token,
+            'event_id' => $guest->event_id,
+        ]);
+
+        return route('dashboard');
     }
 
     public function edit($id)

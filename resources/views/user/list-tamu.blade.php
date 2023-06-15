@@ -51,7 +51,9 @@
                         {{ $guest->status }}
                     </td>
                     <td class="px-4 py-3 text-sm font-medium text-gray-900 dark:text-dark-eval-3">
-                        <a>/event/{{ $event->slug }}/{{ $guest->token }}</a>
+                        <a href="/event/{{ $event->slug }}/{{ $guest->token }}" target="_blank" class="text-blue-500 underline">
+                            localhost:8080/event/{{ $event->slug }}/{{ $guest->token }}</a>
+                        </a>
                     </td>
                     <td class="px-4 py-3 flex text-sm font-medium text-gray-900 dark:text-dark-eval-3">
                         <x-button href="{{ route('user.guests.edit', $guest->id) }}" variant="info" class="justify-center text-center max-w-xs gap-2 mx-2">
