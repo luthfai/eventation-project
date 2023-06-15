@@ -122,12 +122,4 @@ Route::get('/test', function () {
     return view('undangan.undangan1');
 })->name('index');
 
-Route::get('/event/edit/{slug}', [EventController::class, 'edit'])->name('event.edit');
 
-Route::get('/event/undangan2', function () {
-    return view('undangan.undangan2');
-});
-
-Route::get('/event/undangan3', function () {
-    return view('undangan.undangan3');
-});

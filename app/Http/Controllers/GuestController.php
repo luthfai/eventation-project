@@ -101,6 +101,8 @@ class GuestController extends Controller
                     'event_id' => $event->id,
                 ]);
             }
+            // delete csv file
+            unlink($file);
         }
     return redirect()->route('dashboard')->with('success', 'Guests added successfully');
     }
