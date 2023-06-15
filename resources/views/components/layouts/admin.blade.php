@@ -52,14 +52,14 @@
                             <x-icons.menu-fold-right class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
                         </x-slot>
                     </x-sidebar.link>
-                    <x-sidebar.link title="Templates" href="/admin/dashboard/templates" :isActive="request()->routeIs('admin.template')">
+                    <x-sidebar.link title="Templates" href="/admin/dashboard/templates" :isActive="request()->routeIs('admin.templates')">
                         <x-slot name="icon">
                             <x-icons.edit class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
                         </x-slot>
                     </x-sidebar.link>
-                    <x-sidebar.link title="Undangan" href="/admin/dashboard/undangan" :isActive="request()->routeIs('admin.undangan')">
+                    <x-sidebar.link title="Events" href="/admin/dashboard/events" :isActive="request()->routeIs('admin.events')">
                         <x-slot name="icon">
-                            <x-icons.empty-circle class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+                            <x-heroicon-o-calendar class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
                         </x-slot>
                     </x-sidebar.link>
                     <div x-transition x-show="isSidebarOpen || isSidebarHovered" class="text-sm text-gray-500">

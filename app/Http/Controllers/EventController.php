@@ -34,42 +34,128 @@ class EventController extends Controller
         if (!$event) {
             return redirect()->route('dashboard');
         }
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
+            return view('no-access');
+        }
         return view('event.edit', compact('event'));
     }
 
     public function update(Request $request, $slug)
     {
-        // only authenticated users can see this page
-        $event = Event::find($slug);
-        $event->title = $request->title;
-        $event->name1 = $request->name1;
-        $event->nickname1 = $request->nickname1;
-        $event->name2 = $request->name2;
-        $event->nickname2 = $request->nickname2;
-        $event->description = $request->description;
-        $event->location = $request->location;
-        $event->event_date = $request->event_date;
-        $event->event_image = $request->event_image;
-        $event->event_image_alt = $request->event_image_alt;
-        $event->event_image_title = $request->event_image_title;
-        $event->event_image_caption = $request->event_image_caption;
-        $event->event_video = $request->event_video;
-        $event->event_video_alt = $request->event_video_alt;
-        $event->event_video_title = $request->event_video_title;
-        $event->event_video_caption = $request->event_video_caption;
-        $event->event_audio = $request->event_audio;
-        $event->event_audio_alt = $request->event_audio_alt;
-        $event->event_audio_title = $request->event_audio_title;
-        $event->event_audio_caption = $request->event_audio_caption;
-        $event->location_url = $request->location_url;
-        $event->undangan_id = $request->undangan_id;
+        $event = DB::table('events')->where('slug', $slug)->first();
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
+            return redirect()->route('no.access');
+        }
 
-        $event->save();
-        return redirect()->route('event.edit', $id)->with('success', 'Event updated successfully');
+        // validate the request
+        $request_ = $request->validate([
+            'title' => 'required',
+            'name1' => 'required',
+            'nickname1' => 'required',
+            'name2' => 'required',
+            'nickname2' => 'required',
+            'description' => 'nullable',
+            'location' => 'required',
+            'event_date' => 'nullable',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'image1' => 'nullable',
+            'image2' => 'nullable',
+            'image3' => 'nullable',
+            'image4' => 'nullable',
+            'video_url' => 'nullable',
+            'event_audio' => 'nullable',
+            'location_url' => 'nullable',
+            'guest_list' => 'nullable',
+        ]);
+
+        // start_date = eventdate date + startdate time
+        $request_['start_date'] = $request->event_date . ' ' . $request->start_date;
+        // end_date = eventdate date + enddate time
+        $request_['end_date'] = $request->event_date . ' ' . $request->end_date;
+        if ($request->hasFile('image1')) {
+            $image1 = $request->file('image1');
+            // name to slug + random unique
+            $filename1 = $slug . '-' . uniqid() . '.' . $image1->getClientOriginalExtension();
+            $image1->move(public_path('image/event'), $filename1);
+            $request_['image1'] = $filename1;
+        }else{
+            $request_['image1'] = $event->image1;
+        }
+        if ($request->hasFile('image2')) {
+            $image2 = $request->file('image2');
+            // name to slug + random unique
+            $filename2 = $slug . '-' . uniqid() . '.' . $image2->getClientOriginalExtension();
+            $image2->move(public_path('image/event'), $filename2);
+            $request_['image2'] = $filename2;
+        }else{
+            $request_['image2'] = $event->image2;
+        }
+        if ($request->hasFile('image3')) {
+            $image3 = $request->file('image3');
+            // name to slug + random unique
+            $filename3 = $slug . '-' . uniqid() . '.' . $image3->getClientOriginalExtension();
+            $image3->move(public_path('image/event'), $filename3);
+            $request_['image3'] = $filename3;
+        }else{
+            $request_['image3'] = $event->image3;
+        }
+        if ($request->hasFile('image4')) {
+            $image4 = $request->file('image4');
+            // name to slug + random unique
+            $filename4 = $slug . '-' . uniqid() . '.' . $image4->getClientOriginalExtension();
+            $image4->move(public_path('image/event'), $filename4);
+            $request_['image4'] = $filename4;
+        }else{
+            $request_['image4'] = $event->image4;
+        }
+        if ($request->hasFile('event_audio')) {
+            $event_audio = $request->file('event_audio');
+            // name to slug + random unique
+            $filename5 = $slug . '-' . uniqid() . '.' . $event_audio->getClientOriginalExtension();
+            $event_audio->move(public_path('audio/event'), $filename5);
+            $request_['event_audio'] = $filename5;
+        }else{
+            $request_['event_audio'] = $event->event_audio;
+        }
+
+        if ($request->hasFile('guest_list')) {
+            // check if extension is csv
+            $guest_list = $request->file('guest_list');
+            // check if extension is csv
+            $extension = $guest_list->getClientOriginalExtension();
+            if ($extension != 'csv') {
+                return redirect()->back()->with('error', 'File harus berupa csv');
+            }
+            // name to slug + random unique
+            $filename6 = $slug . '-' . uniqid() . '.' . $guest_list->getClientOriginalExtension();
+            $guest_list->move(public_path('csv'), $filename6);
+            // import csv to database
+            $file = public_path('csv/' . $filename6);
+            $csv = array_map('str_getcsv', file($file));
+            $csv = array_map('array_filter', $csv);
+            $csv = array_filter($csv);
+            // delete first row
+            unset($csv[0]);
+            // insert to database
+            foreach ($csv as $row) {
+                DB::table('guest')->insert([
+                    'name' => $row[0],
+                    'email' => $row[1],
+                    'phone' => $row[2],
+                    'token' => substr(md5(microtime()), rand(0, 26), 5),
+                    'event_id' => $event->id,
+                ]);
+            }
+        }
+        // update the event
+        Event::where('slug', $slug)->update($request_);
+        // redirect to dashboard
+        return redirect()->route('dashboard');
     }
 
     // show user events
-    public function userShow()
+    public function showEvents()
     {
         // only show events that belong to the user
         // add undangan data to events using undangan_id
@@ -88,9 +174,36 @@ class EventController extends Controller
         // only authenticated users can see this page
         $event = DB::table('events')->where('slug', $slug)->first();
         $undangan = DB::table('undangans')->where('id', $event->undangan_id)->first();
-        if ($event->user_id != auth()->user()->id) {
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
             return redirect()->route('no.access');
         }
         return view('undangan.' . $undangan->slug, compact('event'));
+    }
+
+    public function destroy($slug)
+    {
+        // only authenticated users can delete this event
+        $event = Event::where('slug', $slug)->first();
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
+            return redirect()->route('no.access');
+        }
+        // delete the event
+        $event->delete();
+        // redirect to dashboard
+        return redirect()->route('dashboard');
+    }
+
+    public function showAdmin()
+    {
+        // only admin can see this page
+        if (auth()->user()->role != 'admin') {
+            return redirect()->route('no.access');
+        }
+        // show all events
+        $events = DB::table('events')
+            ->join('undangans', 'events.undangan_id', '=', 'undangans.id')
+            ->select('events.*', 'undangans.name', 'undangans.image')
+            ->get();
+        return view('admin.event-list', compact('events'));
     }
 }

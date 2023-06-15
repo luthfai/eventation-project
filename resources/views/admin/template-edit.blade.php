@@ -2,7 +2,7 @@
     <x-auth-card>
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-        <form method="POST" action="{{ route('super.admin.update', $admin->id) }}">
+        <form method="POST" action="{{ route('admin.templates.update', $undangan->id) }}">
             @csrf
             @method('PATCH')
             <div class="grid gap-6">
@@ -24,114 +24,145 @@
                             class="block w-full"
                             type="text"
                             name="name"
-                            :value="old('name', $admin->name)"
+                            :value="old('name', $undangan->name)"
                             required
                             autofocus
                             placeholder="{{ __('Name') }}"
                         />
                     </x-form.input-with-icon-wrapper>
                 </div>
-                <!-- Email Address -->
+
+                <!-- Slug -->
                 <div class="space-y-2">
                     <x-form.label
-                        for="email"
-                        :value="__('Email')"
+                        for="slug"
+                        :value="__('Slug')"
                     />
 
                     <x-form.input-with-icon-wrapper>
                         <x-slot name="icon">
-                            <x-heroicon-o-mail aria-hidden="true" class="w-5 h-5" />
+                            <x-heroicon-o-user aria-hidden="true" class="w-5 h-5" />
                         </x-slot>
 
                         <x-form.input
                             withicon
-                            id="email"
+                            id="slug"
                             class="block w-full"
-                            type="email"
-                            name="email"
-                            :value="old('email', $admin->email)"
-                            required
-                            placeholder="{{ __('Email') }}"
-                        />
-                    </x-form.input-with-icon-wrapper>
-                </div>
-
-                <!-- Role dropdown -->
-                <div class="space-y-2">
-                    <x-form.label
-                        for="role"
-                        :value="__('Role')"
-                    />
-
-                    <x-form.input-with-icon-wrapper>
-                        <x-slot name="icon">
-                            <x-heroicon-o-user-group aria-hidden="true" class="w-5 h-5" />
-                        </x-slot>
-
-                        <x-form.select
-                            withicon
-                            id="role"
-                            class="block w-full"
-                            name="role"
-                            :value="old('role', $admin->role)"
+                            type="text"
+                            name="slug"
+                            :value="old('slug', $undangan->slug)"
                             required
                             autofocus
-                            placeholder="{{ __('Role') }}"
-                        >
-                            <option value="superadmin">Super</option>
-                            <option value="admin">Admin</option>
-                        </x-form.select>
-                    </x-form.input-with-icon-wrapper>
-                </div>
-                <!-- Password -->
-                <div class="space-y-2">
-                    <x-form.label
-                        for="password"
-                        :value="__('Password')"
-                    />
-
-                    <x-form.input-with-icon-wrapper>
-                        <x-slot name="icon">
-                            <x-heroicon-o-lock-closed aria-hidden="true" class="w-5 h-5" />
-                        </x-slot>
-
-                        <x-form.input
-                            withicon
-                            id="password"
-                            class="block w-full"
-                            type="password"
-                            name="password"
-                            required
-                            autocomplete="new-password"
-                            placeholder="{{ __('Password') }}"
+                            placeholder="{{ __('Slug') }}"
                         />
                     </x-form.input-with-icon-wrapper>
                 </div>
 
-                <!-- Confirm Password -->
+                <!-- Description -->
                 <div class="space-y-2">
                     <x-form.label
-                        for="password_confirmation"
-                        :value="__('Confirm Password')"
+                        for="description"
+                        :value="__('Description')"
                     />
 
                     <x-form.input-with-icon-wrapper>
                         <x-slot name="icon">
-                            <x-heroicon-o-lock-closed aria-hidden="true" class="w-5 h-5" />
+                            <x-heroicon-o-user aria-hidden="true" class="w-5 h-5" />
                         </x-slot>
 
                         <x-form.input
                             withicon
-                            id="password_confirmation"
+                            id="description"
                             class="block w-full"
-                            type="password"
-                            name="password_confirmation"
+                            type="text"
+                            name="description"
+                            :value="old('description', $undangan->description)"
                             required
-                            placeholder="{{ __('Confirm Password') }}"
+                            autofocus
+                            placeholder="{{ __('Description') }}"
                         />
                     </x-form.input-with-icon-wrapper>
-
                 </div>
+
+                <!-- Price -->
+                <div class="space-y-2">
+                    <x-form.label
+                        for="price"
+                        :value="__('Price')"
+                    />
+
+                    <x-form.input-with-icon-wrapper>
+                        <x-slot name="icon">
+                            <x-heroicon-o-user aria-hidden="true" class="w-5 h-5" />
+                        </x-slot>
+
+                        <x-form.input
+                            withicon
+                            id="price"
+                            class="block w-full"
+                            type="text"
+                            name="price"
+                            :value="old('price', $undangan->price)"
+                            required
+                            autofocus
+                            placeholder="{{ __('Price') }}"
+                        />
+                    </x-form.input-with-icon-wrapper>
+                </div>
+
+                <!-- Description -->
+                <div class="space-y-2">
+                    <x-form.label
+                        for="description"
+                        :value="__('Description')"
+                    />
+
+                    <x-form.input-with-icon-wrapper>
+                        <x-slot name="icon">
+                            <x-heroicon-o-user aria-hidden="true" class="w-5 h-5" />
+                        </x-slot>
+
+                        <x-form.input
+                            withicon
+                            id="description"
+                            class="block w-full"
+                            type="text"
+                            name="description"
+                            :value="old('description', $undangan->description)"
+                            required
+                            autofocus
+                            placeholder="{{ __('Description') }}"
+                        />
+                    </x-form.input-with-icon-wrapper>
+                </div>
+
+                <!-- Category -->
+                <div class="space-y-2">
+                    <x-form.label
+                        for="category"
+                        :value="__('Category')"
+                    />
+
+                    <x-form.input-with-icon-wrapper>
+                        <x-slot name="icon">
+                            <x-heroicon-o-user aria-hidden="true" class="w-5 h-5" />
+                        </x-slot>
+
+                        <x-form.input
+                            withicon
+                            id="kategori"
+                            class="block w-full"
+                            type="text"
+                            name="kategori"
+                            :value="old('kategori', $undangan->kategori)"
+                            required
+                            autofocus
+                            placeholder="{{ __('Category') }}"
+                        />
+                    </x-form.input-with-icon-wrapper>
+                </div>
+
+
                 <div>
                     <x-button class="justify-center w-full gap-2">
                         <x-heroicon-o-user-add class="w-6 h-6" aria-hidden="true" />

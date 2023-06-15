@@ -2,7 +2,7 @@
     <x-auth-card>
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-        <form method="POST" action="{{ route('super.admin.update', $admin->id) }}">
+        <form method="POST" action="{{ route('user.guests.update', $guest->id) }}">
             @csrf
             @method('PATCH')
             <div class="grid gap-6">
@@ -24,13 +24,14 @@
                             class="block w-full"
                             type="text"
                             name="name"
-                            :value="old('name', $admin->name)"
+                            :value="old('name', $guest->name)"
                             required
                             autofocus
                             placeholder="{{ __('Name') }}"
                         />
                     </x-form.input-with-icon-wrapper>
                 </div>
+
                 <!-- Email Address -->
                 <div class="space-y-2">
                     <x-form.label
@@ -49,88 +50,65 @@
                             class="block w-full"
                             type="email"
                             name="email"
-                            :value="old('email', $admin->email)"
+                            :value="old('email', $guest->email)"
                             required
                             placeholder="{{ __('Email') }}"
                         />
                     </x-form.input-with-icon-wrapper>
                 </div>
 
-                <!-- Role dropdown -->
+                <!-- Phone Number -->
                 <div class="space-y-2">
                     <x-form.label
-                        for="role"
-                        :value="__('Role')"
+                        for="phone_number"
+                        :value="__('Phone Number')"
                     />
 
                     <x-form.input-with-icon-wrapper>
                         <x-slot name="icon">
-                            <x-heroicon-o-user-group aria-hidden="true" class="w-5 h-5" />
+                            <x-heroicon-o-phone aria-hidden="true" class="w-5 h-5" />
+                        </x-slot>
+
+                        <x-form.input
+                            withicon
+                            id="phone"
+                            class="block w-full"
+                            type="text"
+                            name="phone"
+                            :value="old('phone', $guest->phone)"
+                            required
+                            placeholder="{{ __('Phone Number') }}"
+                        />
+                    </x-form.input-with-icon-wrapper>
+                </div>
+
+                <!-- Status dropdown -->
+                <div class="space-y-2">
+                    <x-form.label
+                        for="status"
+                        :value="__('Status')"
+                    />
+
+                    <x-form.input-with-icon-wrapper>
+                        <x-slot name="icon">
+                            <x-heroicon-o-status-online aria-hidden="true" class="w-5 h-5" />
                         </x-slot>
 
                         <x-form.select
                             withicon
-                            id="role"
+                            id="status"
                             class="block w-full"
-                            name="role"
-                            :value="old('role', $admin->role)"
+                            name="status"
+                            :value="old('status', $guest->status)"
                             required
                             autofocus
-                            placeholder="{{ __('Role') }}"
+                            placeholder="{{ __('Status') }}"
                         >
-                            <option value="superadmin">Super</option>
-                            <option value="admin">Admin</option>
+                            <option value="hadir">Hadir</option>
+                            <option value="tidak hadir">Tidak Hadir</option>
+                            <option value="belum dikonfirmasi">Belum Dikonfirmasi</option>
                         </x-form.select>
                     </x-form.input-with-icon-wrapper>
-                </div>
-                <!-- Password -->
-                <div class="space-y-2">
-                    <x-form.label
-                        for="password"
-                        :value="__('Password')"
-                    />
-
-                    <x-form.input-with-icon-wrapper>
-                        <x-slot name="icon">
-                            <x-heroicon-o-lock-closed aria-hidden="true" class="w-5 h-5" />
-                        </x-slot>
-
-                        <x-form.input
-                            withicon
-                            id="password"
-                            class="block w-full"
-                            type="password"
-                            name="password"
-                            required
-                            autocomplete="new-password"
-                            placeholder="{{ __('Password') }}"
-                        />
-                    </x-form.input-with-icon-wrapper>
-                </div>
-
-                <!-- Confirm Password -->
-                <div class="space-y-2">
-                    <x-form.label
-                        for="password_confirmation"
-                        :value="__('Confirm Password')"
-                    />
-
-                    <x-form.input-with-icon-wrapper>
-                        <x-slot name="icon">
-                            <x-heroicon-o-lock-closed aria-hidden="true" class="w-5 h-5" />
-                        </x-slot>
-
-                        <x-form.input
-                            withicon
-                            id="password_confirmation"
-                            class="block w-full"
-                            type="password"
-                            name="password_confirmation"
-                            required
-                            placeholder="{{ __('Confirm Password') }}"
-                        />
-                    </x-form.input-with-icon-wrapper>
-
                 </div>
                 <div>
                     <x-button class="justify-center w-full gap-2">

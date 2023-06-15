@@ -32,10 +32,7 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-// no access route
-Route::get('/no-access', function () {
-    return view('no-access');
-})->name('no.access');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -64,11 +61,23 @@ Route::middleware(['auth','role:admin'])->group(function () {
     Route::get('/admin/dashboard/user/{id}', [AdminController::class, 'UserEdit'])->name('admin.user.edit');
     Route::patch('/admin/dashboard/user/{id}', [AdminController::class, 'UserUpdate'])->name('admin.user.update');
     Route::delete('/admin/dashboard/user/{id}', [AdminController::class, 'UserDestroy'])->name('admin.user.destroy');
+    Route::get('/admin/dashboard/templates', [UndanganController::class, 'showTemplates'])->name('admin.templates');
+    // Route::get('/admin/dashboard/templates/create', [UndanganController::class, 'create'])->name('admin.templates.create');
+    Route::get('/admin/dashboard/templates/edit/{id}', [UndanganController::class, 'edit'])->name('admin.templates.edit');
+    Route::patch('/admin/dashboard/templates/edit/{id}', [UndanganController::class, 'update'])->name('admin.templates.update');
+    Route::delete('/admin/dashboard/templates/edit/{id}', [UndanganController::class, 'destroy'])->name('admin.templates.destroy');
+    Route::get('/admin/dashboard/events', [EventController::class, 'showAdmin'])->name('admin.events');
+    Route::get('/admin/dashboard/events/view/{slug}', [EventController::class, 'view'])->name('admin.events.view');
+    Route::get('/admin/dashboard/events/edit/{slug}', [EventController::class, 'edit'])->name('admin.events.edit');
+    Route::patch('/admin/dashboard/events/edit/{slug}', [EventController::class, 'update'])->name('admin.events.update');
+    Route::delete('/admin/dashboard/events/delete/{slug}', [EventController::class, 'destroy'])->name('admin.events.destroy');
 });
 
-Route::middleware(['auth','role:superadmin'])->group(function () {
+Route::middleware(['auth', 'role:superadmin'])->group(function () {
     Route::get('/super/dashboard', [SuperAdminController::class, 'SuperDashboard'])->name('super.dash');
     Route::get('/super/dashboard/admin', [SuperAdminController::class, 'AdminList'])->name('super.admin');
+    Route::get('/super/dashboard/admin-create', [SuperAdminController::class, 'AdminCreate'])->name('super.admin.create');
+    Route::post('/super/dashboard/admin-store', [SuperAdminController::class, 'AdminStore'])->name('super.admin.store');
     Route::get('/super/dashboard/admin/{id}', [SuperAdminController::class, 'AdminEdit'])->name('super.admin.edit');
     Route::patch('/super/dashboard/admin/{id}', [SuperAdminController::class, 'AdminUpdate'])->name('super.admin.update');
     Route::delete('/super/dashboard/admin/{id}', [SuperAdminController::class, 'AdminDestroy'])->name('super.admin.destroy');
@@ -79,16 +88,29 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::get('/user/dashboard', function () {
         return view('/user/dashboard');
     })->name('user.dash');
-
-    Route::get('/user/dashboard/event', [EventController::class, 'userShow'])->name('user.event');
+    Route::get('/user/dashboard/event', [EventController::class, 'showEvents'])->name('user.event');
     Route::get('/user/dashboard/event/edit/{slug}', [EventController::class, 'edit'])->name('user.event.edit');
     Route::get('/user/dashboard/event/view/{slug}', [EventController::class, 'view'])->name('user.event.view');
+    Route::patch('/user/dashboard/event/edit/{slug}', [EventController::class, 'update'])->name('user.event.update');
+    Route::delete('/user/dashboard/event/delete/{slug}', [EventController::class, 'destroy'])->name('user.event.destroy');
+    Route::get('/user/dashboard/guests/{slug}', [GuestController::class, 'showGuests'])->name('user.guests');
+    Route::get('/user/dashboard/guests/{slug}/create', [GuestController::class, 'create'])->name('user.guests.create');
+    Route::get('/user/dashboard/guests/{slug}/createCSV', [GuestController::class, 'createCSV'])->name('user.guests.createCSV');
+    Route::post('/user/dashboard/guests/{slug}/store', [GuestController::class, 'store'])->name('user.guests.store');
+    Route::post('/user/dashboard/guests/{slug}/storeCSV', [GuestController::class, 'storeCSV'])->name('user.guests.storeCSV');
+    Route::get('/user/dashboard/guests/edit/{id}', [GuestController::class, 'edit'])->name('user.guests.edit');
+    Route::patch('/user/dashboard/guests/edit/{id}', [GuestController::class, 'update'])->name('user.guests.update');
+    Route::delete('/user/dashboard/guests/delete/{id}', [GuestController::class, 'destroy'])->name('user.guests.destroy');
+
+
 });
 
 
 require __DIR__ . '/auth.php';
 
-Route::get('/event/guest/{token}', [InvitController::class, 'guest'])->name('invite.guest');
+Route::get('/event/{slug}/{token}', [GuestController::class, 'invit'])->name('guest.invit');
+Route::patch('/event/{slug}/{token}/konfirmasi', [GuestController::class, 'konfirmasi'])->name('guest.konfirmasi');
+
 
 // katalog undangan
 Route::get('/templates', [UndanganController::class, 'katalog'])->name('undangan.katalog');
@@ -100,12 +122,4 @@ Route::get('/test', function () {
     return view('undangan.undangan1');
 })->name('index');
 
-Route::get('/event/edit/{slug}', [EventController::class, 'edit'])->name('event.edit');
 
-Route::get('/event/undangan2', function () {
-    return view('undangan.undangan2');
-});
-
-Route::get('/event/undangan3', function () {
-    return view('undangan.undangan3');
-});

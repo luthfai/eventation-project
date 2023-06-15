@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+// db
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -21,9 +23,9 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('description');
             $table->string('location');
-            $table->timestamp('event_date');
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->string('event_date');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->string('image1')->nullable();
             $table->string('image2')->nullable();
             $table->string('image3')->nullable();
@@ -31,9 +33,9 @@ return new class extends Migration
             $table->string('video_url')->nullable();
             $table->string('event_audio')->nullable();
             $table->longText('location_url')->nullable();
-            // user_id is the foreign key that references the id field on the users table
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('undangan_id')->constrained('undangans');
+            $table->string('guest_list')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('undangan_id')->nullable()->constrained('undangans')->onDelete('set null');
             $table->timestamps();
         });
     }

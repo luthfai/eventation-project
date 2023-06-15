@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UndanganSeeder::class);
         $this->call(EventSeeder::class);
         $this->call(GuestSeeder::class);
-        $this->call(InvitSeeder::class);
         // $this->call([
         //     UsersTableSeeder::class,
         //     // PostsTableSeeder::class,

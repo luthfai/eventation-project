@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -16,6 +17,23 @@ class SuperAdminController extends Controller
         $admins = User::where('role', 'admin')->get();
         return view('super.admin', compact('admins'));
     }
+    public function AdminCreate()
+    {
+        $admin = new User();
+        return view('super.admin-create', compact('admin'));
+    }
+
+    public function AdminStore(Request $request)
+    {
+        $admin = new User();
+        $admin->name = $request->name;
+        $admin->username = $request->username;
+        $admin->email = $request->email;
+        $admin->role = $request->role;
+        $admin->password = bcrypt($request->password);
+        $admin->save();
+        return redirect()->route('super.admin')->with('success', 'Admin added successfully');
+    }
 
     public function AdminEdit($id)
     {
@@ -28,6 +46,10 @@ class SuperAdminController extends Controller
         $admin = User::find($id);
         $admin->name = $request->name;
         $admin->email = $request->email;
+        $admin->role = $request->role;
+        if ($request->password) {
+            $admin->password = bcrypt($request->password);
+        }
         $admin->save();
         return redirect()->route('super.admin')->with('success', 'Admin updated successfully');
     }
@@ -38,5 +60,4 @@ class SuperAdminController extends Controller
         $admin->delete();
         return redirect()->route('super.admin')->with('success', 'Admin deleted successfully');
     }
-
 }

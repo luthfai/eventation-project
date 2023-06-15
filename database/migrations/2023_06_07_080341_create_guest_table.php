@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('guest', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique()->nullable();
-            $table->string('phone')->unique()->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             // attendance status (hadir, tidak hadir, belum dikonfirmasi)
             $table->string('status')->default('belum dikonfirmasi');
-            // fk event id
-            $table->foreignId('event_id')->constrained('events');
+            $table->string('token')->unique();
+            $table->foreignId('event_id')->constrained('events')->onDelete('cascade');
             $table->timestamps();
         });
     }

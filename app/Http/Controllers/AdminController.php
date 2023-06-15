@@ -29,14 +29,18 @@ class AdminController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->role = $request->role;
+        if ($request->password) {
+            $user->password = bcrypt($request->password);
+        }
         $user->save();
         return redirect()->route('admin.user')->with('success', 'User updated successfully');
     }
 
     public function UserDestroy($id)
     {
-        $User = User::find($id);
-        $User->delete();
+        $user = User::find($id);
+        $user->delete();
         return redirect()->route('admin.user')->with('success', 'User deleted successfully');
     }
 }
