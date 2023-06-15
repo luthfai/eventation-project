@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Undangan;
 use App\Models\Event;
+use Illuminate\Support\Facades\Validator;
 
 class UndanganController extends Controller
 {
@@ -34,6 +35,7 @@ class UndanganController extends Controller
 
         }
     }
+
 
     // preview
     public function preview($id)

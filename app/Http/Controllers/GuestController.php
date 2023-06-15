@@ -73,6 +73,10 @@ class GuestController extends Controller
             return redirect()->route('no.access');
         }
 
+        $request->validate([
+            'guest_list' => 'required',
+        ]);
+
         if ($request->hasFile('guest_list')) {
             // check if extension is csv
             $guest_list = $request->file('guest_list');
