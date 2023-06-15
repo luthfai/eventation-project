@@ -95,10 +95,13 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::delete('/user/dashboard/event/delete/{slug}', [EventController::class, 'destroy'])->name('user.event.destroy');
     Route::get('/user/dashboard/guests/{slug}', [GuestController::class, 'showGuests'])->name('user.guests');
     Route::get('/user/dashboard/guests/{slug}/create', [GuestController::class, 'create'])->name('user.guests.create');
+    Route::get('/user/dashboard/guests/{slug}/createCSV', [GuestController::class, 'createCSV'])->name('user.guests.createCSV');
     Route::post('/user/dashboard/guests/{slug}/store', [GuestController::class, 'store'])->name('user.guests.store');
+    Route::post('/user/dashboard/guests/{slug}/storeCSV', [GuestController::class, 'storeCSV'])->name('user.guests.storeCSV');
     Route::get('/user/dashboard/guests/edit/{id}', [GuestController::class, 'edit'])->name('user.guests.edit');
     Route::patch('/user/dashboard/guests/edit/{id}', [GuestController::class, 'update'])->name('user.guests.update');
     Route::delete('/user/dashboard/guests/delete/{id}', [GuestController::class, 'destroy'])->name('user.guests.destroy');
+
 
 });
 

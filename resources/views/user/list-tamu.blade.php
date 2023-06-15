@@ -13,10 +13,16 @@
             <h2 class="text-xl font-semibold leading-tight">
                 Guest List <span class="text-sm text-gray-500">({{ $event->title }})</span>
             </h2>
-            <x-button href="{{ route('user.guests.create', $event->slug) }}" variant="success" class="justify-center text-center max-w-xs gap-2">
-                <span class="w-6 h-6" aria-hidden="true">+</span>
-                <span>Create Tamu</span>
-            </x-button>
+            <div>
+                <x-button href="{{ route('user.guests.create', $event->slug) }}" variant="success" class="justify-center text-center max-w-xs gap-2">
+                    <span class="w-6 h-6" aria-hidden="true">+</span>
+                    <span>Create Tamu</span>
+                </x-button>
+                <x-button href="{{ route('user.guests.createCSV', $event->slug) }}" variant="success" class="justify-center text-center max-w-xs gap-2">
+                    <span class="w-6 h-6" aria-hidden="true">+</span>
+                    <span>Add by CSV</span>
+                </x-button>
+            </div>
         </div>
         {{-- list all of tamu with crud --}}
         <table class="table-auto w-full mt-4 overflow-auto bg-white border rounded-md dark:bg-dark-eval-1">

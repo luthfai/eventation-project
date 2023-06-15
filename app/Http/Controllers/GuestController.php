@@ -26,6 +26,18 @@ class GuestController extends Controller
         }
         return view('user.add-tamu', compact('event'));
     }
+    public function createCSV()
+    {
+        $slug = request()->slug;
+        $event = DB::table('events')->where('slug', $slug)->first();
+        if (!$event) {
+            return redirect()->route('dashboard');
+        }
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
+            return view('no-access');
+        }
+        return view('user.add-tamu-CSV', compact('event'));
+    }
     public function store(Request $request, $slug)
     {
         $event = DB::table('events')->where('slug', $slug)->first();
@@ -54,6 +66,45 @@ class GuestController extends Controller
 
         return route('dashboard');
     }
+    public function storeCSV(Request $request, $slug)
+    {
+        $event = DB::table('events')->where('slug', $slug)->first();
+        if ($event->user_id != auth()->user()->id && auth()->user()->role != 'admin') {
+            return redirect()->route('no.access');
+        }
+
+        if ($request->hasFile('guest_list')) {
+            // check if extension is csv
+            $guest_list = $request->file('guest_list');
+            // check if extension is csv
+            $extension = $guest_list->getClientOriginalExtension();
+            if ($extension != 'csv') {
+                return redirect()->back()->with('error', 'File harus berupa csv');
+            }
+            // name to slug + random unique
+            $filename6 = $slug . '-' . uniqid() . '.' . $guest_list->getClientOriginalExtension();
+            $guest_list->move(public_path('csv'), $filename6);
+            // import csv to database
+            $file = public_path('csv/' . $filename6);
+            $csv = array_map('str_getcsv', file($file));
+            $csv = array_map('array_filter', $csv);
+            $csv = array_filter($csv);
+            // delete first row
+            unset($csv[0]);
+            // insert to database
+            foreach ($csv as $row) {
+                DB::table('guest')->insert([
+                    'name' => $row[0],
+                    'email' => $row[1],
+                    'phone' => $row[2],
+                    'token' => substr(md5(microtime()), rand(0, 26), 5),
+                    'event_id' => $event->id,
+                ]);
+            }
+        }
+    return redirect()->route('dashboard')->with('success', 'Guests added successfully');
+    }
+
 
     public function edit($id)
     {
