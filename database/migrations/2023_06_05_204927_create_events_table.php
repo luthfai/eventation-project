@@ -34,7 +34,7 @@ return new class extends Migration
             $table->string('event_audio')->nullable();
             $table->longText('location_url')->nullable();
             $table->string('guest_list')->nullable();
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->foreignId('undangan_id')->nullable()->constrained('undangans')->onDelete('set null');
             $table->timestamps();
         });
