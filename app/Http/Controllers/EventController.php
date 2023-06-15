@@ -139,11 +139,12 @@ class EventController extends Controller
             unset($csv[0]);
             // insert to database
             foreach ($csv as $row) {
-                Guest::create([
-                    'event_id' => $event->id,
+                DB::table('guest')->insert([
                     'name' => $row[0],
                     'email' => $row[1],
                     'phone' => $row[2],
+                    'token' => substr(md5(microtime()), rand(0, 26), 5),
+                    'event_id' => $event->id,
                 ]);
             }
         }
