@@ -27,6 +27,19 @@ class UndanganSeeder extends Seeder
         ]);
 
         DB::table('undangans')->insert([
+            'name' => 'BUAT BIKIN TEMPLATE',
+            'description' => 'edit file undangan/undangan-wip.blade.php untuk merubah isi dari template ini, kemudian jika sudah selesai copy isi file ke file blade baru di folder undangan.',
+            'price' => 0,
+            'slug' => 'undangan-wip',
+            'image' => 'none.png',
+            'image2' => 'none.png',
+            'image3' => 'none.png',
+            'image4' => 'none.png',
+            'paket' => 'Work In Progress',
+            'kategori' => 'Wedding'
+        ]);
+
+        DB::table('undangans')->insert([
             'name' => 'Elegante',
             'description' => 'Elegante adalah undangan yang dibuat dengan desain elegan dan mewah, cocok untuk kamu yang ingin mengadakan acara pernikahan dengan tema elegan dan mewah, dengan harga yang terjangkau.',
             'price' => 100000,

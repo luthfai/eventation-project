@@ -109,6 +109,8 @@ Route::middleware(['auth','role:user'])->group(function () {
 require __DIR__ . '/auth.php';
 
 Route::get('/event/{slug}/{token}', [GuestController::class, 'invit'])->name('guest.invit');
+Route::patch('/event/{slug}/{token}/konfirmasi', [GuestController::class, 'konfirmasi'])->name('guest.konfirmasi');
+
 
 // katalog undangan
 Route::get('/templates', [UndanganController::class, 'katalog'])->name('undangan.katalog');

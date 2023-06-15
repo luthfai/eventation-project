@@ -220,39 +220,40 @@
             <li>Tanggal Acara: {{ date('l, d-m-Y', strtotime($event->event_date)) }}</li>
             <li>Waktu Acara: {{ date('H:i', strtotime($event->start_date)) }} - {{ date('H:i', strtotime($event->end_date)) }}</li>
             <li>Tempat Acara: {{ $event->location }}</li>
+            <div class="event-details">
+                <h2>Location</h2>
+                <div class="mapouter">
+                  <div class="gmap_canvas">
+                    <iframe width="50%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q={{ $event->location }}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0"
+                      marginwidth="0"></iframe>
+                  </div>
+                </div>
+              </div>
           </ul>
         </div>
 
         {{-- location map --}}
-        <div class="event-details">
-          <h2>Location</h2>
-          <div class="mapouter">
-            <div class="gmap_canvas">
-              <iframe width="50%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q={{ $event->location }}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0"
-                marginwidth="0"></iframe>
-            </div>
-          </div>
-        </div>
-
-
         <div class="attendance-form">
-          <h2>Kehadiran</h2>
-          <form>
-            <label for="name">Nama:</label>
-            <input type="text" id="name" name="name" required>
+            <h2>Kehadiran</h2>
+            @isset($guest)
+                <form action='/event/{{ $event->slug }}/{{ $guest->token }}/konfirmasi' method="POST">
+                @else
+                    <form action='' method="POST">
+                    @endisset
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+                    @csrf
+                    @method('patch')
+                    <label for="name">Nama:</label>
+                    <h1>{{ $guest->name ?? 'Nama Tamu' }}</h1>
+                    <label for="status">Kehadiran:</label>
+                    <select id="status" name="status" required>
+                        <option value="">Pilih Kehadiran</option>
+                        <option value="hadir">Hadir</option>
+                        <option value="tidak hadir">Tidak Hadir</option>
+                    </select>
 
-            <label for="attendance">Kehadiran:</label>
-            <select id="attendance" name="attendance" required>
-              <option value="">Pilih Kehadiran</option>
-              <option value="hadir">Hadir</option>
-              <option value="tidak_hadir">Tidak Hadir</option>
-            </select>
-
-            <input type="submit" value="Konfirmasi" style="background-color: darkgreen; ">
-          </form>
+                    <input type="submit" value="Konfirmasi" style="background-color: darkgreen; ">
+                </form>
         </div>
       </div>
 

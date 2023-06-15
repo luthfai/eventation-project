@@ -221,22 +221,25 @@
 
         <div class="attendance-form">
             <h2>Kehadiran</h2>
-            <form>
-                <label for="name">Nama:</label>
-                <input type="text" id="name" name="name" required>
+            @isset($guest)
+                <form action='/event/{{ $event->slug }}/{{ $guest->token }}/konfirmasi' method="POST">
+                @else
+                    <form action='' method="POST">
+                    @endisset
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                    @csrf
+                    @method('patch')
+                    <label for="name">Nama:</label>
+                    <h1>{{ $guest->name ?? 'Nama Tamu' }}</h1>
+                    <label for="status">Kehadiran:</label>
+                    <select id="status" name="status" required>
+                        <option value="">Pilih Kehadiran</option>
+                        <option value="hadir">Hadir</option>
+                        <option value="tidak hadir">Tidak Hadir</option>
+                    </select>
 
-                <label for="attendance">Kehadiran:</label>
-                <select id="attendance" name="attendance" required>
-                    <option value="">Pilih Kehadiran</option>
-                    <option value="hadir">Hadir</option>
-                    <option value="tidak_hadir">Tidak Hadir</option>
-                </select>
-
-                <input type="submit" value="Konfirmasi" style="background-color: darkgreen; ">
-            </form>
+                    <input type="submit" value="Konfirmasi" style="background-color: darkgreen; ">
+                </form>
         </div>
     </div>
 

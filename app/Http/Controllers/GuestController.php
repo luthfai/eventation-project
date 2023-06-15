@@ -156,10 +156,25 @@ class GuestController extends Controller
     {
         $event = DB::table('events')->where('slug', $slug)->first();
         $undangan = Undangan::find($event->undangan_id);
-        $guests = DB::table('guest')->where('token', $token)->first();
-        if (!$guests) {
+        $guest = DB::table('guest')->where('token', $token)->first();
+        if (!$guest) {
             return redirect()->route('no.access');
         }
-        return view('undangan.' . $undangan->slug, compact('event', 'guests'));
+        return view('undangan.' . $undangan->slug, compact('event', 'guest'));
+    }
+
+    public function konfirmasi(Request $request, $slug, $token)
+    {
+        $event = DB::table('events')->where('slug', $slug)->first();
+        $undangan = Undangan::find($event->undangan_id);
+        $guest = DB::table('guest')->where('token', $token)->first();
+        if (!$guest) {
+            return redirect()->route('no.access');
+        }
+        $guest->status = $request->status;
+        DB::table('guest')->where('token', $token)->update([
+            'status' => $guest->status,
+        ]);
+        return view('undangan.' . $undangan->slug, compact('event', 'guest'))->with('success', 'Terimakasih telah mengkonfirmasi kehadiran anda');
     }
 }
