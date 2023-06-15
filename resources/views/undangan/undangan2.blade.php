@@ -240,7 +240,7 @@
                     @csrf
                     @method('patch')
                 @else
-                    <form action='' method="POST">
+                    <form action='' method="">
                     @endisset
                     <label for="name">Nama:</label>
                     <h1>{{ $guest->name ?? 'Nama Tamu' }}</h1>
