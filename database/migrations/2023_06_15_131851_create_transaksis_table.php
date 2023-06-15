@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('transaksis', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('id_user');
-            $table->uuid('id_undangan');
+            $table->string('id_undangan');
             $table->unsignedBigInteger('total_harga');
             $table->string('status')->default('pending');
             $table->timestamps();

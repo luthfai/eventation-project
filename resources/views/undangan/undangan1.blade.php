@@ -223,12 +223,11 @@
             <h2>Kehadiran</h2>
             @isset($guest)
                 <form action='/event/{{ $event->slug }}/{{ $guest->token }}/konfirmasi' method="POST">
+                    @csrf
+                    @method('patch')
                 @else
                     <form action='' method="POST">
                     @endisset
-
-                    @csrf
-                    @method('patch')
                     <label for="name">Nama:</label>
                     <h1>{{ $guest->name ?? 'Nama Tamu' }}</h1>
                     <label for="status">Kehadiran:</label>
