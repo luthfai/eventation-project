@@ -18,11 +18,14 @@ class UndanganControllerAPI extends Controller
 {
     public function buy(Request $request)
     {
+        $user = auth()->user();
         $validator = Validator::make($request->all(), [
-            'id_user' => 'required',
-            'id_undangan' => 'required',
             'bank' => 'required|in:bca,bni,bri,mandiri',
+            'id_undangan' => 'required',
+            'email' => 'required|email',
+            'nama' => 'required',
         ]);
+
 
         if ($validator->fails()) {
             return response()->json([
@@ -33,7 +36,6 @@ class UndanganControllerAPI extends Controller
 
         $orderId = Str::uuid()->toString();
         $undangan = Undangan::find($request->id_undangan);
-
         try{
             DB::beginTransaction();
             $serverKey = config('midtrans.serverKey');
@@ -44,6 +46,8 @@ class UndanganControllerAPI extends Controller
                     'transaction_details' => [
                         'order_id' => $orderId,
                         'gross_amount' => $undangan->price,
+                        'email' => $request->email,
+                        'name' => $request->nama,
                     ],
                     'bank_transfer' => [
                         'bank' => $request->bank,
@@ -94,11 +98,7 @@ class UndanganControllerAPI extends Controller
             ]);
 
             DB::commit();
-            return response()->json([
-                'data' => [
-                    'va_number' => $result['va_numbers'][0]['va_number'],
-                ]
-            ]);
+            return view('user.transaksi', $result);
         }catch(\Exception $e){
             DB::rollBack();
             return response()->json([
@@ -158,4 +158,6 @@ class UndanganControllerAPI extends Controller
             'message' => 'success update status',
         ]);
     }
+
+
 }

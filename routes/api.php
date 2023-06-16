@@ -21,5 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/undangan/buy', [UndanganControllerAPI::class, 'buy'])->name('buy');
-
 Route::post('/midtrans/notif-hook', [UndanganControllerAPI::class, 'handle'])->name('midtrans.notif-hook');

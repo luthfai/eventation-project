@@ -102,7 +102,6 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::patch('/user/dashboard/guests/edit/{id}', [GuestController::class, 'update'])->name('user.guests.update');
     Route::delete('/user/dashboard/guests/delete/{id}', [GuestController::class, 'destroy'])->name('user.guests.destroy');
 
-
 });
 
 
@@ -118,8 +117,10 @@ Route::get('/templates/{id}', [UndanganController::class, 'detail'])->name('unda
 Route::get('/templates/{id}/preview', [UndanganController::class, 'preview'])->name('undangan.preview');
 Route::get('/templates/{id}/checkout', [UndanganController::class, 'checkout'])->name('undangan.checkout');
 
+
 Route::get('/test', function () {
     return view('undangan.undangan1');
 })->name('index');
+
 
 

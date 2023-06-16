@@ -36,6 +36,26 @@ class UndanganController extends Controller
         }
     }
 
+    // public function storeTransaksi(Request $request){
+    //     $user = auth()->user();
+    //     $undangan = Undangan::find($request->id_undangan);
+    //     $validator = Validator::make($request->all(), [
+    //         'id_undangan' => 'required',
+    //         'bank' => 'required|in:bca,bni,bri,mandiri',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return response()->json([
+    //             'status' => 'error',
+    //             'message' => $validator->errors(),
+    //         ], 400);
+    //     }
+
+    //     $orderId = Str::uuid()->toString();
+    //     $undangan = Undangan::find($request->id_undangan);
+
+
+    // }
 
     // preview
     public function preview($id)

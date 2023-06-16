@@ -1,5 +1,5 @@
     <!-- Header Section -->
-    <header class="relative z-50 w-full h-24">
+    <header class="relative z-50 w-full h-24 shadow-md">
         <div class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0">
 
             <a href="/" class="relative flex items-center inline-block h-5 h-full font-black leading-none">
