@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('id_undangan');
             $table->unsignedBigInteger('total_harga');
             $table->string('status')->default('pending');
+            $table->string('no_va')->nullable();
             $table->timestamps();
         });
     }

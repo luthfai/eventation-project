@@ -24,7 +24,7 @@
                             </h3>
                             <p class="mt-1 text-sm text-gray-500">{{ $undangan->kategori }}</p>
                         </div>
-                        <p class="text-sm font-medium text-gray-900">Rp.{{ number_format($undangan->price, 0, ',', '.') }}</p>
+                        <p class="text-sm font-medium text-gray-900">Rp. {{ number_format($undangan->price, 0, ',', '.') }}</p>
                     </div>
                 </div>
                 @endforeach

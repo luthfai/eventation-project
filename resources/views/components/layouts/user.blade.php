@@ -52,7 +52,7 @@
                             <x-heroicon-o-clipboard-list class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
                         </x-slot>
                     </x-sidebar.link>
-                    <x-sidebar.link title="Tamu" href="/user/dashboard/transaksi" :isActive="request()->routeIs('user.tamu')">
+                    <x-sidebar.link title="Transaksi" href="/user/dashboard/transaksi" :isActive="request()->routeIs('user.transaksi')">
                         <x-slot name="icon">
                             <x-heroicon-o-user-group class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
                         </x-slot>

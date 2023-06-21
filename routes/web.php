@@ -8,6 +8,7 @@ use App\Http\Controllers\UndanganController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\InvitController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -101,7 +102,7 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::get('/user/dashboard/guests/edit/{id}', [GuestController::class, 'edit'])->name('user.guests.edit');
     Route::patch('/user/dashboard/guests/edit/{id}', [GuestController::class, 'update'])->name('user.guests.update');
     Route::delete('/user/dashboard/guests/delete/{id}', [GuestController::class, 'destroy'])->name('user.guests.destroy');
-
+    Route::get('/user/dashboard/transaksi', [TransaksiController::class, 'showTransaksiUser'])->name('user.transaksi');
 });
 
 
